@@ -1,11 +1,14 @@
-const path = require('path');
+const { alias, configPaths } = require('react-app-rewire-alias');
+const { addBabelPresets } = require('customize-cra');
 
-module.exports = {
-  webpack: (config, env) => {
-    config.resolve.alias = {
-      colors: path.resolve(__dirname, './src/constants/colors'),
-    };
+module.exports = function override(config) {
+  alias(configPaths('./tsconfig.paths.json'))(config);
 
-    return config;
-  },
+  addBabelPresets([
+    'babel-plugin-styled-components',
+    {
+      displayName: true,
+    },
+  ]);
+  return config;
 };

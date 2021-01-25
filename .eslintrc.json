@@ -1,4 +1,6 @@
 {
+  "failOnError": false, // add this line
+  "emitWarning": true, // add this line
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
