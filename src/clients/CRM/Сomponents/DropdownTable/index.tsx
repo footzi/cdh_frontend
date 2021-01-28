@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Colors } from 'colors';
+import { Transition } from 'react-transition-group';
 
-const Container = styled.section``;
+import { useDropdown } from './useDropdown';
+
+const Containerrr = styled.section``;
 
 export const MainRow = styled.div``;
 
@@ -52,13 +55,23 @@ export const InnerHeader = styled.div`
 
 export const Test = styled.div``;
 
-export const InnerContainer = styled.div`
+interface Cont {
+  height: number;
+}
+
+export const Container = styled.div<Cont>`
   overflow: hidden;
   position: relative;
+  transition: height 0.3s;
   height: 0;
+
+  &.slide-down-entered {
+    height: ${({ height }) => height + 'px'};
+  }
 `;
 
-export const InnerContent = styled.div`
+export const Content = styled.div`
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -66,47 +79,118 @@ export const InnerContent = styled.div`
 `;
 
 export const ChilderTest: React.FC = () => {
-  return <h1>nhfnfnfnfnfnfnf</h1>;
+  return (
+    <>
+      <h1>nhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnf</h1>
+      <h1>nhfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnfnfnf</h1>
+      <h1>nhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnf</h1>
+      <h1>nhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnf</h1>
+      <h1>nhfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnfnfnfnf</h1>
+      <h1>nhfnfnfnfnfnfnf</h1>
+      <h1>nhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnf</h1>
+      <h1>nhfnfnfnfnfnfnf</h1>
+      <h1>nhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnfnhfnfnfnfnfnfnf</h1>
+    </>
+  );
 };
 
-export const Icon: React.FC = () => {
+interface I {
+  onClick(): void;
+  isOpen: boolean;
+}
+
+interface ButtonIconI {
+  isOpen: boolean;
+}
+
+export const ButtonIcon = styled.button<ButtonIconI>`
+  svg {
+    transition: transform 0.3s;
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0)')};
+  }
+`;
+
+export const Icon: React.FC<I> = ({ isOpen, onClick }) => {
   return (
-    <svg width="24" height="14" viewBox="0 0 24 14" fill="none">
-      <path d="M12 0L23.2583 13.5L0.74167 13.5L12 0Z" fill="white" />
-    </svg>
+    <ButtonIcon isOpen={isOpen} onClick={onClick}>
+      <svg width="24" height="14" viewBox="0 0 24 14" fill="none">
+        <path d="M12 0L23.2583 13.5L0.74167 13.5L12 0Z" fill="white" />
+      </svg>
+    </ButtonIcon>
   );
 };
 
 export const DropdownTable: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const height = useRef<number>(0);
+  // const [isOpen, setIsOpen] = useState<boolean>(false);
+  // const contentRef = useRef<HTMLDivElement>(null);
+  // const [height, setHeight] = useState<number>(0);
 
-  useEffect(() => {
-    if (contentRef.current) {
-      console.log(contentRef);
-    }
-  }, [contentRef]);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
+
+  const { isOpen: isOpenInner, setIsOpen: setIsOpenInner, height: heightInner } = useDropdown({ ref: contentRef });
+  const { isOpen: isOpenMain, setIsOpen: setIsOpenMain, height: heightMain } = useDropdown({ ref: mainRef });
+
+  const onToggleInner = () => {
+    setIsOpenInner(!isOpenInner);
+  };
+
+  const onToggleMain = () => {
+    setIsOpenMain(!isOpenMain);
+  };
+
+  console.log(heightMain);
+
+  // useEffect(() => {
+  //   if (isOpen && contentRef.current) {
+  //     setHeight(contentRef.current.offsetHeight);
+  //   }
+  // }, [isOpen]);
 
   return (
-    <Container>
+    <Containerrr>
       <MainRow>
         <MainHeader>
           <MainTitle>2021 год</MainTitle>
-          <Icon />
+          <Icon isOpen={isOpenMain} onClick={onToggleMain} />
         </MainHeader>
-        <InnerRow>
-          <InnerHeader>
-            <InnerTitle>Июль</InnerTitle>
-            <Icon />
-          </InnerHeader>
-          <InnerContainer>
-            <InnerContent ref={contentRef}>
-              <ChilderTest />
-            </InnerContent>
-          </InnerContainer>
-        </InnerRow>
+
+        <Transition
+          in={isOpenMain}
+          timeout={{
+            enter: 0,
+            exit: 300,
+          }}
+          unmountOnExit>
+          {(mainState) => (
+            <Container className={`slide-down-${mainState}`} height={heightMain}>
+              <Content ref={mainRef}>
+                <InnerRow>
+                  <InnerHeader>
+                    <InnerTitle>Июль</InnerTitle>
+                    <Icon isOpen={isOpenInner} onClick={onToggleInner} />
+                  </InnerHeader>
+                  <Transition
+                    in={isOpenInner}
+                    timeout={{
+                      enter: 0,
+                      exit: 300,
+                    }}
+                    unmountOnExit>
+                    {(state) => (
+                      <Container className={`slide-down-${state}`} height={heightInner}>
+                        <Content ref={contentRef}>
+                          <ChilderTest />
+                        </Content>
+                      </Container>
+                    )}
+                  </Transition>
+                </InnerRow>
+              </Content>
+            </Container>
+          )}
+        </Transition>
       </MainRow>
-    </Container>
+    </Containerrr>
   );
 };

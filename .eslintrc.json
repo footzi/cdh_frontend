@@ -1,6 +1,4 @@
 {
-  "failOnError": false, // add this line
-  "emitWarning": true, // add this line
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -27,7 +25,7 @@
     "react/prop-types": "off",
     "comma-dangle": "off",
     "react/display-name": "off",
-    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
     "@typescript-eslint/no-var-requires": 0
   },
   "globals": {

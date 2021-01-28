@@ -16,3 +16,13 @@ code {
   font-weight: 500;
   font-style: normal;
 }
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  cursor: pointer;
+    outline: none;
+}
