@@ -25,4 +25,5 @@ button {
   display: flex;
   cursor: pointer;
     outline: none;
+    font-family: 'Roboto', sans-serif;
 }

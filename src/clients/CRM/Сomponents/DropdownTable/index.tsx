@@ -3,7 +3,16 @@ import styled from 'styled-components';
 import { Colors } from 'colors';
 import { Transition } from 'react-transition-group';
 
+import { Dropdown } from './Dropdown';
+
 import { useDropdown } from './useDropdown';
+
+const T = 1000;
+
+const TIMEOUT = {
+  enter: 0,
+  exit: T,
+};
 
 const Containerrr = styled.section``;
 
@@ -57,16 +66,24 @@ export const Test = styled.div``;
 
 interface Cont {
   height: number;
+  isTransitionEnd: boolean;
 }
 
 export const Container = styled.div<Cont>`
-  overflow: hidden;
+  //overflow: hidden;
   position: relative;
   transition: height 0.3s;
   height: 0;
+  overflow: ${({ isTransitionEnd }) => (isTransitionEnd ? 'visible' : 'hidden')};
 
   &.slide-down-entered {
     height: ${({ height }) => height + 'px'};
+    //overflow: visible;
+  }
+
+  &.slide-down-entering {
+    //height: ${({ height }) => height + 'px'};
+    //overflow: visible;
   }
 `;
 
@@ -121,6 +138,24 @@ export const Icon: React.FC<I> = ({ isOpen, onClick }) => {
 };
 
 export const DropdownTable: React.FC = () => {
+  return (
+    <Dropdown>
+      <Dropdown>
+        <ChilderTest />
+      </Dropdown>
+      <Dropdown>
+        <ChilderTest />
+      </Dropdown>
+      <Dropdown>
+        <Dropdown>
+          <ChilderTest />
+        </Dropdown>
+      </Dropdown>
+    </Dropdown>
+  )
+}
+
+export const DropdownTable2: React.FC = () => {
   // const [isOpen, setIsOpen] = useState<boolean>(false);
   // const contentRef = useRef<HTMLDivElement>(null);
   // const [height, setHeight] = useState<number>(0);
@@ -131,6 +166,10 @@ export const DropdownTable: React.FC = () => {
   const { isOpen: isOpenInner, setIsOpen: setIsOpenInner, height: heightInner } = useDropdown({ ref: contentRef });
   const { isOpen: isOpenMain, setIsOpen: setIsOpenMain, height: heightMain } = useDropdown({ ref: mainRef });
 
+  const [isTransitionEnd, setIsTransitionEnd] = useState(false);
+
+  const [isTransitionEnd2, setIsTransitionEnd2] = useState(false);
+
   const onToggleInner = () => {
     setIsOpenInner(!isOpenInner);
   };
@@ -139,13 +178,26 @@ export const DropdownTable: React.FC = () => {
     setIsOpenMain(!isOpenMain);
   };
 
-  console.log(heightMain);
 
-  // useEffect(() => {
-  //   if (isOpen && contentRef.current) {
-  //     setHeight(contentRef.current.offsetHeight);
-  //   }
-  // }, [isOpen]);
+  const onEntered = () => {
+    setTimeout(() => {
+      setIsTransitionEnd(true);
+    }, 300)
+  }
+
+  const onExiting = () => {
+    setIsTransitionEnd(false);
+  }
+
+  const onEntered1 = () => {
+    setTimeout(() => {
+      setIsTransitionEnd2(true);
+    }, 300)
+  }
+
+  const onExiting1 = () => {
+    setIsTransitionEnd2(false);
+  }
 
   return (
     <Containerrr>
@@ -155,30 +207,24 @@ export const DropdownTable: React.FC = () => {
           <Icon isOpen={isOpenMain} onClick={onToggleMain} />
         </MainHeader>
 
-        <Transition
-          in={isOpenMain}
-          timeout={{
-            enter: 0,
-            exit: 300,
-          }}
-          unmountOnExit>
+        <Transition in={isOpenMain} timeout={TIMEOUT} unmountOnExit onEntered={onEntered} onExiting={onExiting}>
           {(mainState) => (
-            <Container className={`slide-down-${mainState}`} height={heightMain}>
+            <Container className={`slide-down-${mainState}`} height={heightMain} isTransitionEnd={isTransitionEnd}>
               <Content ref={mainRef}>
+                {/*<ChilderTest />*/}
                 <InnerRow>
                   <InnerHeader>
                     <InnerTitle>Июль</InnerTitle>
+
                     <Icon isOpen={isOpenInner} onClick={onToggleInner} />
                   </InnerHeader>
-                  <Transition
-                    in={isOpenInner}
-                    timeout={{
-                      enter: 0,
-                      exit: 300,
-                    }}
-                    unmountOnExit>
+
+                  <Transition in={isOpenInner} timeout={TIMEOUT} unmountOnExit onEntered={onEntered1} onExiting={onExiting1}>
                     {(state) => (
-                      <Container className={`slide-down-${state}`} height={heightInner}>
+                      <Container
+                        className={`slide-down-${state}`}
+                        height={heightInner}
+                        isTransitionEnd={isTransitionEnd2}>
                         <Content ref={contentRef}>
                           <ChilderTest />
                         </Content>
