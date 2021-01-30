@@ -2,7 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "colors": ["./src/constants/colors"]
+      "colors": ["./src/constants/colors"],
+      "components": ["./src/components/"],
+      "icons": ["./src/icons"],
+      "CRM/*": ["./src/clients/CRM/*"]
     }
   }
 }
