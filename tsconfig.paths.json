@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "constants/*": ["./src/constants/*"],
       "colors": ["./src/constants/colors"],
       "components": ["./src/components/"],
       "icons": ["./src/icons"],

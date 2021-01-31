@@ -3,7 +3,7 @@ import React from 'react';
 export interface DropdownProps {
   styles: DropdownPropsStyles;
   titleText: string;
-  rightText?: string;
+  rightBlock?: JSX.Element;
   isDefaultOpen?: boolean;
 }
 
@@ -13,7 +13,6 @@ export interface DropdownPropsStyles {
   titleSize?: string;
   arrowColor?: string;
   arrowMarginRight?: string;
-  rightTextColor?: string;
   marginAround?: string;
   borderRadius?: string;
 }
@@ -25,6 +24,7 @@ export interface WrapperProps {
 export interface ContainerProps {
   height: number;
   isTransitionEnd: boolean;
+  useTransition: boolean;
 }
 
 export interface ArrowButtonProps {
@@ -40,10 +40,6 @@ export interface HeaderProps {
 export interface TitleProps {
   color?: string;
   size?: string;
-}
-
-export interface RightTextProps {
-  color?: string;
 }
 
 export interface UseDropdownProps {

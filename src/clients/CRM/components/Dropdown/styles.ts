@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Colors } from 'colors';
-import { WrapperProps, ContainerProps, ArrowButtonProps, HeaderProps, TitleProps, RightTextProps } from './interfaces';
+import { COLORS } from 'colors';
+import { WrapperProps, ContainerProps, ArrowButtonProps, HeaderProps, TitleProps } from './interfaces';
 
 export const Wrapper = styled.div<WrapperProps>`
   width: ${({ marginAround }) => (marginAround ? `calc(100% - ${marginAround})` : '100%')};
@@ -11,7 +11,7 @@ export const Wrapper = styled.div<WrapperProps>`
 export const Header = styled.button<HeaderProps>`
   width: 100%;
   height: 56px;
-  background-color: ${({ backgroundColor }) => backgroundColor || Colors.LIGHT_ORANGE};
+  background-color: ${({ backgroundColor }) => backgroundColor || COLORS.LIGHT_ORANGE};
   border-radius: ${({ borderRadius }) => borderRadius || '10px'};
   display: flex;
   align-items: center;
@@ -25,22 +25,19 @@ export const Header = styled.button<HeaderProps>`
 
 export const Title = styled.span<TitleProps>`
   font-size: ${({ size }) => size || '22px'};
-  color: ${({ color }) => color || Colors.WHITE};
+  color: ${({ color }) => color || COLORS.WHITE};
   margin-left: 35px;
 `;
 
-export const RightText = styled.span<RightTextProps>`
-  font-size: 20px;
-  color: ${({ color }) => color && Colors.GREEN};
+export const RightBlock = styled.div`
   margin-left: auto;
-  margin-right: 80px;
 `;
 
 export const Container = styled.div<ContainerProps>`
   position: relative;
-  transition: height 0.3s;
   height: 0;
   overflow: ${({ isTransitionEnd }) => (isTransitionEnd ? 'visible' : 'hidden')};
+  transition: ${({ useTransition }) => (useTransition ? ' height 0.3s' : 'none')};
 
   &.slide-down-entered {
     height: ${({ height }) => height + 'px'};
@@ -48,16 +45,16 @@ export const Container = styled.div<ContainerProps>`
 `;
 
 export const Content = styled.div`
-  //width: 100%;
-  //position: absolute;
-  //top: 0;
-  //left: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   height: auto;
 `;
 
 export const ArrowButton = styled.div<ArrowButtonProps>`
   svg {
     transition: transform 0.3s;
-    transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0)')};
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(0)' : 'rotate(180deg)')};
   }
 `;

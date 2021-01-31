@@ -1,10 +1,10 @@
-import { Colors } from 'colors';
+import { COLORS } from 'colors';
 
 export const YEAR_DROPDOWN_STYLES = {
   // backgroundColor: 'red',
   // titleColor: 'white',
   // titleSize: '16px',
-  arrowColor: Colors.WHITE,
+  arrowColor: COLORS.WHITE,
   // arrowMarginRight: '35px',
   // rightTextColor: 'orange',
   // marginAround: '20x',
@@ -12,10 +12,10 @@ export const YEAR_DROPDOWN_STYLES = {
 };
 
 export const MONTH_DROPDOWN_STYLES = {
-  backgroundColor: Colors.DARK_GREY,
+  backgroundColor: COLORS.DARK_GREY,
   // titleColor: 'white',
   titleSize: '18px',
-  arrowColor: Colors.BLACK,
+  arrowColor: COLORS.BLACK,
   arrowMarginRight: '35px',
   //rightTextColor: 'orange',
   marginAround: '10px',
@@ -23,10 +23,10 @@ export const MONTH_DROPDOWN_STYLES = {
 };
 
 export const ORDER_DROPDOWN_STYLES = {
-  backgroundColor: Colors.LIGHT_GREY,
-  titleColor: Colors.ORANGE,
+  backgroundColor: COLORS.LIGHT_GREY,
+  titleColor: COLORS.ORANGE,
   titleSize: '20px',
-  arrowColor: Colors.BLACK,
+  arrowColor: COLORS.BLACK,
   arrowMarginRight: '15px',
   // rightTextColor: 'orange',
   marginAround: '10px',
