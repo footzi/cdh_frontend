@@ -1,19 +1,15 @@
 import styled from 'styled-components';
 import { COLORS } from 'colors';
 
-
-
-export const Container2 = styled.div``;
-
-
 export const Container = styled.div`
   display: flex;
 `;
 
-
 export const DaysColumn = styled.div``;
-export const RoomColumn = styled.div``;
 
+export const RoomColumn = styled.div`
+  margin-right: 2px;
+`;
 
 export const SView = styled.div`
   width: 130px;
@@ -36,6 +32,10 @@ export const SView = styled.div`
     background-color: ${COLORS.MIDDLE_GREY};
     clip-path: polygon(100% 100%, 0 0, 0 100%);
   }
+
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 export const SText = styled.span`
@@ -44,11 +44,6 @@ export const SText = styled.span`
   position: relative;
   z-index: 2;
 `;
-
-
-
-
-
 
 export const DayCell = styled.div`
   width: 130px;
@@ -61,12 +56,11 @@ export const DayCell = styled.div`
   background-color: ${COLORS.MIDDLE_GREY};
   margin-bottom: 2px;
   margin-right: 2px;
-  
+
   &:last-child {
     margin-bottom: 0;
   }
 `;
-
 
 export const RoomName = styled.div`
   width: 56px;
@@ -78,10 +72,5 @@ export const RoomName = styled.div`
   color: ${COLORS.BLACK};
   background-color: ${COLORS.LIGHT_GREY};
   margin-bottom: 2px;
-  margin-right: 2px;
   text-transform: uppercase;
-
-  &:last-child {
-    margin-right: 0;
-  }
 `;

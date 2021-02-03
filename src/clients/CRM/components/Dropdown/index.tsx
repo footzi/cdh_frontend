@@ -4,7 +4,7 @@ import { ArrowDownIcon } from 'icons';
 import { Container, Header, Title, Wrapper, Content, ArrowButton, RightBlock } from './styles';
 import { DropdownProps } from './interfaces';
 import { useDropdown } from './hooks/useDropdown';
-import { TRANSITION_TIMEOUT, TIMEOUT } from './constants';
+import { TRANSITION_TIMEOUT, TRANSITION_GROUP_DEFAULT_TIMEOUT } from 'constants/index';
 
 export const Dropdown: React.FC<DropdownProps> = ({ styles, titleText, rightBlock, isDefaultOpen, children }) => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -42,7 +42,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ styles, titleText, rightBloc
         </ArrowButton>
       </Header>
 
-      <Transition in={isOpen} timeout={TIMEOUT} unmountOnExit onEntered={onEntered} onExiting={onExiting}>
+      <Transition in={isOpen} timeout={TRANSITION_GROUP_DEFAULT_TIMEOUT} unmountOnExit onEntered={onEntered} onExiting={onExiting}>
         {(state) => (
           <Container
             className={`slide-down-${state}`}
