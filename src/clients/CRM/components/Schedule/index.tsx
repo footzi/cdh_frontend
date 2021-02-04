@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import dayjs from 'dayjs';
 
 import { Cell } from './Cell';
@@ -19,12 +19,12 @@ import { Cell } from './Cell';
 // const month от 0 до 11
 import { Container, DaysColumn, SView, SText, DayCell, RoomColumn, RoomName } from './styles';
 import { STATUSES_CALENDAR_CELLS } from 'constants/index';
-import 'react-popper-tooltip/dist/styles.css';
+// import 'react-popper-tooltip/dist/styles.css';
 
 const daysInMonth = dayjs().month(0).daysInMonth();
 const arrayDays = [...Array(daysInMonth).keys()];
 
-import data from './crm_calendar.json';
+import data from '../../Pages/Calendar/ScheduleTable/crm_calendar.json';
 
 const { rooms, orders } = data;
 
@@ -32,44 +32,65 @@ const month = dayjs('2020-07-25').format('M');
 
 const TEST_DATA = {
   1: [
-    {day: 1, order: {}, status: ""},
-    {day: 2, order: {}, status: ""},
-    {day: 3, order: {}, status: ""}
+    { day: 1, order: {}, status: '' },
+    { day: 2, order: {}, status: '' },
+    { day: 3, order: {}, status: '' },
   ],
   2: [
-    {day: 1, order: {}, status: ""},
-    {day: 2, order: {}, status: ""},
-    {day: 3, order: {}, status: ""}
-  ]
-}
+    { day: 1, order: {}, status: '' },
+    { day: 2, order: {}, status: '' },
+    { day: 3, order: {}, status: '' },
+  ],
+};
 
+const result = {};
 
+rooms.forEach((item) => {
+  const cells = Array(daysInMonth)
+    .fill({})
+    .map((item, index) => ({ day: index + 1, status: STATUSES_CALENDAR_CELLS.FREE }));
+  //@ts-ignore
+  result[item.id] = cells;
+});
 
+// console.log(result);
 
-const result = {}
-
-
-const cells = Array(daysInMonth)
-  .fill({})
-  .map((item, index) => ({ day: index + 1, status: 'FREE'}));
+// const cells = Array(daysInMonth)
+//   .fill({})
+//   .map((item, index) => ({ day: index + 1, status: 'FREE'}));
 
 orders.forEach((order) => {
   const startDay = Number(dayjs(order.start).format('D'));
   const endDay = Number(dayjs(order.end).format('D'));
 
-  console.log(cells);
-  cells.forEach((cell) => {
-    //@ts-ignore
-    // console.log(startDay >= cell.day);
-    if ((cell.day >= startDay) && (cell.day <= endDay)) {
+  //@ts-ignore
+  const currentRoomDays = result[order.room.id];
+
+  // console.log(currentRoomDays);
+
+  //@ts-ignore
+  currentRoomDays.forEach((item) => {
+    if (item.day >= startDay && item.day <= endDay) {
+      // console.log(item);
       //@ts-ignore
-      cell.order = order.order
-      console.log(cell.day);
+      item.status = order.status;
+      item.id = order.id;
     }
-  })
-})
+  });
 
+  // console.log(cells);
+  // cells.forEach((cell) => {
+  //   //@ts-ignore
+  //   // console.log(startDay >= cell.day);
+  //   if ((cell.day >= startDay) && (cell.day <= endDay)) {
+  //     //@ts-ignore
+  //     cell.order = order.order
+  //     // console.log(cell.day);
+  //   }
+  // })
+});
 
+console.log(result);
 
 export const Separate = () => {
   return (
@@ -79,7 +100,16 @@ export const Separate = () => {
   );
 };
 
-export const Schedule = () => {
+export const Schedule = ({ year, month, getData }) => {
+  const [s, setS] = useState([]);
+
+  useEffect(() => {
+    const r = getData(year, month);
+
+    console.log(r);
+    // setS(r);
+  }, []);
+
   return (
     <Container>
       <DaysColumn>
@@ -92,9 +122,10 @@ export const Schedule = () => {
       {rooms.map((item) => (
         <RoomColumn key={item.id}>
           <RoomName>{item.name}</RoomName>
-          <Cell status={STATUSES_CALENDAR_CELLS.FREE} />
-          <Cell status={STATUSES_CALENDAR_CELLS.PAID} />
-          <Cell status={STATUSES_CALENDAR_CELLS.NOT_PAID} />
+          {/*//@ts-ignore*/}
+          {result[item.id].map((cell) => (
+            <Cell key={cell.day} status={cell.status} />
+          ))}
         </RoomColumn>
       ))}
     </Container>

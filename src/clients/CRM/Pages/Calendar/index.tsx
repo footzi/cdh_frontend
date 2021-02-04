@@ -1,7 +1,6 @@
 import React from 'react';
-import { DropdownTable } from 'CRM/components/DropdownTable';
-import { Schedule } from 'CRM/components/Schedule';
+import { ScheduleTable } from './ScheduleTable';
 
 export const Calendar: React.FC = () => {
-  return <Schedule />;
+  return <ScheduleTable />;
 };

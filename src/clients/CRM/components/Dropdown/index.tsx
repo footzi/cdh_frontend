@@ -42,7 +42,12 @@ export const Dropdown: React.FC<DropdownProps> = ({ styles, titleText, rightBloc
         </ArrowButton>
       </Header>
 
-      <Transition in={isOpen} timeout={TRANSITION_GROUP_DEFAULT_TIMEOUT} unmountOnExit onEntered={onEntered} onExiting={onExiting}>
+      <Transition
+        in={isOpen}
+        timeout={TRANSITION_GROUP_DEFAULT_TIMEOUT}
+        unmountOnExit
+        onEntered={onEntered}
+        onExiting={onExiting}>
         {(state) => (
           <Container
             className={`slide-down-${state}`}
