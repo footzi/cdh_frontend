@@ -93,13 +93,14 @@ orders.forEach((order) => {
   // })
 })
 
-console.log(result);
 
 export const ScheduleTable: React.FC = () => {
 
   const getData = (year, month) => {
     return [year, month]
   }
+
+
 
   return (
     <>

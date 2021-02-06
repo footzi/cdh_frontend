@@ -16,7 +16,7 @@ export const Cell = ({ status }) => {
 
   return (
     <>
-      <Status status={status} ref={setTriggerRef} />
+      <Status status={status} />
 
       <Transition in={visible} timeout={TRANSITION_GROUP_DEFAULT_TIMEOUT} unmountOnExit>
         {(state) => (

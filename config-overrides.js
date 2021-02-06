@@ -7,9 +7,10 @@ module.exports = override(
 
   addWebpackAlias({
     colors: path.resolve(__dirname, 'src/constants/colors'),
+    api: path.resolve(__dirname, 'src/api/index'),
     constants: path.resolve(__dirname, 'src/constants/'),
     icons: path.resolve(__dirname, 'src/icons'),
-    components: path.resolve(__dirname, 'src/components'),
+    common: path.resolve(__dirname, 'src/common'),
     CRM: path.resolve(__dirname, 'src/clients/CRM/'),
   }),
 

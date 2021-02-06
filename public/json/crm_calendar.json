@@ -1,0 +1,186 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "type": "NORMAL",
+      "name": "K1"
+    },
+    {
+      "id": 2,
+      "type": "NORMAL",
+      "name": "K2"
+    },
+    {
+      "id": 3,
+      "type": "NORMAL",
+      "name": "K3"
+    },
+    {
+      "id": 4,
+      "type": "NORMAL",
+      "name": "K4"
+    },
+    {
+      "id": 5,
+      "type": "NORMAL",
+      "name": "K5"
+    },
+    {
+      "id": 6,
+      "type": "NORMAL",
+      "name": "K6"
+    },
+    {
+      "id": 7,
+      "type": "NORMAL",
+      "name": "K7"
+    },
+    {
+      "id": 8,
+      "type": "NORMAL",
+      "name": "K8"
+    },
+    {
+      "id": 9,
+      "type": "NORMAL",
+      "name": "K9"
+    },
+    {
+      "id": 10,
+      "type": "NORMAL",
+      "name": "K10"
+    },
+    {
+      "id": 11,
+      "type": "NORMAL",
+      "name": "K11"
+    },
+    {
+      "id": 12,
+      "type": "NORMAL",
+      "name": "K12"
+    },
+    {
+      "id": 13,
+      "type": "NORMAL",
+      "name": "K13"
+    },
+    {
+      "id": 14,
+      "type": "NORMAL",
+      "name": "K14"
+    },
+    {
+      "id": 15,
+      "type": "NORMAL",
+      "name": "K15"
+    },
+    {
+      "id": 16,
+      "type": "LUX",
+      "name": "L1"
+    },
+    {
+      "id": 17,
+      "type": "LUX",
+      "name": "L2"
+    },
+    {
+      "id": 18,
+      "type": "LUX",
+      "name": "L3"
+    },
+    {
+      "id": 19,
+      "type": "LUX",
+      "name": "L4"
+    },
+    {
+      "id": 20,
+      "type": "LUX",
+      "name": "L5"
+    }
+  ],
+  "orders1": {
+    "2021": {
+      "7": [
+        {
+          "id": 1,
+          "start": "2020-07-25",
+          "end": "2020-07-30",
+          "room": {
+            "id": 1
+          },
+          "status": "PAID"
+        }
+      ]
+    },
+    "2022": {
+      "1": []
+    }
+  },
+  "orders": [
+    {
+      "id": 1,
+      "start": "2020-07-25",
+      "end": "2020-07-30",
+      "room": {
+        "id": 1
+      },
+      "status": "PAID"
+    },
+    {
+      "id": 2,
+      "start": "2020-07-01",
+      "end": "2020-07-10",
+      "room": {
+        "id": 2
+      },
+      "status": "NOT_PAID"
+    }, {
+      "id": 3,
+      "start": "2020-07-11",
+      "end": "2020-07-12",
+      "room": {
+        "id": 2
+      },
+      "status": "PAID"
+    },
+    {
+      "id": 4,
+      "start": "2020-07-11",
+      "end": "2020-07-12",
+      "room": {
+        "id": 2
+      },
+      "status": "PAID"
+    },
+    {
+      "id": 5,
+      "start": "2020-07-13",
+      "end": "2020-07-14",
+      "room": {
+        "id": 2
+      },
+      "status": "PAID"
+    },
+    {
+      "id": 6,
+      "start": "2020-07-14",
+      "end": "2020-07-20",
+      "room": {
+        "id": 2
+      },
+      "status": "NOT_PAID"
+    },
+    {
+      "id": 7,
+      "start": "2020-07-25",
+      "end": "2020-07-31",
+      "room": {
+        "id": 15
+      },
+      "status": "PAID"
+    }
+  ]
+}

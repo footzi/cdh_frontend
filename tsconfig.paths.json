@@ -3,8 +3,9 @@
     "baseUrl": ".",
     "paths": {
       "constants/*": ["./src/constants/*"],
+      "api": ["./src/api/index"],
       "colors": ["./src/constants/colors"],
-      "components": ["./src/components/"],
+      "common/*": ["./src/common/*"],
       "icons": ["./src/icons"],
       "CRM/*": ["./src/clients/CRM/*"]
     }
