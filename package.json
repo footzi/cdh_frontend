@@ -51,6 +51,11 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "moduleNameMapper": {
+      "constants(.*)$": "<rootDir>/src/constants/$1"
+    }
+  },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7",
     "@types/react-transition-group": "^4.4.0",
