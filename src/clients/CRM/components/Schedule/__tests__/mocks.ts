@@ -46,8 +46,8 @@ export const mockData1 = {
       },
       {
         id: 3,
-        type: 'NORMAL',
-        name: 'K3',
+        type: 'LUX',
+        name: 'L1',
       },
     ],
 
@@ -70,8 +70,693 @@ export const mockData1 = {
         },
         status: 'NOT_PAID',
       },
+      {
+        id: 3,
+        start: '2020-07-14',
+        end: '2020-07-15',
+        room: {
+          id: 3,
+        },
+        status: 'PAID',
+      },
+      {
+        id: 4,
+        start: '2020-07-01',
+        end: '2020-07-02',
+        room: {
+          id: 1,
+        },
+        status: 'PAID',
+      },
+      {
+        id: 5,
+        start: '2020-07-11',
+        end: '2020-07-15',
+        room: {
+          id: 2,
+        },
+        status: 'NOT_PAID',
+      },
     ],
   },
 
-  expectedColumns: [{ id: 0, day: 1, status: 'FREE' }],
+  expectedData: [
+    {
+      room: {
+        id: 1,
+        type: 'NORMAL',
+        name: 'K1',
+      },
+      cells: [
+        {
+          day: 1,
+          order: {
+            id: 4,
+            status: 'PAID',
+          },
+        },
+        {
+          day: 2,
+          order: {
+            id: 4,
+            status: 'PAID',
+          },
+        },
+        {
+          day: 3,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 4,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 5,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 6,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 7,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 8,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 9,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 10,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 11,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 12,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 13,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 14,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 15,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 16,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 17,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 18,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 19,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 20,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 21,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 22,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 23,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 24,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 25,
+          order: {
+            id: 1,
+            status: 'PAID',
+          },
+        },
+        {
+          day: 26,
+          order: {
+            id: 1,
+            status: 'PAID',
+          },
+        },
+        {
+          day: 27,
+          order: {
+            id: 1,
+            status: 'PAID',
+          },
+        },
+        {
+          day: 28,
+          order: {
+            id: 1,
+            status: 'PAID',
+          },
+        },
+        {
+          day: 29,
+          order: {
+            id: 1,
+            status: 'PAID',
+          },
+        },
+        {
+          day: 30,
+          order: {
+            id: 1,
+            status: 'PAID',
+          },
+        },
+      ],
+    },
+    {
+      room: {
+        id: 2,
+        type: 'NORMAL',
+        name: 'K2',
+      },
+      cells: [
+        {
+          day: 1,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 2,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 3,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 4,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 5,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 6,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 7,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 8,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 9,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 10,
+          order: {
+            id: 2,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 11,
+          order: {
+            id: 5,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 12,
+          order: {
+            id: 5,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 13,
+          order: {
+            id: 5,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 14,
+          order: {
+            id: 5,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 15,
+          order: {
+            id: 5,
+            status: 'NOT_PAID',
+          },
+        },
+        {
+          day: 16,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 17,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 18,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 19,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 20,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 21,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 22,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 23,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 24,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 25,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 26,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 27,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 28,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 29,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 30,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+      ],
+    },
+    {
+      room: {
+        id: 3,
+        type: 'LUX',
+        name: 'L1',
+      },
+      cells: [
+        {
+          day: 1,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 2,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 3,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 4,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 5,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 6,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 7,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 8,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 9,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 10,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 11,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 12,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 13,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 14,
+          order: {
+            id: 3,
+            status: 'PAID',
+          },
+        },
+        {
+          day: 15,
+          order: {
+            id: 3,
+            status: 'PAID',
+          },
+        },
+        {
+          day: 16,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 17,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 18,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 19,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 20,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 21,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 22,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 23,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 24,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 25,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 26,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 27,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 28,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 29,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+        {
+          day: 30,
+          order: {
+            id: null,
+            status: 'FREE',
+          },
+        },
+      ],
+    },
+  ],
 };

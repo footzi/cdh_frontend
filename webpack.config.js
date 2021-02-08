@@ -14,6 +14,7 @@ module.exports = {
       api: path.resolve(__dirname, 'src/api/index'),
       constants: path.resolve(__dirname, 'src/constants/'),
       icons: path.resolve(__dirname, 'src/icons'),
+      interfaces: path.resolve(__dirname, 'src/interfaces'),
       common: path.resolve(__dirname, 'src/common'),
       CRM: path.resolve(__dirname, 'src/clients/CRM/'),
     },

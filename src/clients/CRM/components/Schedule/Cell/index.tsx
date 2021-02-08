@@ -4,7 +4,6 @@ import { Transition } from 'react-transition-group';
 import { TRANSITION_GROUP_DEFAULT_TIMEOUT } from 'constants/index';
 import { Status, Tooltip } from './styles';
 
-//@ts-ignore
 export const Cell = ({ status }) => {
   const { getTooltipProps, setTooltipRef, setTriggerRef, visible } = usePopperTooltip({
     trigger: 'click',

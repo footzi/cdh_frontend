@@ -21,3 +21,90 @@ export const ORDER_DROPDOWN_STYLES = {
   marginAround: '20px',
   borderRadius: '0px',
 };
+
+export const YEARS_AND_MONTHS_SCHEDULE = [
+  {
+    number: 2021,
+    title: '2021 год',
+    months: [
+      {
+        number: 7,
+        title: 'Июль',
+      },
+      {
+        number: 8,
+        title: 'Август',
+      },
+      {
+        number: 9,
+        title: 'Сентябрь',
+      },
+      {
+        number: 10,
+        title: 'Октябрь',
+      },
+      {
+        number: 11,
+        title: 'Ноябрь',
+      },
+      {
+        number: 12,
+        title: 'Декабрь',
+      },
+    ],
+  },
+  {
+    number: 2022,
+    title: '2022 год',
+    months: [
+      {
+        number: 1,
+        title: 'Январь',
+      },
+      {
+        number: 2,
+        title: 'Февраль',
+      },
+      {
+        number: 3,
+        title: 'Март',
+      },
+      {
+        number: 4,
+        title: 'Апрель',
+      },
+      {
+        number: 5,
+        title: 'Май',
+      },
+      {
+        number: 6,
+        title: 'Июнь',
+      },
+      {
+        number: 7,
+        title: 'Июль',
+      },
+      {
+        number: 8,
+        title: 'Август',
+      },
+      {
+        number: 9,
+        title: 'Сентябрь',
+      },
+      {
+        number: 10,
+        title: 'Октябрь',
+      },
+      {
+        number: 11,
+        title: 'Ноябрь',
+      },
+      {
+        number: 12,
+        title: 'Декабрь',
+      },
+    ],
+  },
+];

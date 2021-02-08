@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { COLORS } from 'colors';
-import { STATUSES_CALENDAR_CELLS } from 'constants/index';
+import { STATUSES_ORDER } from 'constants/index';
 
 export const Status = styled.div<{ status: string }>`
   width: 55px;
@@ -12,8 +12,8 @@ export const Status = styled.div<{ status: string }>`
   cursor: pointer;
   border: 1px solid transparent;
   background-color: ${({ status }) =>
-    (status === STATUSES_CALENDAR_CELLS.PAID && COLORS.LIGHT_RED) ||
-    (status === STATUSES_CALENDAR_CELLS.NOT_PAID && COLORS.YELLOW) ||
+    (status === STATUSES_ORDER.PAID && COLORS.LIGHT_RED) ||
+    (status === STATUSES_ORDER.NOT_PAID && COLORS.YELLOW) ||
     COLORS.LIGHT_GREEN};
 
   &:last-child {
@@ -22,12 +22,10 @@ export const Status = styled.div<{ status: string }>`
 
   &:hover {
     background-color: ${({ status }) =>
-      (status === STATUSES_CALENDAR_CELLS.PAID && '#cc9696') ||
-      (status === STATUSES_CALENDAR_CELLS.NOT_PAID && '#f1e4a1') ||
-      '#cadfbe'};
+      (status === STATUSES_ORDER.PAID && '#cc9696') || (status === STATUSES_ORDER.NOT_PAID && '#f1e4a1') || '#cadfbe'};
     border-color: ${({ status }) =>
-      (status === STATUSES_CALENDAR_CELLS.PAID && COLORS.DARK_RED) ||
-      (status === STATUSES_CALENDAR_CELLS.NOT_PAID && '#C1A200') ||
+      (status === STATUSES_ORDER.PAID && COLORS.DARK_RED) ||
+      (status === STATUSES_ORDER.NOT_PAID && '#C1A200') ||
       COLORS.GREEN};
   }
 `;

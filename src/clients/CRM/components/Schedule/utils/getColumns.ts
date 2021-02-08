@@ -1,7 +1,8 @@
 import dayjs from 'dayjs';
-import { STATUSES_CALENDAR_CELLS } from 'constants/index';
+import { ScheduleResponse } from 'interfaces';
+import { Column, Cell } from '../interfaces';
 
-export const getColumns = (data, daysInMonth: Array<number>) => {
+export const getColumns = (data: ScheduleResponse, daysInMonth: Array<number>): Column[] => {
   const rooms = data?.rooms;
   const orders = data?.orders;
 
@@ -9,8 +10,8 @@ export const getColumns = (data, daysInMonth: Array<number>) => {
     return;
   }
 
-  const generateCells = (room) => {
-    const cells = daysInMonth.map((day) => ({ id: 0, day, status: STATUSES_CALENDAR_CELLS.FREE }));
+  const generateCells = (room): Cell[] => {
+    const cells = daysInMonth.map((day) => ({ day, order: { id: null, status: null } }));
 
     orders.forEach((order) => {
       if (room.id === order.room.id) {
@@ -19,8 +20,8 @@ export const getColumns = (data, daysInMonth: Array<number>) => {
 
         cells.forEach((cell) => {
           if (cell.day >= startDay && cell.day <= endDay) {
-            cell.status = order.status;
-            cell.id = order.id;
+            cell.order.id = order.id;
+            cell.order.status = order.status;
           }
         });
       }

@@ -5,44 +5,16 @@ export const Container = styled.div`
   display: flex;
 `;
 
+export const LoaderContainer = styled.div`
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+`;
+
 export const DaysColumn = styled.div``;
 
 export const RoomColumn = styled.div`
   margin-right: 2px;
-`;
-
-export const SView = styled.div`
-  width: 130px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${COLORS.LIGHT_GREY};
-  position: relative;
-  margin-bottom: 2px;
-  margin-right: 2px;
-
-  &:before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: ${COLORS.MIDDLE_GREY};
-    clip-path: polygon(100% 100%, 0 0, 0 100%);
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-
-export const SText = styled.span`
-  font-size: 14px;
-  color: ${COLORS.BLACK};
-  position: relative;
-  z-index: 2;
 `;
 
 export const DayCell = styled.div`

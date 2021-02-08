@@ -7,6 +7,7 @@
       "colors": ["./src/constants/colors"],
       "common/*": ["./src/common/*"],
       "icons": ["./src/icons"],
+      "interfaces": ["./src/interfaces"],
       "CRM/*": ["./src/clients/CRM/*"]
     }
   }

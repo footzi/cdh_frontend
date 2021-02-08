@@ -1,46 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 import { Cell } from './Cell';
-
+import { Separate } from './Separate';
+import { ScheduleProps } from './interfaces';
 import { Preloader } from 'common/components/Preloader';
 import { useScheduleData } from './hooks/useScheduleData';
 
-// {
-//   "id": 2,
-//   "start": "2020-07-01",
-//   "end": "2020-07-03",
-//   "room": {
-//   "id": 2
-// },
-//   "order": {
-//   "id": 2,
-//     "status": "NOT_PAY"
-// }
-// }
+import { Container, LoaderContainer, DaysColumn, DayCell, RoomColumn, RoomName } from './styles';
 
-// const month от 0 до 11
-import { Container, DaysColumn, SView, SText, DayCell, RoomColumn, RoomName } from './styles';
-
-// import 'react-popper-tooltip/dist/styles.css';
-
-import data from '../../Pages/Calendar/ScheduleTable/crm_calendar.json';
-import styled from 'styled-components';
-
-export const LoaderContainer = styled.div`
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-`;
-
-export const Separate = () => {
-  return (
-    <SView>
-      <SText>Дата/Номер</SText>
-    </SView>
-  );
-};
-
-export const Schedule = ({ year, month }) => {
+export const Schedule: React.FC<ScheduleProps> = ({ year, month }) => {
   const { days, columns, isLoading } = useScheduleData(month, year);
 
   if (isLoading) {
@@ -65,7 +33,7 @@ export const Schedule = ({ year, month }) => {
           <RoomName>{column.room.name}</RoomName>
 
           {column.cells.map((cell) => (
-            <Cell key={cell.day} status={cell.status} />
+            <Cell key={cell.day} status={cell.order.status} />
           ))}
         </RoomColumn>
       ))}
