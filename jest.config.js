@@ -1,12 +1,11 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'jsdom',
-  moduleNameMapper: {
-    'constants(.*)$': '<rootDir>/src/constants/$1',
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  testEnvironment: 'node',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.[t|j]sx?$': 'ts-jest',
+  },
+  moduleNameMapper: {
+    '^constants/(.*)$': '<rootDir>/src/constants/$1',
   },
   verbose: true,
 };

@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    app: path.join(__dirname, 'src', 'index.tsx')
+    app: path.join(__dirname, 'src', 'index.tsx'),
   },
   target: 'web',
   resolve: {
@@ -16,29 +16,41 @@ module.exports = {
       icons: path.resolve(__dirname, 'src/icons'),
       common: path.resolve(__dirname, 'src/common'),
       CRM: path.resolve(__dirname, 'src/clients/CRM/'),
-    }
+    },
   },
   module: {
     rules: [
       {
+        test: /\.(js|mjs|jsx|ts|tsx)$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            babelrc: true,
+            presets: ['@babel/preset-env'],
+          },
+        },
+        exclude: '/node_modules/',
+      },
+      {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: '/node_modules/'
-      }
+        exclude: '/node_modules/',
+      },
     ],
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html')
-    })
+      template: path.join(__dirname, 'public', 'index.html'),
+    }),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'public'),
-    compress: true,
-    port: 3000
-  }
-}
+    port: 3000,
+    hot: true,
+    historyApiFallback: true,
+  },
+};

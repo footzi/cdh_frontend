@@ -5,6 +5,6 @@ describe('getColumns', () => {
   it('Возвращает правильный набор данных при вариаци 1', () => {
     const columns = getColumns(mockData1.data, daysInMonthMock);
 
-    expect(columns).toEqual(mockData1.expectedColumns)
-  })
-})
+    expect(columns).toEqual(mockData1.expectedColumns);
+  });
+});
