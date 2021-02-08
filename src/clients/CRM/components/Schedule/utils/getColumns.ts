@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { STATUSES_CALENDAR_CELLS } from 'constants/index';
 
-export const getColumns = (data, daysInMonth: Array<Number>) => {
+export const getColumns = (data, daysInMonth: Array<number>) => {
   const rooms = data?.rooms;
   const orders = data?.orders;
 
