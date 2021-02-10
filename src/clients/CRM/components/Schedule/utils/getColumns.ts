@@ -1,8 +1,9 @@
 import dayjs from 'dayjs';
-import { ScheduleResponse } from 'interfaces';
+import { ScheduleResponse, RoomDataResponse, OrderDataResponse, Maybe } from 'interfaces';
+import { STATUSES_ORDER } from 'constants/index';
 import { Column, Cell } from '../interfaces';
 
-export const getColumns = (data: ScheduleResponse, daysInMonth: Array<number>): Column[] => {
+export const getColumns = (data: ScheduleResponse, daysInMonth: Array<number>): Maybe<Column[]> => {
   const rooms = data?.rooms;
   const orders = data?.orders;
 
@@ -10,10 +11,10 @@ export const getColumns = (data: ScheduleResponse, daysInMonth: Array<number>): 
     return;
   }
 
-  const generateCells = (room): Cell[] => {
-    const cells = daysInMonth.map((day) => ({ day, order: { id: null, status: null } }));
+  const generateCells = (room: RoomDataResponse): Cell[] => {
+    const cells = daysInMonth.map((day) => ({ day, order: { id: 0, status: STATUSES_ORDER.FREE } }));
 
-    orders.forEach((order) => {
+    orders.forEach((order: OrderDataResponse) => {
       if (room.id === order.room.id) {
         const startDay = Number(dayjs(order.start).format('D'));
         const endDay = Number(dayjs(order.end).format('D'));
@@ -30,11 +31,8 @@ export const getColumns = (data: ScheduleResponse, daysInMonth: Array<number>): 
     return cells;
   };
 
-  return rooms.map((room) => {
-    const column = {};
-    column['room'] = room;
-    column['cells'] = generateCells(room);
-
-    return column;
-  });
+  return rooms.map((room) => ({
+    room,
+    cells: generateCells(room),
+  }));
 };

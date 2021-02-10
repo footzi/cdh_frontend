@@ -14,6 +14,7 @@ export enum ROOM_TYPES {
 export enum STATUSES_ORDER {
   PAID = 'PAID',
   NOT_PAID = 'NOT_PAID',
+  FREE = 'FREE',
 }
 
 export const STATUSES_ORDER_TEXT = {

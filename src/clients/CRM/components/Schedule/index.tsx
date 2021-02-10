@@ -11,7 +11,7 @@ import { Container, LoaderContainer, DaysColumn, DayCell, RoomColumn, RoomName }
 export const Schedule: React.FC<ScheduleProps> = ({ year, month }) => {
   const { days, columns, isLoading } = useScheduleData(month, year);
 
-  if (isLoading) {
+  if (isLoading && !columns) {
     return (
       <LoaderContainer>
         <Preloader />
@@ -28,15 +28,16 @@ export const Schedule: React.FC<ScheduleProps> = ({ year, month }) => {
         ))}
       </DaysColumn>
 
-      {columns.map((column) => (
-        <RoomColumn key={column.room.id}>
-          <RoomName>{column.room.name}</RoomName>
+      {columns &&
+        columns.map((column) => (
+          <RoomColumn key={column.room.id}>
+            <RoomName>{column.room.name}</RoomName>
 
-          {column.cells.map((cell) => (
-            <Cell key={cell.day} status={cell.order.status} />
-          ))}
-        </RoomColumn>
-      ))}
+            {column.cells.map((cell) => (
+              <Cell key={cell.day} status={cell.order.status} />
+            ))}
+          </RoomColumn>
+        ))}
     </Container>
   );
 };

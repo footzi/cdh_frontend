@@ -1,5 +1,7 @@
 import { ROOM_TYPES, STATUSES_ORDER } from 'constants/index';
 
+export type Maybe<T> = T | (null | undefined);
+
 export interface ScheduleResponse {
   rooms: RoomDataResponse[];
   orders: OrderDataResponse[];
