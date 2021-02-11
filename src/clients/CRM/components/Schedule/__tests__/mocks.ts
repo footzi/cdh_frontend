@@ -125,154 +125,154 @@ export const mockData1 = {
         {
           day: 3,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 4,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 5,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 6,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 7,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 8,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 9,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 10,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 11,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 12,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 13,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 14,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 15,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 16,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 17,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 18,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 19,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 20,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 21,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 22,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 23,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 24,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
@@ -435,105 +435,105 @@ export const mockData1 = {
         {
           day: 16,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 17,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 18,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 19,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 20,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 21,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 22,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 23,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 24,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 25,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 26,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 27,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 28,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 29,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 30,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
@@ -549,91 +549,91 @@ export const mockData1 = {
         {
           day: 1,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 2,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 3,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 4,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 5,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 6,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 7,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 8,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 9,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 10,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 11,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 12,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 13,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
@@ -654,105 +654,105 @@ export const mockData1 = {
         {
           day: 16,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 17,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 18,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 19,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 20,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 21,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 22,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 23,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 24,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 25,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 26,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 27,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 28,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 29,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },
         {
           day: 30,
           order: {
-            id: null,
+            id: 0,
             status: 'FREE',
           },
         },

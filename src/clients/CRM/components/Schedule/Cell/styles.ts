@@ -41,8 +41,13 @@ export const Tooltip = styled.div`
   justify-content: center;
   transition: opacity 0.3s;
   opacity: 0;
-  position: relative;
-  z-index: 2;
+  //position: relative;
+  //z-index: 2;
+  
+  //opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   &.fade-entered {
     opacity: 1;
