@@ -30,26 +30,4 @@ export const Status = styled.div<{ status: string }>`
   }
 `;
 
-export const Tooltip = styled.div`
-  width: 225px;
-  height: 70px;
-  background-color: white;
-  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25);
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s;
-  opacity: 0;
-  //position: relative;
-  //z-index: 2;
-  
-  //opacity: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
 
-  &.fade-entered {
-    opacity: 1;
-  }
-`;

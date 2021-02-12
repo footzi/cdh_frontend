@@ -29,3 +29,14 @@ export interface UseScheduleResult {
 export interface UseScheduleRequest extends Omit<UseRequestResult, 'data'> {
   data: ScheduleResponse;
 }
+
+export interface TooltipCoords {
+  x: number;
+  y: number;
+}
+
+export interface TooltipData {
+  roomId: Maybe<string>;
+  dayId: Maybe<string>;
+  cell: Maybe<Cell>;
+}
