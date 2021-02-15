@@ -30,13 +30,28 @@ export interface UseScheduleRequest extends Omit<UseRequestResult, 'data'> {
   data: ScheduleResponse;
 }
 
+export interface CellProps {
+  status: STATUSES_ORDER.FREE | STATUSES_ORDER.NOT_PAID | STATUSES_ORDER.PAID;
+  roomId: number;
+  dayId: number;
+}
+
 export interface TooltipCoords {
   x: number;
   y: number;
 }
 
 export interface TooltipData {
-  roomId: Maybe<string>;
-  dayId: Maybe<string>;
+  roomId: Maybe<number>;
+  dayId: Maybe<number>;
   cell: Maybe<Cell>;
+}
+
+export interface TooltipProps {
+  data: Maybe<TooltipData>;
+  coords: TooltipCoords;
+}
+
+export interface TooltipContainerProps {
+  coords: TooltipCoords;
 }

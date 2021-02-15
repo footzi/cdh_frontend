@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Maybe } from 'interfaces';
 import { Cell } from '../Cell';
 import { Tooltip } from '../Tooltip';
@@ -10,16 +10,15 @@ export const Table: React.FC<TableProps> = ({ columns }) => {
   const [tooltipData, setTooltipData] = useState<Maybe<TooltipData>>(null);
   const [coords, setCoords] = useState<TooltipCoords>({ x: 0, y: 0 });
 
-  const onClick = (event: React.SyntheticEvent<HTMLDivElement>) => {
-    const roomId = event.currentTarget.dataset.roomId;
-    const dayId = event.currentTarget.dataset.dayId;
+  const onClick = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+    const target = event.target as HTMLDivElement;
+    const roomId = Number(target.dataset.roomId);
+    const dayId = Number(target.dataset.dayId);
 
-    //target
+    const days = columns.find((column) => column.room.id === roomId);
+    const cell = days?.cells.find((day) => day.day === dayId);
 
-    const days = columns.find((column) => column.room.id === Number(roomId));
-    const cell = days?.cells.find((day) => day.day === Number(dayId));
-
-    const cors = event.currentTarget.getBoundingClientRect();
+    const cors = target.getBoundingClientRect();
 
     setCoords({
       x: cors.x,
@@ -31,18 +30,29 @@ export const Table: React.FC<TableProps> = ({ columns }) => {
       dayId,
       cell,
     });
-  };
+    
+    console.log(cell);
+  }, []);
 
-  const onMouseMove = (event: React.SyntheticEvent<HTMLDivElement>) => {
-    if (tooltipData) {
-      const roomId = event.currentTarget.dataset.roomId;
-      const dayId = event.currentTarget.dataset.dayId;
+  const onMouseMove = useCallback(
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      if (tooltipData) {
+        const target = event.target as HTMLDivElement;
+        const roomId = Number(target.dataset.roomId);
+        const dayId = Number(target.dataset.dayId);
 
-      if (roomId !== tooltipData.roomId && dayId !== tooltipData.dayId) {
+        const isTooltipTarget = Boolean(target.closest('div[data-id="tooltip"]'));
+        const isCurrentCell = roomId === tooltipData.roomId && dayId === tooltipData.dayId;
+
+        if (isTooltipTarget || isCurrentCell) {
+          return;
+        }
+
         setTooltipData(null);
       }
-    }
-  };
+    },
+    [tooltipData]
+  );
 
   return (
     <>
@@ -52,18 +62,13 @@ export const Table: React.FC<TableProps> = ({ columns }) => {
             <RoomName>{column.room.name}</RoomName>
 
             {column.cells.map((cell) => (
-              <Cell
-                roomId={column.room.id}
-                dayId={cell.day}
-                key={cell.day}
-                status={cell.order.status}
-              />
+              <Cell roomId={column.room.id} dayId={cell.day} key={cell.day} status={cell.order.status} />
             ))}
           </RoomColumn>
         ))}
-      </Container>
 
-      <Tooltip data={tooltipData} coords={coords} />
+        <Tooltip data={tooltipData} coords={coords} />
+      </Container>
     </>
   );
 };

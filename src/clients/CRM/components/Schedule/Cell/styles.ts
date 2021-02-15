@@ -29,5 +29,3 @@ export const Status = styled.div<{ status: string }>`
       COLORS.GREEN};
   }
 `;
-
-
