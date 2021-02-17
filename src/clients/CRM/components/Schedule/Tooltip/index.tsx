@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Transition } from 'react-transition-group';
-import { TRANSITION_GROUP_DEFAULT_TIMEOUT } from 'constants/index';
+import { STATUSES_ORDER, TRANSITION_GROUP_DEFAULT_TIMEOUT } from 'constants/index';
+import { getFullDate } from 'utils/getFullDate';
 import { TooltipProps } from '../interfaces';
-import { Container, Content, Header, Date, Room, Status, BookingButton } from './styles';
+import { BookingButton, Container, Content, Date, Header, Room, Status } from './styles';
 
 export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
+  const cell = data?.cell;
+  const order = cell?.order;
+  const room = order?.room;
+
   const isBooking = false;
+
+  if (!order) {
+    return null;
+  }
+
+  const date = useMemo(() => {
+    return getFullDate(order.start);
+  }, [data]);
 
   return (
     <Transition in={Boolean(data)} timeout={TRANSITION_GROUP_DEFAULT_TIMEOUT} unmountOnExit>
@@ -13,15 +26,25 @@ export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
         <Container className={`fade-${state}`} coords={coords} data-id="tooltip">
           <Content>
             <Header>
-              <Date>15 июля 2021г.</Date>
+              <Date>{date}</Date>
               <Room>
-                <span>Номер</span> К6
+                <span>Номер</span> {room?.name}
               </Room>
             </Header>
 
-            <Status>
-              Оплачено. <a href="/order/1234">№06581</a>
-            </Status>
+            {order.status === STATUSES_ORDER.FREE && <Status status={order.status}>Свободно</Status>}
+
+            {order.status === STATUSES_ORDER.NOT_PAID && (
+              <Status status={order.status}>
+                Забронировано. <a href={`/order/${order.id}`}>№{order.id}</a>
+              </Status>
+            )}
+
+            {order.status === STATUSES_ORDER.PAID && (
+              <Status status={order.status}>
+                Оплачено. <a href={`/order/${order.id}`}>№{order.id}</a>
+              </Status>
+            )}
 
             {isBooking && <BookingButton>Забронировать</BookingButton>}
           </Content>

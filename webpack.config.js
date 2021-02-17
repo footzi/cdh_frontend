@@ -17,6 +17,7 @@ module.exports = {
       interfaces: path.resolve(__dirname, 'src/interfaces'),
       common: path.resolve(__dirname, 'src/common'),
       CRM: path.resolve(__dirname, 'src/clients/CRM/'),
+      utils: path.resolve(__dirname, 'src/utils/'),
     },
   },
   module: {

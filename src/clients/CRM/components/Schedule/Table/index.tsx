@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Maybe } from 'interfaces';
 import { Cell } from '../Cell';
 import { Tooltip } from '../Tooltip';
@@ -30,8 +30,6 @@ export const Table: React.FC<TableProps> = ({ columns }) => {
       dayId,
       cell,
     });
-    
-    console.log(cell);
   }, []);
 
   const onMouseMove = useCallback(
@@ -53,6 +51,13 @@ export const Table: React.FC<TableProps> = ({ columns }) => {
     },
     [tooltipData]
   );
+
+  useEffect(() => {
+    const hideTooltip = () => setTooltipData(null);
+    window.addEventListener('scroll', hideTooltip);
+
+    return () => window.removeEventListener('scroll', hideTooltip);
+  }, []);
 
   return (
     <>

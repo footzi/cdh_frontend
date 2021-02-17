@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { TooltipContainerProps } from '../interfaces';
 import { COLORS } from 'colors';
+import { STATUSES_ORDER } from 'constants/index';
+import { TooltipContainerProps } from '../interfaces';
 
 export const Container = styled.div<TooltipContainerProps>`
   transition: opacity 0.3s;
@@ -25,9 +26,6 @@ export const Content = styled.div`
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25);
   border-radius: 24px;
   padding: 10px 12px;
-  //display: flex;
-  //align-items: center;
-  //justify-content: center;
 `;
 
 export const Header = styled.div`
@@ -44,10 +42,13 @@ export const Room = styled.div`
   }
 `;
 
-export const Status = styled.div`
+export const Status = styled.div<{ status: string }>`
   margin-top: 7px;
-  color: ${COLORS.DARK_YELLOW};
   text-align: center;
+  color: ${({ status }) =>
+    (status === STATUSES_ORDER.PAID && COLORS.DARK_RED) ||
+    (status === STATUSES_ORDER.NOT_PAID && COLORS.DARK_YELLOW) ||
+    COLORS.GREEN};
 
   a {
     font-style: italic;

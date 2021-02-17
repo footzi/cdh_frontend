@@ -1,9 +1,12 @@
 import dayjs from 'dayjs';
-import { ScheduleResponse, RoomDataResponse, OrderDataResponse, Maybe } from 'interfaces';
+import objectSupport from 'dayjs/plugin/objectSupport';
+import { RoomDataResponse, OrderDataResponse, Maybe } from 'interfaces';
 import { STATUSES_ORDER } from 'constants/index';
-import { Column, Cell } from '../interfaces';
+import { Column, Cell, GetColumnsProps } from '../interfaces';
 
-export const getColumns = (data: ScheduleResponse, daysInMonth: Array<number>): Maybe<Column[]> => {
+dayjs.extend(objectSupport);
+
+export const getColumns = ({ data, days, month, year }: GetColumnsProps): Maybe<Column[]> => {
   const rooms = data?.rooms;
   const orders = data?.orders;
 
@@ -12,7 +15,13 @@ export const getColumns = (data: ScheduleResponse, daysInMonth: Array<number>): 
   }
 
   const generateCells = (room: RoomDataResponse): Cell[] => {
-    const cells = daysInMonth.map((day) => ({ day, order: { id: 0, status: STATUSES_ORDER.FREE } }));
+    const cells = days.map((day) => {
+      const start = dayjs(new Date(year, month - 1, day)).format('YYYY-MM-DD');
+      return {
+        day,
+        order: { id: 0, status: STATUSES_ORDER.FREE, start, end: '', room },
+      };
+    });
 
     orders.forEach((order: OrderDataResponse) => {
       if (room.id === order.room.id) {
@@ -21,8 +30,7 @@ export const getColumns = (data: ScheduleResponse, daysInMonth: Array<number>): 
 
         cells.forEach((cell) => {
           if (cell.day >= startDay && cell.day <= endDay) {
-            cell.order.id = order.id;
-            cell.order.status = order.status;
+            cell.order = order;
           }
         });
       }

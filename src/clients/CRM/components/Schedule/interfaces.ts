@@ -1,5 +1,5 @@
 import { STATUSES_ORDER } from 'constants/index';
-import { ScheduleResponse, RoomDataResponse, Maybe } from 'interfaces';
+import { ScheduleResponse, OrderDataResponse, RoomDataResponse, Maybe } from 'interfaces';
 import { UseRequestResult } from 'api';
 
 export interface ScheduleProps {
@@ -7,12 +7,13 @@ export interface ScheduleProps {
   month: number;
 }
 
+export interface CellOrder extends Omit<OrderDataResponse, 'status'> {
+  status: STATUSES_ORDER.PAID | STATUSES_ORDER.NOT_PAID | STATUSES_ORDER.FREE;
+}
+
 export interface Cell {
   day: number;
-  order: {
-    id: number;
-    status: STATUSES_ORDER.PAID | STATUSES_ORDER.NOT_PAID | STATUSES_ORDER.FREE;
-  };
+  order: CellOrder;
 }
 
 export interface Column {
@@ -28,6 +29,13 @@ export interface UseScheduleResult {
 
 export interface UseScheduleRequest extends Omit<UseRequestResult, 'data'> {
   data: ScheduleResponse;
+}
+
+export interface GetColumnsProps {
+  data: ScheduleResponse;
+  days: Array<number>;
+  month: number;
+  year: number;
 }
 
 export interface CellProps {
