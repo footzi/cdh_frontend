@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { COLORS } from 'colors';
 import { STATUSES_ORDER } from 'constants/index';
 
-export const Status = styled.div<{ status: string }>`
+export const Status = styled.div<{ status: string; isSelected: boolean }>`
   width: 55px;
   height: 33px;
   display: flex;
@@ -28,4 +28,17 @@ export const Status = styled.div<{ status: string }>`
       (status === STATUSES_ORDER.NOT_PAID && '#C1A200') ||
       COLORS.GREEN};
   }
+
+  ${({ isSelected, status }) =>
+    isSelected &&
+    css`
+      background-color: ${() =>
+        (status === STATUSES_ORDER.PAID && '#cc9696') ||
+        (status === STATUSES_ORDER.NOT_PAID && '#f1e4a1') ||
+        '#cadfbe'};
+      border-color: ${() =>
+        (status === STATUSES_ORDER.PAID && COLORS.DARK_RED) ||
+        (status === STATUSES_ORDER.NOT_PAID && '#C1A200') ||
+        COLORS.GREEN};
+    `}
 `;
