@@ -1,10 +1,8 @@
 import dayjs from 'dayjs';
-import objectSupport from 'dayjs/plugin/objectSupport';
 import { RoomDataResponse, OrderDataResponse, Maybe } from 'interfaces';
 import { STATUSES_ORDER } from 'constants/index';
+import { getDateFormatFromNumbers } from 'utils/index';
 import { Column, Cell, GetColumnsProps } from '../interfaces';
-
-dayjs.extend(objectSupport);
 
 export const getColumns = ({ data, days, month, year }: GetColumnsProps): Maybe<Column[]> => {
   const rooms = data?.rooms;
@@ -16,7 +14,8 @@ export const getColumns = ({ data, days, month, year }: GetColumnsProps): Maybe<
 
   const generateCells = (room: RoomDataResponse): Cell[] => {
     const cells = days.map((day) => {
-      const start = dayjs(new Date(year, month - 1, day)).format('YYYY-MM-DD');
+      const start = getDateFormatFromNumbers(day, month - 1, year, 'YYYY-MM-DD');
+
       return {
         day,
         order: { id: 0, status: STATUSES_ORDER.FREE, start, end: '', room },

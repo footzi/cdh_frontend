@@ -1,23 +1,24 @@
 import React, { useMemo } from 'react';
 import { Transition } from 'react-transition-group';
 import { STATUSES_ORDER, TRANSITION_GROUP_DEFAULT_TIMEOUT } from 'constants/index';
-import { getFullDate } from 'utils/getFullDate';
+import { getFullDate } from 'utils/index';
 import { TooltipProps } from '../interfaces';
 import { BookingButton, Container, Content, Date, Header, Room, Status } from './styles';
 
 export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
   const cell = data?.cell;
+  const newOrder = data?.newOrder;
+  const isBooking = !!newOrder;
+
   const order = cell?.order;
   const room = order?.room;
 
-  const isBooking = false;
-
-  if (!order) {
+  if (!order && !newOrder) {
     return null;
   }
 
   const date = useMemo(() => {
-    return getFullDate(order.start);
+    return order && getFullDate(order.start);
   }, [data]);
 
   return (
@@ -32,19 +33,19 @@ export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
               </Room>
             </Header>
 
-            {order.status === STATUSES_ORDER.FREE && <Status status={order.status}>Свободно</Status>}
+            {/*{order.status === STATUSES_ORDER.FREE && <Status status={order.status}>Свободно</Status>}*/}
 
-            {order.status === STATUSES_ORDER.NOT_PAID && (
-              <Status status={order.status}>
-                Забронировано. <a href={`/order/${order.id}`}>№{order.id}</a>
-              </Status>
-            )}
+            {/*{order.status === STATUSES_ORDER.NOT_PAID && (*/}
+            {/*  <Status status={order.status}>*/}
+            {/*    Забронировано. <a href={`/order/${order.id}`}>№{order.id}</a>*/}
+            {/*  </Status>*/}
+            {/*)}*/}
 
-            {order.status === STATUSES_ORDER.PAID && (
-              <Status status={order.status}>
-                Оплачено. <a href={`/order/${order.id}`}>№{order.id}</a>
-              </Status>
-            )}
+            {/*{order.status === STATUSES_ORDER.PAID && (*/}
+            {/*  <Status status={order.status}>*/}
+            {/*    Оплачено. <a href={`/order/${order.id}`}>№{order.id}</a>*/}
+            {/*  </Status>*/}
+            {/*)}*/}
 
             {isBooking && <BookingButton>Забронировать</BookingButton>}
           </Content>

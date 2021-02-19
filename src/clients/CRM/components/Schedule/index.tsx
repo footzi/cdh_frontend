@@ -27,7 +27,7 @@ export const Schedule: React.FC<ScheduleProps> = ({ year, month }) => {
         ))}
       </DaysColumn>
 
-      {columns && <Table columns={columns} />}
+      {columns && <Table columns={columns} year={year} month={month}/>}
     </Container>
   );
 };

@@ -45,6 +45,11 @@ export interface CellProps {
   isSelected: boolean;
 }
 
+export interface NewOrder {
+  interval: string;
+  room: RoomDataResponse;
+}
+
 export interface TooltipCoords {
   x: number;
   y: number;
@@ -53,7 +58,8 @@ export interface TooltipCoords {
 export interface TooltipData {
   roomId: Maybe<number>;
   dayId: Maybe<number>;
-  cell: Maybe<Cell>;
+  cell?: Maybe<Cell>;
+  newOrder?: Maybe<NewOrder>;
 }
 
 export interface TooltipProps {
