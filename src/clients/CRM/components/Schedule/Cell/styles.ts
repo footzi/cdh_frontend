@@ -29,16 +29,10 @@ export const Status = styled.div<{ status: string; isSelected: boolean }>`
       COLORS.GREEN};
   }
 
-  ${({ isSelected, status }) =>
+  ${({ isSelected }) =>
     isSelected &&
     css`
-      background-color: ${() =>
-        (status === STATUSES_ORDER.PAID && '#cc9696') ||
-        (status === STATUSES_ORDER.NOT_PAID && '#f1e4a1') ||
-        '#cadfbe'};
-      border-color: ${() =>
-        (status === STATUSES_ORDER.PAID && COLORS.DARK_RED) ||
-        (status === STATUSES_ORDER.NOT_PAID && '#C1A200') ||
-        COLORS.GREEN};
+      background-color: #cadfbe;
+      border-color: ${COLORS.GREEN};
     `}
 `;

@@ -4,6 +4,7 @@ import { STATUSES_ORDER } from 'constants/index';
 import { getDateFormatFromNumbers } from 'utils/index';
 import { Column, Cell, GetColumnsProps } from '../interfaces';
 
+// Разобраться с возвращаемыми данными из getColumns, в тултипы брони передавать start, end
 export const getColumns = ({ data, days, month, year }: GetColumnsProps): Maybe<Column[]> => {
   const rooms = data?.rooms;
   const orders = data?.orders;

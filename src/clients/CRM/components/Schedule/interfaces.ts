@@ -70,3 +70,8 @@ export interface TooltipProps {
 export interface TooltipContainerProps {
   coords: TooltipCoords;
 }
+
+export interface SelectedCell {
+  roomId: number;
+  dayId: number;
+}

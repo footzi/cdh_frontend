@@ -5,6 +5,7 @@ module.exports = {
   testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
   moduleNameMapper: {
     '^constants/(.*)$': '<rootDir>/constants/$1',
+    '^utils/(.*)$': '<rootDir>/utils/$1',
   },
   verbose: true,
 };

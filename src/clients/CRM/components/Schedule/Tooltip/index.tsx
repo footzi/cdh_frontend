@@ -11,7 +11,6 @@ export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
   const isBooking = !!newOrder;
 
   const order = cell?.order;
-  const room = order?.room;
 
   if (!order && !newOrder) {
     return null;
@@ -26,26 +25,30 @@ export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
       {(state) => (
         <Container className={`fade-${state}`} coords={coords} data-id="tooltip">
           <Content>
-            <Header>
-              <Date>{date}</Date>
+            <Header isBooking={isBooking}>
+              <Date>{isBooking ? newOrder?.interval : date}</Date>
               <Room>
-                <span>Номер</span> {room?.name}
+                <span>Номер</span> {isBooking ? newOrder?.room?.name : order?.room?.name}
               </Room>
             </Header>
 
-            {/*{order.status === STATUSES_ORDER.FREE && <Status status={order.status}>Свободно</Status>}*/}
+            {!isBooking && order && (
+              <>
+                {order.status === STATUSES_ORDER.FREE && <Status status={order.status}>Свободно</Status>}
 
-            {/*{order.status === STATUSES_ORDER.NOT_PAID && (*/}
-            {/*  <Status status={order.status}>*/}
-            {/*    Забронировано. <a href={`/order/${order.id}`}>№{order.id}</a>*/}
-            {/*  </Status>*/}
-            {/*)}*/}
+                {order.status === STATUSES_ORDER.NOT_PAID && (
+                  <Status status={order.status}>
+                    Забронировано. <a href={`/order/${order.id}`}>№{order.id}</a>
+                  </Status>
+                )}
 
-            {/*{order.status === STATUSES_ORDER.PAID && (*/}
-            {/*  <Status status={order.status}>*/}
-            {/*    Оплачено. <a href={`/order/${order.id}`}>№{order.id}</a>*/}
-            {/*  </Status>*/}
-            {/*)}*/}
+                {order.status === STATUSES_ORDER.PAID && (
+                  <Status status={order.status}>
+                    Оплачено. <a href={`/order/${order.id}`}>№{order.id}</a>
+                  </Status>
+                )}
+              </>
+            )}
 
             {isBooking && <BookingButton>Забронировать</BookingButton>}
           </Content>

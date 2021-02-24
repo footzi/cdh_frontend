@@ -2,74 +2,68 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Maybe } from 'interfaces';
 import { Cell } from '../Cell';
 import { Tooltip } from '../Tooltip';
-import { TooltipCoords, TooltipData } from '../interfaces';
+import { TooltipCoords, TooltipData, SelectedCell } from '../interfaces';
 import { TableProps } from './interface';
 import { Container, RoomColumn, RoomName } from './styles';
 import { STATUSES_ORDER } from 'constants/index';
 import { getDateFormatFromNumbers } from 'utils/index';
-
-const checkIsSelectedNotOrder = (cells, dayId: number) => {
-  return cells.length > 0 && (cells[0].dayId - dayId > 1 || dayId - cells[cells.length - 1].dayId > 1);
-};
-
-const checkIsCellsNotOrder = (cells) => {
-  return cells.some((cell, index: number) => cells[index - 1] && cell.dayId - cells[index - 1].dayId > 1);
-};
+import { checkIsSelectedNotOrder, checkIsCellsNotOrder } from './utils';
 
 export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
   const [tooltipData, setTooltipData] = useState<Maybe<TooltipData>>(null);
   const [coords, setCoords] = useState<TooltipCoords>({ x: 0, y: 0 });
+  const [selectedCells, setSelectedCells] = useState<SelectedCell[]>([]);
 
-  const [selectedCells, setSelectedCells] = useState([])
-
-  //@ts-ignore
-  const onSelected = (roomId, dayId, target) => {
-    if (!roomId || !dayId) {
-      return;
-    }
-
-    if (!selectedCells.length) {
-      const coords = target.getBoundingClientRect();
-
-      setCoords({
-        x: coords.x,
-        y: coords.y,
-      });
-    }
-
-    // если выбрана другая колонка
-    const isSelectedInColumn = selectedCells.some((cell) => cell.roomId === roomId);
-
-    if (!isSelectedInColumn && selectedCells.length) {
-      return setSelectedCells([]);
-    }
-
-    // если выбраная ячейка не попорядку
-    const isSelectedNotOrder = checkIsSelectedNotOrder(selectedCells, dayId);
-
-    if (isSelectedNotOrder) {
-      return;
-    }
-
-    // если выбрали уже выбранную ячейку
-    const isSelectedInCurrentCell = selectedCells.some((cell) => cell.roomId === roomId && cell.dayId === dayId);
-
-    if (isSelectedInCurrentCell) {
-      const filteredCells = selectedCells.filter((cell) => cell.dayId !== dayId);
-
-      if (!checkIsCellsNotOrder(filteredCells)) {
-        setSelectedCells(filteredCells);
+  const onSelected = useCallback(
+    (roomId: number, dayId: number, target: HTMLDivElement) => {
+      if (!roomId || !dayId) {
+        return;
       }
 
-      return;
-    }
+      if (!selectedCells.length) {
+        const coords = target.getBoundingClientRect();
 
-    setSelectedCells((prev) => {
-      return [...prev, { roomId, dayId }].sort((a, b) => a.dayId - b.dayId);
-    });
-  };
+        setCoords({
+          x: coords.x,
+          y: coords.y,
+        });
+      }
 
-  const onUpdateTooltipSelectedCells = () => {
+      // если выбрана другая колонка
+      const isSelectedInColumn = selectedCells.some((cell) => cell.roomId === roomId);
+
+      if (!isSelectedInColumn && selectedCells.length) {
+        return setSelectedCells([]);
+      }
+
+      // если выбраная ячейка не попорядку
+      const isSelectedNotOrder = checkIsSelectedNotOrder(selectedCells, dayId);
+
+      if (isSelectedNotOrder) {
+        return;
+      }
+
+      // если выбрали уже выбранную ячейку
+      const isSelectedInCurrentCell = selectedCells.some((cell) => cell.roomId === roomId && cell.dayId === dayId);
+
+      if (isSelectedInCurrentCell) {
+        const filteredCells = selectedCells.filter((cell) => cell.dayId !== dayId);
+
+        if (!checkIsCellsNotOrder(filteredCells)) {
+          setSelectedCells(filteredCells);
+        }
+
+        return;
+      }
+
+      setSelectedCells((prev) => {
+        return [...prev, { roomId, dayId }].sort((a, b) => a.dayId - b.dayId);
+      });
+    },
+    [selectedCells]
+  );
+
+  const onUpdateTooltipSelectedCells = useCallback(() => {
     if (selectedCells.length) {
       const roomId = selectedCells[0].roomId;
       const startDay = selectedCells[0].dayId;
@@ -96,13 +90,14 @@ export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
     if (!selectedCells.length) {
       setTooltipData(null);
     }
-  };
+  }, [selectedCells]);
 
-  //@ts-ignore
-  const getIsSelectedCell = (roomId, dayId): boolean => {
-    //@ts-ignore
-    return selectedCells.some((cell) => cell.roomId === roomId && cell.dayId === dayId);
-  };
+  const getIsSelectedCell = useCallback(
+    (roomId: number, dayId: number): boolean => {
+      return selectedCells.some((cell) => cell.roomId === roomId && cell.dayId === dayId);
+    },
+    [selectedCells]
+  );
 
   const onClick = useCallback(
     (event: React.MouseEvent<HTMLDivElement>) => {
@@ -176,26 +171,24 @@ export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
   }, [selectedCells]);
 
   return (
-    <>
-      <Container onClick={onClick} onMouseMove={onMouseMove}>
-        {columns.map((column) => (
-          <RoomColumn key={column.room.id}>
-            <RoomName>{column.room.name}</RoomName>
+    <Container onClick={onClick} onMouseMove={onMouseMove}>
+      {columns.map((column) => (
+        <RoomColumn key={column.room.id}>
+          <RoomName>{column.room.name}</RoomName>
 
-            {column.cells.map((cell) => (
-              <Cell
-                roomId={column.room.id}
-                dayId={cell.day}
-                key={cell.day}
-                status={cell.order.status}
-                isSelected={getIsSelectedCell(column.room.id, cell.day)}
-              />
-            ))}
-          </RoomColumn>
-        ))}
+          {column.cells.map((cell) => (
+            <Cell
+              roomId={column.room.id}
+              dayId={cell.day}
+              key={cell.day}
+              status={cell.order.status}
+              isSelected={getIsSelectedCell(column.room.id, cell.day)}
+            />
+          ))}
+        </RoomColumn>
+      ))}
 
-        <Tooltip data={tooltipData} coords={coords} />
-      </Container>
-    </>
+      <Tooltip data={tooltipData} coords={coords} />
+    </Container>
   );
 };

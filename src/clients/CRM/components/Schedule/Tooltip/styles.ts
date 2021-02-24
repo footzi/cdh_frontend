@@ -18,7 +18,7 @@ export const Container = styled.div<TooltipContainerProps>`
 
 export const Content = styled.div`
   width: 170px;
-  height: 55px;
+  min-height: 55px;
   background-color: ${COLORS.WHITE};
   color: ${COLORS.BLACK};
   font-size: 10px;
@@ -28,13 +28,16 @@ export const Content = styled.div`
   padding: 10px 12px;
 `;
 
-export const Header = styled.div`
-  display: flex;
+export const Header = styled.div<{ isBooking: boolean }>`
+  display: ${({ isBooking }) => !isBooking && 'flex'};
   justify-content: space-around;
+  text-align: center;
   width: 100%;
 `;
 
-export const Date = styled.div``;
+export const Date = styled.div`
+  margin-bottom: 4px;
+`;
 
 export const Room = styled.div`
   span {
@@ -43,7 +46,7 @@ export const Room = styled.div`
 `;
 
 export const Status = styled.div<{ status: string }>`
-  margin-top: 7px;
+  margin-top: 3px;
   text-align: center;
   color: ${({ status }) =>
     (status === STATUSES_ORDER.PAID && COLORS.DARK_RED) ||
@@ -59,4 +62,14 @@ export const Status = styled.div<{ status: string }>`
   }
 `;
 
-export const BookingButton = styled.div``;
+export const BookingButton = styled.button`
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
+  color: ${COLORS.ORANGE};
+  margin: 8px auto 0 auto;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;

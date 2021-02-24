@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
 import { UseDropdownProps, UseDropdownResult } from '../interfaces';
 
@@ -13,12 +13,6 @@ export const useDropdown = ({ ref, isDefaultOpen }: UseDropdownProps): UseDropdo
   }, [isOpen, ref]);
 
   useResizeDetector({ targetRef: ref, onResize, handleWidth: false });
-
-  // useEffect(() => {
-  //   if (isOpen && ref.current) {
-  //     setHeight(ref.current.offsetHeight);
-  //   }
-  // }, [isOpen, ref])
 
   return {
     isOpen,
