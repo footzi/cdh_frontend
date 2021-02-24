@@ -46,7 +46,6 @@ export interface CellProps {
 }
 
 export interface NewOrder {
-  interval: string;
   room: RoomDataResponse;
 }
 
@@ -58,6 +57,8 @@ export interface TooltipCoords {
 export interface TooltipData {
   roomId: Maybe<number>;
   dayId: Maybe<number>;
+  start: string;
+  end: string;
   cell?: Maybe<Cell>;
   newOrder?: Maybe<NewOrder>;
 }

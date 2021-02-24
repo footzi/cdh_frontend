@@ -1,10 +1,9 @@
 import dayjs from 'dayjs';
 import { RoomDataResponse, OrderDataResponse, Maybe } from 'interfaces';
 import { STATUSES_ORDER } from 'constants/index';
-import { getDateFormatFromNumbers } from 'utils/index';
+import { getDateFormatFromNumbers } from 'utils/getDateFormatFromNumbers';
 import { Column, Cell, GetColumnsProps } from '../interfaces';
 
-// Разобраться с возвращаемыми данными из getColumns, в тултипы брони передавать start, end
 export const getColumns = ({ data, days, month, year }: GetColumnsProps): Maybe<Column[]> => {
   const rooms = data?.rooms;
   const orders = data?.orders;
@@ -15,7 +14,7 @@ export const getColumns = ({ data, days, month, year }: GetColumnsProps): Maybe<
 
   const generateCells = (room: RoomDataResponse): Cell[] => {
     const cells = days.map((day) => {
-      const start = getDateFormatFromNumbers(day, month - 1, year, 'YYYY-MM-DD');
+      const start = getDateFormatFromNumbers(day, month, year, 'YYYY-MM-DD');
 
       return {
         day,

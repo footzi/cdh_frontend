@@ -6,8 +6,9 @@ import { TooltipCoords, TooltipData, SelectedCell } from '../interfaces';
 import { TableProps } from './interface';
 import { Container, RoomColumn, RoomName } from './styles';
 import { STATUSES_ORDER } from 'constants/index';
-import { getDateFormatFromNumbers } from 'utils/index';
-import { checkIsSelectedNotOrder, checkIsCellsNotOrder } from './utils';
+import { getDateFormatFromNumbers } from 'utils/getDateFormatFromNumbers';
+import { checkIsSelectedNotOrder } from './utils/checkIsSelectedNotOrder';
+import { checkIsCellsNotOrder } from './utils/checkIsCellsNotOrder';
 
 export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
   const [tooltipData, setTooltipData] = useState<Maybe<TooltipData>>(null);
@@ -71,16 +72,16 @@ export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
 
       const room = columns.find((column) => column.room.id === roomId)?.room;
 
-      const startDayInterval = getDateFormatFromNumbers(startDay, month, year, 'DD-MM-YYYY');
-      const endDayInterval = getDateFormatFromNumbers(endDay, month, year, 'DD-MM-YYYY');
-      const interval = `${startDayInterval} - ${endDayInterval}`;
+      const start = getDateFormatFromNumbers(startDay, month, year, 'DD-MM-YYYY');
+      const end = getDateFormatFromNumbers(endDay, month, year, 'DD-MM-YYYY');
 
       if (room) {
         setTooltipData({
           roomId,
           dayId: startDay,
+          start,
+          end,
           newOrder: {
-            interval,
             room,
           },
         });
@@ -114,6 +115,7 @@ export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
 
       const days = columns.find((column) => column.room.id === roomId);
       const cell = days?.cells.find((day) => day.day === dayId);
+      const start = getDateFormatFromNumbers(dayId, month, year, 'YYYY-MM-DD');
 
       const cors = target.getBoundingClientRect();
 
@@ -126,6 +128,8 @@ export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
         roomId,
         dayId,
         cell,
+        start,
+        end: '',
       });
     },
     [selectedCells]

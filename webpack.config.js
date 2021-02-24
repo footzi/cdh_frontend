@@ -15,7 +15,7 @@ module.exports = {
       constants: path.resolve(__dirname, 'src/constants/'),
       icons: path.resolve(__dirname, 'src/icons'),
       interfaces: path.resolve(__dirname, 'src/interfaces'),
-      common: path.resolve(__dirname, 'src/common'),
+      components: path.resolve(__dirname, 'src/components'),
       CRM: path.resolve(__dirname, 'src/clients/CRM/'),
       utils: path.resolve(__dirname, 'src/utils/'),
     },

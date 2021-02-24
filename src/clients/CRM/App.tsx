@@ -1,36 +1,33 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Logo } from 'components/Logo';
 import { Calendar } from './Pages/Calendar';
 import { Orders } from './Pages/Orders';
-
-const Home: React.FC = () => <>Home</>;
+import { Header, Navigation, NavigationList, NavigationItem } from './styles';
 
 export const App: React.FC = () => {
   return (
     <Router>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/calendar">Calendar</Link>
-          </li>
-          <li>
+      <Header>
+        <Logo />
+      </Header>
+      <Navigation>
+        <NavigationList>
+          <NavigationItem>
+            <Link to="/">Calendar</Link>
+          </NavigationItem>
+          <NavigationItem>
             <Link to="/orders">Orders</Link>
-          </li>
-        </ul>
-      </nav>
+          </NavigationItem>
+        </NavigationList>
+      </Navigation>
 
       <Switch>
-        <Route path="/calendar">
+        <Route path="/">
           <Calendar />
         </Route>
         <Route path="/orders">
           <Orders />
-        </Route>
-        <Route path="/">
-          <Home />
         </Route>
       </Switch>
     </Router>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Separate } from './Separate';
 import { Table } from './Table';
 import { ScheduleProps } from './interfaces';
-import { Preloader } from 'common/components/Preloader';
+import { Preloader } from 'components/Preloader';
 import { useScheduleData } from './hooks/useScheduleData';
 
 import { Container, LoaderContainer, DaysColumn, DayCell } from './styles';

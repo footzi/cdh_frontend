@@ -5,7 +5,7 @@
       "constants/*": ["./src/constants/*"],
       "api": ["./src/api/index"],
       "colors": ["./src/constants/colors"],
-      "common/*": ["./src/common/*"],
+      "components/*": ["./src/components/*"],
       "icons": ["./src/icons"],
       "interfaces": ["./src/interfaces"],
       "utils/*": ["./src/utils/*"],

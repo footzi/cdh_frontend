@@ -1,13 +1,15 @@
 import React, { useMemo } from 'react';
 import { Transition } from 'react-transition-group';
 import { STATUSES_ORDER, TRANSITION_GROUP_DEFAULT_TIMEOUT } from 'constants/index';
-import { getFullDate } from 'utils/index';
+import { getFullDate } from 'utils/getFullDate';
 import { TooltipProps } from '../interfaces';
 import { BookingButton, Container, Content, Date, Header, Room, Status } from './styles';
 
 export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
   const cell = data?.cell;
   const newOrder = data?.newOrder;
+  const start = data?.start;
+  const end = data?.end;
   const isBooking = !!newOrder;
 
   const order = cell?.order;
@@ -16,9 +18,9 @@ export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
     return null;
   }
 
-  const date = useMemo(() => {
-    return order && getFullDate(order.start);
-  }, [data]);
+  const date = useMemo(() => start && getFullDate(start), [data]);
+
+  const interval = useMemo(() => newOrder && (start !== end ? `${start} - ${end}` : start), [data]);
 
   return (
     <Transition in={Boolean(data)} timeout={TRANSITION_GROUP_DEFAULT_TIMEOUT} unmountOnExit>
@@ -26,7 +28,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
         <Container className={`fade-${state}`} coords={coords} data-id="tooltip">
           <Content>
             <Header isBooking={isBooking}>
-              <Date>{isBooking ? newOrder?.interval : date}</Date>
+              <Date>{isBooking ? interval : date}</Date>
               <Room>
                 <span>Номер</span> {isBooking ? newOrder?.room?.name : order?.room?.name}
               </Room>
