@@ -6,7 +6,7 @@ export const YEAR_DROPDOWN_STYLES = {
 
 export const MONTH_DROPDOWN_STYLES = {
   backgroundColor: COLORS.DARK_GREY,
-  titleSize: '18px',
+  titleSize: '14px',
   arrowColor: COLORS.BLACK,
   arrowMarginRight: '25px',
   marginAround: '20px',

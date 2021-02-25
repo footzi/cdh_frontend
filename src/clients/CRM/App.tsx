@@ -1,35 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Logo } from 'components/Logo';
-import { Calendar } from './Pages/Calendar';
-import { Orders } from './Pages/Orders';
-import { Header, Navigation, NavigationList, NavigationItem } from './styles';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Header, Navigation, Layout } from './components';
+import { Calendar, Orders } from './Pages';
 
-export const App: React.FC = () => {
-  return (
-    <Router>
-      <Header>
-        <Logo />
-      </Header>
-      <Navigation>
-        <NavigationList>
-          <NavigationItem>
-            <Link to="/">Calendar</Link>
-          </NavigationItem>
-          <NavigationItem>
-            <Link to="/orders">Orders</Link>
-          </NavigationItem>
-        </NavigationList>
-      </Navigation>
+export const App: React.FC = () => (
+  <Router>
+    <Layout>
+      <Header />
+      <Navigation />
 
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <Calendar />
         </Route>
-        <Route path="/orders">
+        <Route path="/orders" exact>
           <Orders />
         </Route>
       </Switch>
-    </Router>
-  );
-};
+    </Layout>
+  </Router>
+)

@@ -10,12 +10,12 @@ export const RoomColumn = styled.div`
 `;
 
 export const RoomName = styled.div`
-  width: 56px;
-  height: 56px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 14px;
   color: ${COLORS.BLACK};
   background-color: ${COLORS.LIGHT_GREY};
   margin-bottom: 2px;

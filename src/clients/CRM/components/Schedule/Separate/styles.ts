@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { COLORS } from 'colors';
 
 export const Container = styled.div`
-  width: 130px;
-  height: 56px;
+  width: 100px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,7 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.span`
-  font-size: 14px;
+  font-size: 10px;
   color: ${COLORS.BLACK};
   position: relative;
   z-index: 2;

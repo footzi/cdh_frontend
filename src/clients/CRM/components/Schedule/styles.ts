@@ -14,12 +14,12 @@ export const LoaderContainer = styled.div`
 export const DaysColumn = styled.div``;
 
 export const DayCell = styled.div`
-  width: 130px;
-  height: 35px;
+  width: 100px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 14px;
   color: ${COLORS.BLACK};
   background-color: ${COLORS.MIDDLE_GREY};
   margin-bottom: 2px;

@@ -10,7 +10,7 @@ export const Wrapper = styled.div<WrapperProps>`
 
 export const Header = styled.button<HeaderProps>`
   width: 100%;
-  height: 56px;
+  height: 42px;
   background-color: ${({ backgroundColor }) => backgroundColor || COLORS.LIGHT_ORANGE};
   border-radius: ${({ borderRadius }) => borderRadius || '10px'};
   display: flex;
@@ -24,9 +24,9 @@ export const Header = styled.button<HeaderProps>`
 `;
 
 export const Title = styled.span<TitleProps>`
-  font-size: ${({ size }) => size || '22px'};
+  font-size: ${({ size }) => size || '16px'};
   color: ${({ color }) => color || COLORS.WHITE};
-  margin-left: 35px;
+  margin-left: 20px;
 `;
 
 export const RightBlock = styled.div`
@@ -54,6 +54,7 @@ export const Content = styled.div`
 
 export const ArrowButton = styled.div<ArrowButtonProps>`
   svg {
+    width: 15px;
     transition: transform 0.3s;
     transform: ${({ isOpen }) => (isOpen ? 'rotate(0)' : 'rotate(180deg)')};
   }

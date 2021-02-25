@@ -3,8 +3,8 @@ import { COLORS } from 'colors';
 import { STATUSES_ORDER } from 'constants/index';
 
 export const Status = styled.div<{ status: string; isSelected: boolean }>`
-  width: 55px;
-  height: 33px;
+  width: 40px;
+  height: 25px;
   display: flex;
   background-color: ${COLORS.LIGHT_GREEN};
   margin-bottom: 2px;
