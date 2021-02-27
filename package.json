@@ -5,6 +5,7 @@
   "main": "./src/index.tsx",
   "scripts": {
     "start": "webpack serve",
+    "build": "webpack --production",
     "lint": "tsc && eslint src/**/*.{js,jsx,ts,tsx}",
     "test": "jest",
     "tsc": "tsc"
@@ -16,6 +17,7 @@
     "axios-hooks": "^2.3.0",
     "cross-env": "^7.0.3",
     "dayjs": "^1.10.4",
+    "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-popper-tooltip": "^4.0.1",

@@ -9,7 +9,7 @@
       "icons": ["./src/icons"],
       "interfaces": ["./src/interfaces"],
       "utils/*": ["./src/utils/*"],
-      "CRM/*": ["./src/clients/CRM/*"]
+      "crm/*": ["./src/clients/crm/*"]
     }
   }
 }

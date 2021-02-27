@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    app: path.join(__dirname, 'src', 'index.tsx'),
+    crm: path.join(__dirname, 'src/clients/crm', 'index.tsx'),
   },
   target: 'web',
   resolve: {
@@ -16,7 +16,7 @@ module.exports = {
       icons: path.resolve(__dirname, 'src/icons'),
       interfaces: path.resolve(__dirname, 'src/interfaces'),
       components: path.resolve(__dirname, 'src/components'),
-      CRM: path.resolve(__dirname, 'src/clients/CRM/'),
+      crm: path.resolve(__dirname, 'src/clients/crm/'),
       utils: path.resolve(__dirname, 'src/utils/'),
     },
   },

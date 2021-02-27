@@ -1,6 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import { Dropdown, Schedule } from 'CRM/components';
+import { Dropdown, Schedule } from 'crm/components';
 import { YEAR_DROPDOWN_STYLES, MONTH_DROPDOWN_STYLES, YEARS_AND_MONTHS_SCHEDULE } from './constants';
 import { Container } from './styles';
 
