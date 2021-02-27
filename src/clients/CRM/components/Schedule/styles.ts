@@ -3,6 +3,9 @@ import { COLORS } from 'colors';
 
 export const Container = styled.div`
   display: flex;
+  justify-content: center;
+  margin-top: 2px;
+  margin-bottom: 10px;
 `;
 
 export const LoaderContainer = styled.div`

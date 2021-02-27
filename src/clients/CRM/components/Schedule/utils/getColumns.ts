@@ -18,7 +18,7 @@ export const getColumns = ({ data, days, month, year }: GetColumnsProps): Maybe<
 
       return {
         day,
-        order: { id: 0, status: STATUSES_ORDER.FREE, start, end: '', room },
+        order: { id: 0, uuid: '', status: STATUSES_ORDER.FREE, start, end: '', room },
       };
     });
 

@@ -40,13 +40,13 @@ export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
 
                 {order.status === STATUSES_ORDER.NOT_PAID && (
                   <Status status={order.status}>
-                    Забронировано. <a href={`/order/${order.id}`}>№{order.id}</a>
+                    Забронировано. <a href={`/order/${order.uuid}`}>№{order.uuid}</a>
                   </Status>
                 )}
 
                 {order.status === STATUSES_ORDER.PAID && (
                   <Status status={order.status}>
-                    Оплачено. <a href={`/order/${order.id}`}>№{order.id}</a>
+                    Оплачено. <a href={`/order/${order.uuid}`}>№{order.uuid}</a>
                   </Status>
                 )}
               </>

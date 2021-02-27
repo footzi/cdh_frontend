@@ -19,4 +19,4 @@ export const App: React.FC = () => (
       </Switch>
     </Layout>
   </Router>
-)
+);

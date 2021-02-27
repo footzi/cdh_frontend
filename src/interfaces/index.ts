@@ -15,6 +15,7 @@ export interface RoomDataResponse {
 
 export interface OrderDataResponse {
   id: number;
+  uuid: string;
   start: string;
   end: string;
   room: RoomDataResponse;

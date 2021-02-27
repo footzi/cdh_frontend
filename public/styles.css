@@ -23,11 +23,27 @@ code {
 }
 
 @font-face {
+    font-display: swap;
+    font-family: 'Roboto';
+    src: url('./static/fonts/Roboto-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
   font-display: swap;
   font-family: 'Roboto';
   src: url('./static/fonts/Roboto-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Roboto';
+    src: url('./static/fonts/Roboto-MediumItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
 }
 
 button {

@@ -29,7 +29,7 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.span`
-  font-size: 10px;
+  font-size: 12px;
   color: ${COLORS.BLACK};
   position: relative;
   z-index: 2;
