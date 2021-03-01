@@ -4,8 +4,8 @@
   "description": "Cat Dog House project",
   "main": "./src/index.tsx",
   "scripts": {
-    "start": "webpack serve",
-    "build": "webpack --mode=production",
+    "start": "env-cmd -f .env.development webpack serve",
+    "build": "env-cmd -f .env.production webpack --mode=production",
     "lint": "tsc && eslint src/**/*.{js,jsx,ts,tsx}",
     "test": "jest",
     "tsc": "tsc"
@@ -17,6 +17,7 @@
     "axios-hooks": "^2.3.0",
     "cross-env": "^7.0.3",
     "dayjs": "^1.10.4",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
+    "@prettier/plugin-pug": "^1.13.5",
     "@types/jest": "^26.0.20",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-transition-group": "^4.4.0",

@@ -7,5 +7,6 @@
   "endOfLine": "auto",
   "jsxBracketSameLine": true,
   "printWidth": 120,
-  "quoteProps": "consistent"
+  "quoteProps": "consistent",
+  "pugTabWidth": 2
 }

@@ -1,0 +1,91 @@
+@import '../../../../constants/colors';
+
+.header {
+  margin-top: 22px;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+.header__top {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.header__logo {
+  width: 390px;
+}
+
+.header__phone {
+  margin-top: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px 15px 20px 15px;
+  text-align: right;
+}
+
+.header__phone-value {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.header__phone-link {
+  font-weight: 300;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: underline;
+  color: $ORANGE;
+}
+
+.header__navigation {
+  margin-top: 30px;
+  position: relative;
+}
+
+.header__navigation-list {
+  display: flex;
+  justify-content: center;
+}
+
+.header__navigation-link {
+  font-size: 18px;
+  line-height: 29px;
+  transition: 0.3s color;
+  color: $DARK_GREY;
+  margin-left: 25px;
+  margin-right: 25px;
+
+  &:hover {
+    text-decoration: underline;
+    color: $BLACK;
+  }
+
+  &.is-active {
+    text-decoration: underline;
+    color: $BLACK;
+  }
+}
+
+.header__cabinet {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.header__cabinet-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: $ORANGE;
+}
+
+.header__cabinet-icon {
+  width: 34px;
+  margin-left: 10px;
+  display: block;
+}
