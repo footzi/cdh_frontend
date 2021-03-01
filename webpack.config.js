@@ -1,10 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+console.log(isProduction);
 
 module.exports = {
   mode: 'development',
   entry: {
-    crm: path.join(__dirname, 'src/clients/crm', 'index.tsx'),
+    app: path.join(__dirname, 'src', 'index.tsx'),
+    site: path.join(__dirname, 'src/clients/site', 'index.js'),
   },
   target: 'web',
   resolve: {
@@ -38,6 +45,18 @@ module.exports = {
         use: 'ts-loader',
         exclude: '/node_modules/',
       },
+      {
+        test: /\.pug$/,
+        loader: 'pug-loader',
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [isProduction ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader'],
+      },
+      // {
+      //   test: /\.s[ac]ss$/i,
+      //   use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      // },
     ],
   },
   output: {
@@ -45,9 +64,19 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html'),
+      inject: true,
+      chunks: ['app'],
     }),
+    new HtmlWebpackPlugin({
+      template: './src/clients/site/index.pug',
+      inject: true,
+      filename: './site/index.html',
+      chunks: ['site'],
+    }),
+    new MiniCssExtractPlugin(),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'public'),
