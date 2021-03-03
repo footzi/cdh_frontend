@@ -1,0 +1,37 @@
+@import '../../styles/colors';
+
+.firstscreen {
+  position: relative;
+  height: 620px;
+  margin-top: 15px;
+}
+
+.firstscreen__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.firstscreen__content {
+  padding-top: 90px;
+  margin-left: 300px;
+  color: $WHITE;
+  max-width: 640px;
+  position: relative;
+}
+
+.firstscreen__title {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 57px;
+}
+
+.firstscreen__text {
+  margin-top: 26px;
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 29px;
+}

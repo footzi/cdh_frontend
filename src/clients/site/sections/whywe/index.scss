@@ -1,0 +1,44 @@
+@import '../../styles/colors';
+
+.whywe {
+  width: 900px;
+  position: relative;
+  margin-top: -90px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 45px 70px 35px 70px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.16);
+  border-radius: 30px;
+  background-color: $WHITE;
+}
+
+.whywe__title {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 48px;
+  color: $BLACK;
+  text-align: center;
+}
+
+.whywe__list {
+  margin-top: 25px;
+}
+
+.whywe__item {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 38px;
+  margin-bottom: 25px;
+  color: $DARK_GREY;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.whywe__cat {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: -15px;
+	margin-right: -60px;
+}
