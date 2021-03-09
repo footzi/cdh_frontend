@@ -1,9 +1,9 @@
 @import '../../styles/colors';
+@import '../../styles/mixins';
 
 .header {
-  margin-top: 22px;
-  margin-left: 90px;
-  margin-right: 90px;
+	@include layout();
+  margin-top: 15px;
 }
 
 .header__top {
@@ -13,32 +13,57 @@
 }
 
 .header__logo {
-  width: 390px;
+  width: 320px;
+}
+
+.header__right-side {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .header__phone {
   margin-top: 15px;
-  position: absolute;
-  top: 0;
-  right: 0;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  padding: 10px 15px 20px 15px;
+  padding: 10px;
   text-align: right;
+  font-size: 10px;
+  line-height: 12px;
 }
 
 .header__phone-value {
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-weight: 400;
+  margin-bottom: 5px;
 }
 
 .header__phone-link {
   font-weight: 300;
   font-style: italic;
-  font-size: 14px;
-  line-height: 16px;
   text-decoration-line: underline;
   color: $ORANGE;
+}
+
+.header__social {
+  display: flex;
+	margin-top: 15px;
+}
+
+.header__social-item {
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.header__social-link {
+  transition: transform 0.3s;
+  display: block;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .header__navigation {
@@ -52,8 +77,8 @@
 }
 
 .header__navigation-link {
-  font-size: 18px;
-  line-height: 29px;
+  font-size: 14px;
+  line-height: 16px;
   transition: 0.3s color;
   color: $DARK_GREY;
   margin-left: 25px;
@@ -68,24 +93,8 @@
     text-decoration: underline;
     color: $BLACK;
   }
-}
 
-.header__cabinet {
-  position: absolute;
-  top: -12px;
-  right: 0;
-  display: flex;
-  align-items: flex-end;
-}
-
-.header__cabinet-link {
-  font-size: 14px;
-  font-weight: 600;
-  color: $ORANGE;
-}
-
-.header__cabinet-icon {
-  width: 34px;
-  margin-left: 10px;
-  display: block;
+	&_theme_accent {
+		color: $ORANGE;
+	}
 }

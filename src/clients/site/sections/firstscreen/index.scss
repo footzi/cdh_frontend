@@ -1,6 +1,8 @@
 @import '../../styles/colors';
+@import '../../styles/grid';
 
 .firstscreen {
+	@include row();
   position: relative;
   height: 620px;
   margin-top: 15px;
@@ -16,6 +18,7 @@
 }
 
 .firstscreen__content {
+	@include column(10, 15);
   padding-top: 90px;
   margin-left: 300px;
   color: $WHITE;

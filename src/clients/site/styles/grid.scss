@@ -1,0 +1,15 @@
+$COUNT_COLUMNS: 24;
+
+@mixin row() {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+@mixin column($column, $context: $COUNT_COLUMNS) {
+  max-width: $column / $context * 100%;
+  flex-basis: $column / $context * 100%;
+}
+
+@mixin suffix($column, $context: $COUNT_COLUMNS) {
+  padding-right: $column / $context * 100%;
+}
