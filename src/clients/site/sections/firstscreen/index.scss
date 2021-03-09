@@ -1,10 +1,11 @@
 @import '../../styles/colors';
 @import '../../styles/grid';
+@import '../../styles/mixins';
 
 .firstscreen {
-	@include row();
+  @include row();
   position: relative;
-  height: 620px;
+  height: 465px;
   margin-top: 15px;
 }
 
@@ -17,24 +18,42 @@
   object-fit: cover;
 }
 
+.firstscreen__content-wrapper {
+  @include layout();
+}
+
 .firstscreen__content {
-	@include column(10, 15);
-  padding-top: 90px;
-  margin-left: 300px;
-  color: $WHITE;
-  max-width: 640px;
+  @include column(23);
+  padding-top: 100px;
   position: relative;
 }
 
 .firstscreen__title {
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 57px;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 35px;
+  margin-bottom: 5px;
+  color: $WHITE;
 }
 
 .firstscreen__text {
-  margin-top: 26px;
-  margin-bottom: 40px;
-  font-size: 18px;
-  line-height: 29px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #e2e0e0;
+  font-weight: 400;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.firstscreen__text-accent {
+  color: $ORANGE;
+}
+
+.firstscreen__button {
+  @include column(9.3, 23);
+  margin-top: 40px;
+  margin-left: auto;
 }

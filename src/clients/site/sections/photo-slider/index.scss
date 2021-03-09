@@ -1,0 +1,22 @@
+@import '../../styles/colors';
+@import '../../styles/grid';
+@import '../../styles/mixins';
+
+.photo-slider {
+	@include layout();
+	margin-top: 38px;
+	margin-bottom: 56px;
+	position: relative;
+
+	.owl-nav {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.nav-button {
+		width: 30px;
+		height: 90px;
+		background-image: url('../../icons/slider-arrow.svg');
+	}
+}

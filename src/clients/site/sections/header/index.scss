@@ -2,7 +2,7 @@
 @import '../../styles/mixins';
 
 .header {
-	@include layout();
+  @include layout();
   margin-top: 15px;
 }
 
@@ -24,16 +24,12 @@
 
 .header__phone {
   margin-top: 15px;
-  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  padding: 10px;
   text-align: right;
   font-size: 10px;
   line-height: 12px;
 }
 
 .header__phone-value {
-  font-weight: 400;
   margin-bottom: 5px;
 }
 
@@ -46,11 +42,11 @@
 
 .header__social {
   display: flex;
-	margin-top: 15px;
+  margin-top: 23px;
 }
 
 .header__social-item {
-  margin-right: 10px;
+  margin-right: 12px;
 
   &:last-child {
     margin-right: 0;
@@ -67,8 +63,7 @@
 }
 
 .header__navigation {
-  margin-top: 30px;
-  position: relative;
+  margin-top: 35px;
 }
 
 .header__navigation-list {
@@ -94,7 +89,7 @@
     color: $BLACK;
   }
 
-	&_theme_accent {
-		color: $ORANGE;
-	}
+  &_theme_accent {
+    color: $ORANGE;
+  }
 }
