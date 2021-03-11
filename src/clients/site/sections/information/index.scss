@@ -1,0 +1,74 @@
+@import '../../styles/colors';
+@import '../../styles/grid';
+@import '../../styles/mixins';
+
+.information {
+	@include layout();
+	color: $BLACK;
+	padding-top: 85px;
+}
+
+.information__title {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 33px;
+	text-align: center;
+}
+
+.information__content {
+	@include suffix(4, 48);
+	@include prefix(4, 48);
+	margin-top: 40px;
+	margin-bottom: 106px;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 16px;
+
+	b {
+		font-weight: 500;
+	}
+}
+
+.information__content-item {
+	@include prefix(2, 40);
+	padding-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 2px solid $MIDDLE_GREY;
+}
+
+.information__content-title {
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 21px;
+	color: $ORANGE;
+	margin-bottom: 25px;
+}
+
+.information__content-description {
+	@include post(1, 40);
+}
+
+//.information__text {
+//	font-weight: 300;
+//	font-size: 14px;
+//	line-height: 16px;
+//
+//	&_theme_bold {
+//		font-weight: 500;
+//	}
+//}
+//.information__text-underline {
+//	text-decoration: underline;
+//}
+
+.information__list {
+	@include prefix(2, 40);
+}
+.information__text-accent {
+	font-style: italic;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 16px;
+	color: $LIGHT_ORANGE;
+}
