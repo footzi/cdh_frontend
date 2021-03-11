@@ -1,67 +1,122 @@
 @import '../../styles/colors';
+@import '../../styles/grid';
+@import '../../styles/mixins';
 
 .rooms {
-  padding-top: 60px;
-  padding-right: 350px;
-  padding-left: 350px;
-  background-color: $LIGHT_ORANGE;
+  padding-top: 10px;
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 495px;
+    background-color: $LIGHT_ORANGE;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+  }
+}
+
+.rooms__paws {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.rooms__content-wrapper {
+  @include layout();
+  position: relative;
+  z-index: 1;
+}
+
+.rooms__content {
+  @include prefix(2, 48);
+  @include suffix(2, 48);
+  margin-top: 35px;
+  color: $WHITE;
 }
 
 .rooms__title {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 48px;
-  line-height: 76px;
-  color: $WHITE;
+  font-size: 28px;
+  line-height: 33px;
+  font-weight: 500;
+}
+
+.rooms__text-main {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  margin-top: 30px;
+  margin-bottom: 35px;
 }
 
 .rooms__text {
-  margin-top: 25px;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 38px;
-  color: $WHITE;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
 }
 
 .rooms__items {
-  margin-top: 80px;
+  margin-top: 50px;
   display: flex;
 }
 
 .rooms__item {
-  width: 550px;
-  padding: 45px 60px 60px 60px;
+  @include column(20, 44);
+  @include push(3, 44);
+  padding-top: 30px;
+  padding-bottom: 45px;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.14);
-  border-radius: 48px;
+  border-radius: 22px;
   background-color: $WHITE;
   color: $BLACK;
+
+  &:last-child {
+    @include push(0);
+  }
 }
 
 .rooms__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-left: 15px;
+  }
 }
 
 .rooms__header-title {
   font-weight: 600;
-  font-size: 36px;
-  line-height: 57px;
+  font-size: 26px;
+  line-height: 41px;
   text-align: center;
 }
 
 .rooms__image {
+  @include post(2, 20);
+  @include push(2, 20);
   background: #f2f2f2;
   border-radius: 12px;
-  height: 220px;
-  margin-top: 28px;
+  height: 195px;
+  margin-top: 25px;
+}
+
+.rooms__list-container {
+  position: relative;
 }
 
 .rooms__list {
+  @include post(2, 20);
   margin-top: 40px;
 }
 
 .rooms__list-item {
   font-weight: normal;
-  font-size: 18px;
-  line-height: 29px;
+  font-size: 14px;
+  line-height: 16px;
   margin-bottom: 3px;
 
   &:last-child {
@@ -71,20 +126,28 @@
 
 .rooms__price {
   border-radius: 30px 0 0 30px;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 35px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
   color: $WHITE;
-  background-color: $ORANGE;
-  width: 110px;
-  padding: 10px 25px;
+  background-color: $MEDIUM_GREEN;
+  width: 90px;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
 }
 
 .rooms__booking {
-  margin-top: 45px;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 29px;
-  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
   color: $ORANGE;
+}
+
+.rooms__booking-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
 }

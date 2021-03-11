@@ -1,22 +1,44 @@
 section.rooms
-    h2.rooms__title Наши номера
-    p.rooms__text Какое-то небольшое описание или вступление бла бла Какое-то небольшое описание или вступление бла бла гакое-то небольшое описание или вступление бла бла
-    .rooms__items
+  img.rooms__paws(src='../images/paws.svg', alt='Лапки')
+  .rooms__content-wrapper
+    .rooms__content
+      h2.rooms__title Наши номера
+      p.rooms__text-main Каждый день котик будет иметь возможнось побегать и поиграть вне своего номера.
+      p.rooms__text В наших номерах есть <b>все необходимое</b> для комфортного проживания питомца на время вашего отъезда.
+      p.rooms__text Уборка номеров осуществляется <b>ежедневно</b>, при необходимости - чаще.
+      .rooms__items
         .rooms__item
-            .rooms__header
-                h3.rooms__header-title Комфорт
-                <svg width="14" height="24" viewBox="0 0 14 24" fill="none">
-                    <path d="M2 2L11.2929 11.2929C11.6834 11.6834 11.6834 12.3166 11.2929 12.7071L2 22" stroke="#333333" stroke-width="3"/>
-                </svg>
-            .rooms__image
+          .rooms__header
+            h3.rooms__header-title Комфорт
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 1L7.44218 7.34921C7.76317 7.7237 7.76317 8.2763 7.44218 8.65079L2 15" stroke="#333333" stroke-width="3"/>
+              </svg>
+          .rooms__image
+          .rooms__list-container
             ul.rooms__list
-                li.rooms__list-item - Площадь номера 4м2
-                li.rooms__list-item - Площадь номера 4м2
-                li.rooms__list-item - Площадь номера 4м2
-                li.rooms__list-item - Площадь номера 4м2
-                li.rooms__list-item - Площадь номера 4м2
+              li.rooms__list-item - Теплый и удобный номер
+              li.rooms__list-item - Лоток и миски включены в стоимость
+              li.rooms__list-item - Домик
+              li.rooms__list-item - Когтеточка
+              li.rooms__list-item - Видеонаблюдение 24/7
             .rooms__price 550 p
+          .rooms__booking-container
             button.rooms__booking Забронировать номер
 
-
-
+        .rooms__item
+          .rooms__header
+            h3.rooms__header-title Люкс
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 1L7.44218 7.34921C7.76317 7.7237 7.76317 8.2763 7.44218 8.65079L2 15" stroke="#333333" stroke-width="3"/>
+              </svg>
+          .rooms__image
+          .rooms__list-container
+            ul.rooms__list
+              li.rooms__list-item - Более просторный номер
+              li.rooms__list-item - Лоток и миски включены в стоимость
+              li.rooms__list-item - Домик
+              li.rooms__list-item - Когтеточка
+              li.rooms__list-item - Видеонаблюдение 24/7
+            .rooms__price 550 p
+          .rooms__booking-container
+            button.rooms__booking Забронировать номер

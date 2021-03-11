@@ -13,3 +13,15 @@ $COUNT_COLUMNS: 48;
 @mixin suffix($column, $context: $COUNT_COLUMNS) {
   padding-right: $column / $context * 100%;
 }
+
+@mixin prefix($column, $context: $COUNT_COLUMNS) {
+	padding-left: $column / $context * 100%;
+}
+
+@mixin post($column, $context: $COUNT_COLUMNS) {
+	margin-left: $column / $context * 100%;
+}
+
+@mixin push($column, $context: $COUNT_COLUMNS) {
+	margin-right: $column / $context * 100%;
+}

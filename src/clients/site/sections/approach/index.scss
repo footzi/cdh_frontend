@@ -1,0 +1,69 @@
+@import '../../styles/colors';
+@import '../../styles/grid';
+@import '../../styles/mixins';
+
+.approach {
+  @include layout();
+  margin-top: 115px;
+  margin-bottom: 80px;
+}
+
+.approach__title {
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 41px;
+  color: $ORANGE;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: $ORANGE;
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+}
+
+.approach__list {
+  @include suffix(6);
+  @include prefix(4);
+  margin-top: 56px;
+  color: $DARK_GREY;
+}
+
+.approach__item {
+  display: flex;
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 34px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.approach__item-icon {
+  margin-top: 5px;
+}
+
+.approach__item-text {
+  margin-left: 25px;
+}
+
+.approach__link {
+  @include post(6);
+  margin-top: 35px;
+}
