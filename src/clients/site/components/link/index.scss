@@ -1,4 +1,4 @@
-@import '../styles/colors';
+@import '../../styles/colors';
 
 .link {
 	background-color: transparent;
@@ -9,7 +9,7 @@
 	line-height: 16px;
 	font-weight: 400;
 	font-style: italic;
-	display: block;
+	display: inline-block;
 
 	&:hover {
 		text-decoration: none;

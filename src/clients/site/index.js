@@ -1,5 +1,6 @@
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
+import './components/dropdown';
 import './index.scss';
 
 $(document).ready(function () {

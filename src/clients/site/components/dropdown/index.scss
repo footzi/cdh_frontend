@@ -1,0 +1,53 @@
+@import '../../styles/colors';
+
+.dropdown {
+  &:hover {
+    .dropdown__header-title {
+      color: $ORANGE;
+    }
+  }
+
+  &.is-open {
+    .dropdown__array {
+      transform: rotate(180deg);
+    }
+
+    .dropdown__header-title {
+      color: $ORANGE;
+    }
+  }
+}
+
+.dropdown__header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &:hover path {
+    transition: fill 0.3s;
+    fill: $BLACK;
+  }
+}
+
+.dropdown__header-title {
+  transition: color 0.3s;
+  color: $BLACK;
+}
+
+.dropdown__container {
+  transition: height 0.3s;
+  height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.dropdown__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.dropdown__array {
+  transition: transform 0.3s;
+}

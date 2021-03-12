@@ -1,24 +1,79 @@
 section.information
   h2.information__title Полезная информация
   .information__content
-    .information__content-item
-      h3.information__content-title Условия приема животных
-      .information__content-description
-        div
-          b Животное должно:
-          ul.information__list
-            li - быть домашним
-            li - не иметь инфекционных заболеваний или хронических болезней, требующих лечения
-            li - иметь <u>ветеринарный паспорт</u>, где должны быть проставлены все необходимые прививки
-        p
-          b Мы НЕ принимаем:
-          span беременных кошек и котят возрастом до 4х месяцев.
+    .information__content-item.dropdown(data-dropdown-open-default='true')
+      .dropdown__header
+        h3.information__content-title.dropdown__header-title Условия приема животных
+        include ../../components/dropdown/arrow
+      .dropdown__container
+        .information__content-description.dropdown__content
+          div
+            b Животное должно:
+            ul.information__list
+              li - быть домашним
+              li - не иметь инфекционных заболеваний или хронических болезней, требующих лечения
+              li - иметь <u>ветеринарный паспорт</u>, где должны быть проставлены все необходимые прививки
+          p
+            b Мы НЕ принимаем:
+            span беременных кошек и котят возрастом до 4х месяцев.
 
-    .information__content-item
-      h3.information__content-title Что взять с собой?
-      .information__content-description
-        ul.information__list
-          li - <u>корм</u> на весь период пребывния питомца в готинице
-          li - <u>наполнитель</u>
-        p.information__text-accent При необходимости, корм и наполнитель можно приобрести у нас.
-        p В нашей гостинице есть все необходимое для проживания вашего питомца. Однако, для <b>лучшей адаптации</b> питомца вы можете привезти с собой <b>знакомые ему вещи:</b> миски, лоток, игрушки, лежак
+    .information__content-item.dropdown(data-dropdown-open-default='true')
+      .dropdown__header
+        h3.information__content-title.dropdown__header-title Что взять с собой?
+        include ../../components/dropdown/arrow
+      .dropdown__container
+        .information__content-description.dropdown__content
+          ul.information__list
+            li - <u>корм</u> на весь период прибывания питомца в гостинице
+            li - <u>наполнитель</u>
+          p.information__text-accent При необходимости, корм и наполнитель можно приобрести у нас.
+          p В нашей гостинице есть все необходимое для проживания вашего питомца. Однако, для <b>лучшей адаптации</b> питомца вы можете привезти с собой <b>знакомые ему вещи:</b> миски, лоток, игрушки, лежак
+
+    .information__content-item.dropdown(data-dropdown-open-default='true')
+      .dropdown__header
+        h3.information__content-title.dropdown__header-title Как происходит заезд/отъезд?
+        include ../../components/dropdown/arrow
+      .dropdown__container
+        .information__content-description.dropdown__content
+          p Заезд и выезд животного из гостиницы осуществляется <b>в рабочие часы с 10.00 до 21.00.</b>
+          p.information__text-accent Возможен более ранний или более поздний заезд/выезд, при уведомлении об это заранее.
+          span При заезде:
+          ul.information__list
+            li - мы проверяем ветеринарный паспорт и наличие необходимых прививок у животного
+            li - осматриваем питомца
+            li - заключаем договор с владельцем котика, подписываем акт-приема животного
+          span.information__text-warning Важно
+          b <u>Возьмите с собой свой паспорт, он необходим при составлении договора.</u>
+
+    .information__content-item.dropdown(data-dropdown-open-default='true')
+      .dropdown__header
+        h3.information__content-title.dropdown__header-title Как происходит оплата?
+        include ../../components/dropdown/arrow
+      .dropdown__container
+        .information__content-description.dropdown__content
+          span По желанию вы можете выбрать один из вариантов внесения оплаты:
+          ul.information__list
+            li - при бронировании через сайт
+            li - в день заезда
+          i Мы принимаем как <u>наличные</u>, так и <u>банковские карты</u>.
+
+    .information__content-item.dropdown(data-dropdown-open-default='true')
+      .dropdown__header
+        h3.information__content-title.dropdown__header-title Какие документы вы получите?
+        include ../../components/dropdown/arrow
+      .dropdown__container
+        .information__content-description.dropdown__content
+          ul.information__list
+            li - договор на оказание услуг
+            li - акт приема-передачи животного
+            li - пароль для доступа к онлайн-видеонаблюдению
+
+    .information__content-item.dropdown(data-dropdown-open-default='true')
+      .dropdown__header
+        h3.information__content-title.dropdown__header-title Как пользоваться видеонаблюдением?
+        include ../../components/dropdown/arrow
+      .dropdown__container
+        .information__content-description.dropdown__content
+          p <b>При заселении вы получите пароль</b> ( он будет указан в договоре, а также придет вам на вашу электронную почту).
+          p На сайте вам необходимо будет перейти в раздел “ВИДЕОНАБЛЮДЕНИЕ” или перейти по <a class="link" href="#">ссылке</a>, и ввести пароль в нужное поле.
+          p <b>Таким образом вы сможете наблюдать за вашим питомцем в режиме онлайн, в любое время 24/7.</b>
