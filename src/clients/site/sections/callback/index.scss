@@ -1,0 +1,37 @@
+@import '../../styles/colors';
+@import '../../styles/grid';
+@import '../../styles/mixins';
+
+.callback {
+  @include layout();
+  margin-top: 90px;
+  border-bottom: 3px solid $ORANGE;
+}
+
+.callback__title {
+  font-size: 28px;
+  line-height: 33px;
+  font-weight: 500;
+  color: $ORANGE;
+  text-align: center;
+}
+
+.callback__form {
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+.callback__form-item {
+  @include column(10);
+  margin-left: 15px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.callback__cat {
+  margin-top: 60px;
+  margin-bottom: 10px;
+}

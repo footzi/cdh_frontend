@@ -1,12 +1,14 @@
-@import 'components/button';
-@import 'components/link';
+@import './components/button';
+@import './components/link';
 @import './components/dropdown';
+@import './components/input';
 
 @import './sections/header';
 @import './sections/firstscreen';
 @import './sections/photo-slider';
-@import './sections/whywe';
 @import './sections/rooms';
 @import './sections/approach';
 @import './sections/advantages';
 @import './sections/information';
+@import './sections/callback';
+@import './sections/reviews';

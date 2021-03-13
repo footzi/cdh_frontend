@@ -5,7 +5,7 @@
 .information {
   @include layout();
   color: $BLACK;
-  padding-top: 85px;
+  padding-top: 90px;
 }
 
 .information__title {
@@ -70,4 +70,15 @@
   font-weight: 500;
   color: $ORANGE;
   text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.information__content-margin-mini {
+  margin-top: 10px;
+  display: block;
+}
+
+.information__content-margin-medium {
+  margin-top: 20px;
+  display: block;
 }

@@ -10,4 +10,9 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 60px;
   width: 100%;
+
+  &_theme_orange-light {
+    background-color: $LIGHT_ORANGE;
+    box-shadow: none;
+  }
 }
