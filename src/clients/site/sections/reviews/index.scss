@@ -51,8 +51,8 @@
 .reviews__text {
   @include prefix(9);
   @include suffix(9);
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 20px;
   text-align: center;
   min-height: 50px;
 }
@@ -85,8 +85,8 @@
 
 .reviews__write {
   font-weight: 300;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 18px;
   color: $DARK_GREY;
   font-style: italic;
   text-align: center;

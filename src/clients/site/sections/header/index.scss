@@ -25,19 +25,12 @@
 .header__phone {
   margin-top: 15px;
   text-align: right;
-  font-size: 10px;
-  line-height: 12px;
+  font-size: 12px;
+  line-height: 14px;
 }
 
 .header__phone-value {
   margin-bottom: 5px;
-}
-
-.header__phone-link {
-  font-weight: 300;
-  font-style: italic;
-  text-decoration-line: underline;
-  color: $ORANGE;
 }
 
 .header__social {
@@ -91,5 +84,11 @@
 
   &_theme_accent {
     color: $ORANGE;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+      color: $ORANGE;
+    }
   }
 }

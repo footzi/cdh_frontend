@@ -53,10 +53,11 @@
   &:last-child {
     margin-bottom: 0;
   }
-}
 
-.approach__item-icon {
-  margin-top: 5px;
+  svg {
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
 }
 
 .approach__item-text {

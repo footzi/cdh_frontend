@@ -45,7 +45,7 @@
 .rooms__text-main {
   font-style: italic;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 26px;
   margin-top: 30px;
   margin-bottom: 35px;
@@ -54,12 +54,13 @@
 .rooms__text {
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 5px;
 }
 
 .rooms__items {
-  margin-top: 50px;
+  margin-top: 45px;
   display: flex;
 }
 
@@ -90,8 +91,8 @@
 
 .rooms__header-title {
   font-weight: 600;
-  font-size: 26px;
-  line-height: 41px;
+  font-size: 24px;
+  line-height: 40px;
   text-align: center;
 }
 
@@ -115,9 +116,9 @@
 
 .rooms__list-item {
   font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  margin-bottom: 3px;
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 5px;
 
   &:last-child {
     margin-bottom: 0;
@@ -147,7 +148,14 @@
 }
 
 .rooms__booking-container {
+
   display: flex;
   justify-content: center;
-  margin-top: 45px;
+  margin-top: 70px;
+
+	button {
+		@include column(10, 20);
+		margin:  0 auto;
+	}
 }
+
