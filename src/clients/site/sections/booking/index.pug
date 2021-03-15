@@ -1,9 +1,41 @@
-section.booking
-  img.booking__image(src='../images/booking-cat.jpg')
-  .booking__content-container
+section.popup.booking
+  .popup__overlay
+  .popup__content
+    button.popup__close
+      include ../../components/popup/close
     .booking__content
-      .booking__header
-        h2.booking__title Безопасность и комфорт животных - это важно!
-        p.booking__text Мы хотим, чтобы вы были уверены в нас, поэтому по любым вопросам вы можете писать нам на почту <a href="#" class="link">catdoghouse@mail.ru</a> или звонить по телефону <a href="#" class="link">+7(953)1733297</a>
-      .booking__button
-        button.button Забронировать номер
+      .booking__info
+        img.booking__logo(src='../images/logo.svg', alt='Гостиница для животных')
+        .booking__contacts
+          .booking__contacts-label Наш телефон:
+          .booking__phone-section
+            .booking__contacts-phone +7(953) 173-32-97
+            a.link.link_theme_normal.link_theme_mini(href='#') Связаться со мной
+      .booking__form-section
+        .booking__tabs
+          button.booking__tab.is-active Комфорт
+          button.booking__tab Люкс
+        .booking__number-info Подробнее о номерах <a href="#" class="link link_theme_extra-mini">здесь</a>
+        form.booking__form
+          .booking__form-inputs
+            .booking__form-inputs-section
+              input.input(placeholder='Дата заезда')
+              input.input(placeholder='Ваше имя')
+            .booking__form-inputs-section
+              input.input(placeholder='Дата отъезда')
+              input.input(placeholder='Ваш телефон')
+              input.input(placeholder='Ваш e-mail')
+          input.input.booking__form-comments-input(placeholder='Комментарий')
+          .booking__cost
+            .booking__cost-title Предварительная стоимость
+            .booking__cost-value 2 500 р
+          a.link.link_theme_normal.link_theme_mini.booking__cost-info(href='#') Как происходит оплата?
+          include ../../components/checkbox/index
+          +checkbox('agreement')
+          //label.checkbox
+          //    input(type="checkbox").checkbox__input
+          //    include ../../components/checkbox/assets/mark
+          //input(type="checkbox").checkbox
+          //label.booking__agremeents
+          div(type='checkbox') Я согласен с <a href="#>политикой обработки персональных данных</a>
+          button.button.booking__submit Забронировать номер

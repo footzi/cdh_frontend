@@ -1,85 +1,129 @@
 @import '../../styles/colors';
+//@import '../../styles/mixins';
 @import '../../styles/grid';
-@import '../../styles/mixins';
 
 .booking {
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 380px;
-  color: $WHITE;
-
-  &:before {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba($BLACK, 0.6);
-  }
-}
-
-.booking__image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.booking__content-container {
-  @include layout();
-  position: relative;
-  z-index: 1;
 }
 
 .booking__content {
+  display: flex;
+  justify-content: center;
+  padding: 70px 85px 70px 85px;
 }
 
-.booking__header {
-  @include prefix(9, 48);
-  @include suffix(9, 48);
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 25px;
-
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background-color: $WHITE;
-  }
-
-  &:before {
-    left: 0;
-  }
-
-  &:after {
-    right: 0;
-  }
+.booking__info {
+  width: 50%;
 }
 
-.booking__title {
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 33px;
+.booking__form-section {
+  width: 50%;
 }
 
-.booking__text {
-  font-style: italic;
+.booking__contacts {
+  display: flex;
+  color: $BLACK;
+}
+
+.booking__contacts-label {
   font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.booking__phone-section {
+  margin-left: 30px;
+}
+
+.booking__contacts-phone {
+  font-weight: 500;
   font-size: 16px;
   line-height: 18px;
-  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
-.booking__button {
-  @include column(10, 48);
-  @include push(5, 48);
-  margin-top: 60px;
-  margin-left: auto;
+.booking__tabs {
+  display: flex;
+}
+
+.booking__tab {
+  width: 50%;
+  border: 1px solid $LIGHT_ORANGE;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 10px;
+	text-align: center;
+	color: $LIGHT_ORANGE;
+
+	&:first-child {
+		border-radius: 25px 0 0 25px;
+	}
+
+	&:last-child {
+		border-radius: 0 25px 25px 0;
+	}
+
+	&.is-active {
+		background: $LIGHT_ORANGE;
+		color: $WHITE;
+	}
+}
+
+.booking__number-info {
+	text-align: right;
+	font-style: italic;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 14px;
+	margin-top: 10px;
+}
+
+.booking__form {
+	margin-top: 50px;
+}
+
+.booking__form-inputs {
+	display: flex;
+
+	input {
+		width: 235px;
+		margin-bottom: 30px;
+	}
+}
+
+.booking__form-inputs-section {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+
+	&:last-child {
+		align-items: flex-end;
+	}
+}
+
+.booking__form-comments-input {
+	margin-top: 60px;
+	width: 100%;
+}
+
+.booking__cost {
+	margin-top: 50px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.booking__cost-title {
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.booking__cost-value {
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.booking__cost-info {
+	margin-top: 6px;
 }

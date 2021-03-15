@@ -1,0 +1,85 @@
+@import '../../styles/colors';
+@import '../../styles/grid';
+@import '../../styles/mixins';
+
+.safety {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 380px;
+  color: $WHITE;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($BLACK, 0.6);
+  }
+}
+
+.safety__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.safety__content-container {
+  @include layout();
+  position: relative;
+  z-index: 1;
+}
+
+.safety__content {
+}
+
+.safety__header {
+  @include prefix(9, 48);
+  @include suffix(9, 48);
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: $WHITE;
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+}
+
+.safety__title {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+}
+
+.safety__text {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  margin-top: 20px;
+}
+
+.safety__button {
+  @include column(10, 48);
+  @include push(5, 48);
+  margin-top: 60px;
+  margin-left: auto;
+}

@@ -2,6 +2,8 @@
 @import './components/link';
 @import './components/dropdown';
 @import './components/input';
+@import './components/popup';
+@import './components/checkbox';
 
 @import './sections/header';
 @import './sections/firstscreen';
@@ -12,5 +14,6 @@
 @import './sections/information';
 @import './sections/callback';
 @import './sections/reviews';
-@import './sections/booking';
+@import './sections/safety';
 @import './sections/footer';
+@import './sections/booking';
