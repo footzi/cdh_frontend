@@ -1,6 +1,7 @@
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 import './components/dropdown';
+import './components/popup';
 import './index.scss';
 
 // eslint-disable-next-line no-undef
