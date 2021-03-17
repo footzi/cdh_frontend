@@ -1,12 +1,10 @@
 @import '../../styles/colors';
-@import '../../styles/grid';
+@import './form/index.scss';
+@import './result/index.scss';
 
-body {
-  //overflow: hidden;
-}
-
-.booking__content {
+.booking__container {
   padding: 60px 75px 60px 75px;
+  color: $BLACK;
 }
 
 .booking__info {
@@ -21,7 +19,7 @@ body {
   width: 390px;
 }
 
-.booking__form-section {
+.booking__content {
   width: 50%;
 }
 
@@ -45,117 +43,4 @@ body {
   font-size: 16px;
   line-height: 18px;
   margin-bottom: 5px;
-}
-
-.booking__checkbox-rooms {
-  display: flex;
-}
-
-.booking__checkbox-room {
-  width: 50%;
-  display: flex;
-
-  &:first-child .booking__checkbox-room-label {
-    border-radius: 25px 0 0 25px;
-  }
-
-  &:last-child .booking__checkbox-room-label {
-    border-radius: 0 25px 25px 0;
-    border-left: none;
-  }
-}
-
-.booking__checkbox-room-label {
-  width: 100%;
-  border: 1px solid $LIGHT_ORANGE;
-  font-size: 12px;
-  line-height: 14px;
-  padding: 10px;
-  text-align: center;
-  color: $LIGHT_ORANGE;
-  cursor: pointer;
-}
-
-.booking__checkbox-room-input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-
-  &:checked ~ .booking__checkbox-room-label {
-    background: $LIGHT_ORANGE;
-    color: $WHITE;
-  }
-}
-
-.booking__number-info {
-  text-align: right;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 14px;
-  margin-top: 12px;
-}
-
-.booking__form-inputs {
-  display: flex;
-	margin-top: 50px;
-
-  input {
-    width: 235px;
-    margin-bottom: 30px;
-  }
-}
-
-.booking__form-inputs-section {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-
-  &:last-child {
-    align-items: flex-end;
-  }
-}
-
-.booking__form-comments-input {
-  margin-top: 40px;
-  width: 100%;
-}
-
-.booking__cost {
-  margin-top: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.booking__cost-title {
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-}
-
-.booking__cost-value {
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-}
-
-.booking__cost-info {
-  margin-top: 6px;
-  display: block;
-}
-
-.booking__submit {
-  width: 220px;
-  display: flex;
-  margin: 50px auto 0 auto;
-}
-
-.booking__agreements {
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 19px;
-  margin-top: 25px;
 }

@@ -1,29 +1,36 @@
 class Popup {
   constructor(openButton) {
     this.openButton = openButton;
-    
-    this.bindEvent()
-  }
-  
-  bindEvent() {
-    this.openButton.addEventListener('click', this.open.bind(this))
-  }
-  
-  open() {
+
     const contentId = this.openButton.dataset.popupTargetId;
-    
-    const popup = document.querySelector(`[data-popup-content-id="${contentId}"]`)
-  
-    document.body.classList.add('is-popup-open');
-    popup.classList.add('is-open');
-    console.log(popup);
+    this.popup = document.querySelector(`[data-popup-content-id="${contentId}"]`);
+
+    if (!this.popup) {
+      return;
+    }
+
+    this.closeButton = this.popup.querySelector('.popup__close');
+    this.overlay = this.popup.querySelector('.popup__overlay');
+
+    this.bindEvent();
   }
-  
+
+  bindEvent() {
+    this.openButton.addEventListener('click', this.open.bind(this));
+    this.closeButton.addEventListener('click', this.close.bind(this));
+    this.overlay.addEventListener('click', this.close.bind(this));
+  }
+
+  open() {
+    document.body.classList.add('is-popup-open');
+    this.popup.classList.add('is-open');
+  }
+
   close() {
-  
+    document.body.classList.remove('is-popup-open');
+    this.popup.classList.remove('is-open');
   }
 }
-
 
 document.querySelectorAll('.popup-open').forEach((openButton) => {
   new Popup(openButton);

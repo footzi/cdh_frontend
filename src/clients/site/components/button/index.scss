@@ -1,7 +1,7 @@
 @import '../../styles/colors';
 
 .button {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
   line-height: 16px;
   color: $WHITE;
@@ -11,15 +11,26 @@
   width: 100%;
   border: 1px solid $ORANGE;
   transition: background-color 0.3s, color 0.3s;
-
-  &_theme_orange-light {
-    background-color: $LIGHT_ORANGE;
-    box-shadow: none;
-    border: 1px solid $LIGHT_ORANGE;
-  }
+  box-shadow: none;
 
   &:hover {
     background-color: $WHITE;
     color: $ORANGE;
+  }
+
+  &_theme_orange-light {
+    background-color: $LIGHT_ORANGE;
+    border: 1px solid $LIGHT_ORANGE;
+  }
+
+  &_theme_borders {
+    background-color: $WHITE;
+    color: $ORANGE;
+    border: 1px solid $ORANGE;
+
+    &:hover {
+      background-color: $ORANGE;
+      color: $WHITE;
+    }
   }
 }

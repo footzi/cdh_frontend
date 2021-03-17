@@ -9,11 +9,11 @@
   z-index: 100;
   overflow-y: auto;
   background-color: rgba($BLACK, 0.6);
-	display: none;
+  //display: none;
 
-	&.is-open {
-     display: block;
-	}
+  &.is-open {
+    display: block;
+  }
 }
 
 .popup__content {
@@ -46,15 +46,15 @@
   top: 0;
   left: 0;
   z-index: 1;
-  cursor: pointer;
 }
 
 .popup__close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 0;
+  right: -45px;
   transition: transform 0.3s;
   transform-origin: 50%;
+  z-index: 1;
 
   &:hover {
     transform: rotate(90deg);

@@ -1,7 +1,7 @@
 section.popup.booking(data-popup-content-id="booking")
   .popup__overlay
   .popup__content
-    .booking__content.popup__container
+    .booking__container.popup__container
       button.popup__close
         include ../../components/popup/close
       .booking__info
@@ -11,28 +11,6 @@ section.popup.booking(data-popup-content-id="booking")
           .booking__phone-section
             .booking__contacts-phone +7(953) 173-32-97
             a.link.link_theme_normal.link_theme_mini(href='#') Связаться со мной
-      form.booking__form-section
-        ul.booking__checkbox-rooms
-          li.booking__checkbox-room
-            input#room_1.booking__checkbox-room-input(name='room', type='radio', value='room_1')
-            label.booking__checkbox-room-label(for='room_1') Комфорт
-          li.booking__checkbox-room
-            input#room_2.booking__checkbox-room-input(name='room', type='radio', , value='room_2')
-            label.booking__checkbox-room-label(for='room_2') Люкс
-        .booking__number-info Подробнее о номерах <a href="#" class="link link_theme_extra-mini">здесь</a>
-        .booking__form-inputs
-          .booking__form-inputs-section
-            input.input(placeholder='Дата заезда')
-            input.input(placeholder='Ваше имя')
-          .booking__form-inputs-section
-            input.input(placeholder='Дата отъезда')
-            input.input(placeholder='Ваш телефон')
-            input.input(placeholder='Ваш e-mail')
-        input.input.booking__form-comments-input(placeholder='Комментарий')
-        .booking__cost
-          .booking__cost-title Предварительная стоимость
-          .booking__cost-value 2 500 р
-        a.link.link_theme_normal.link_theme_mini.booking__cost-info(href='#') Как происходит оплата?
-        .booking__submit
-          button.button Забронировать номер
-        .booking__agreements Нажимая на кнопку, вы даете согласие на <a href='#' class="link link_theme_extra-mini">обработку своих персональных данных.<a/>
+      .booking__content
+        include result/index
+        //include form/index

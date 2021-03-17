@@ -1,0 +1,120 @@
+@import '../../../styles/colors';
+
+.booking-form__thanks {
+  border-radius: 10px 0 0 10px;
+  background-color: $LIGHT_ORANGE;
+  padding: 25px 20px;
+  color: $WHITE;
+  width: calc(100% + 95px);
+  transform: translateX(-20px) translateY(-30px);
+}
+
+.booking-form__title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  width: 200px;
+  display: inline-block;
+}
+
+.booking-form__order {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.booking-form__clients-info {
+  margin-right: 30px;
+}
+
+.booking-form__clients-info-item {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.booking-form__clients-info-title {
+  width: 200px;
+  display: inline-block;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.booking-form__clients-info-value {
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+.booking-form__clients-info-count-days {
+  margin-left: 30px;
+  font-size: 18px;
+  line-height: 21px;
+  color: $LIGHT_ORANGE;
+}
+
+.booking-form__email-text {
+  margin-top: 30px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: $LIGHT_ORANGE;
+}
+
+.booking-form__payments-text {
+  margin-top: 50px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: underline;
+  font-style: italic;
+  color: $DARK_GREY;
+}
+
+.booking-form__payments {
+  margin-top: 10px;
+}
+
+.booking-form__payment {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: $DARK_GREY;
+  margin-bottom: 5px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.booking-form__cost {
+  margin-top: 45px;
+}
+
+.booking-form__cost-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.booking-form__cost-value {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.booking-form-buttons {
+  margin-top: 45px;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    width: 220px;
+  }
+}
