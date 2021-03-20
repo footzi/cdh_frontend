@@ -6,39 +6,14 @@ section.popup.room-info(data-popup-content-id='room_info')
         include ../../components/popup/close
 
       .room-info__wrapper
-        h3.room-info__title Номер <span>“Комфорт”</span>
-
-        .room-info__content
-          .room-info__left-side
-
-            .room-info__slider
-             .room-info__slides.owl-carousel
-               img.room-info__slide(src="../images/rooms/1-original.jpg" alt="Номер 1")
-               img.room-info__slide(src="../images/rooms/1-original.jpg" alt="Номер 1")
-               img.room-info__slide(src="../images/rooms/1-original.jpg" alt="Номер 1")
-             .room-info__thumbs
-                img.room-info__thumb(src="../images/rooms/1-original.jpg" alt="Номер 1")
-                img.room-info__thumb(src="../images/rooms/1-original.jpg" alt="Номер 1")
-                img.room-info__thumb(src="../images/rooms/1-original.jpg" alt="Номер 1")
-                //.owl-thumbs
-             //     .owl-thumb-item slide 1
-             //     .owl-thumb-item slide 2
-             //     .owl-thumb-item slide 3
-             //     .owl-thumb-item slide 4
-             //     .owl-thumb-item slide 5
-
-          .room-info__right-side
-            ul.room-info__info-list
-              li.room-info__info-list-item - Теплый и удобный номер
-              li.room-info__info-list-item - Лоток и миски
-              li.room-info__info-list-item - Домик
-              li.room-info__info-list-item - Когтеточка
-              li.room-info__info-list-item - Видеонаблюдение 24/7
-
-              .room-info__cost 550 р <span>/сутки</span>
-
-            button.button.room-info__order-button Забронировать номер
+        .room-info__rooms
+          //include rooms/comfort
+          //include rooms/lux
 
         .room-info__control-buttons
-          button.room-info_prev Предыдущий
-          button.room-info_next Следующий
+          button.room-info__control-button.room-info__prev
+            include ../../components/next-arrow
+            | Предыдущий
+          button.room-info__control-button.room-info__next
+            | Следующий
+            include ../../components/next-arrow
