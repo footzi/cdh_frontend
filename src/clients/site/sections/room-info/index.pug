@@ -1,4 +1,4 @@
-section.popup.room-info(data-popup-content-id='room_info')
+.popup.room-info(data-popup-content-id='room')
   .popup__overlay
   .popup__content
     .room-info__container.popup__container
@@ -6,14 +6,12 @@ section.popup.room-info(data-popup-content-id='room_info')
         include ../../components/popup/close
 
       .room-info__wrapper
-        .room-info__rooms
-          //include rooms/comfort
-          //include rooms/lux
+        .room-info__rooms.owl-carousel
+          include rooms/comfort
+          include rooms/lux
 
-        .room-info__control-buttons
-          button.room-info__control-button.room-info__prev
-            include ../../components/next-arrow
-            | Предыдущий
-          button.room-info__control-button.room-info__next
-            | Следующий
-            include ../../components/next-arrow
+    .room-info__control-buttons
+      button.room-info__control-button.room-info__prev
+        include ../../components/next-arrow/index
+      button.room-info__control-button.room-info__next
+        include ../../components/next-arrow/index

@@ -1,28 +1,23 @@
-- var rooms = require('../../../data/rooms.json')
+- var rooms = require("../../../data/rooms.json");
 
-.room-info__room(data-room-name="comfort")
-  h1 #{rooms.comfort.name}
-  h3.room-info__title Номер <span>“Комфорт”</span>
+.room-info__room
+  h3.room-info__title Номер <span>“#{rooms.comfort.name}”</span>
 
   .room-info__content
     .room-info__left-side
       .room-info__slider
         .room-info__slides.owl-carousel
-          img.room-info__slide(src='../images/rooms/1-original.jpg', alt='Фото 1 Номер Комфорт')
-          img.room-info__slide(src='../images/rooms/2-original.jpg', alt='Фото 2 Номер Комфорт')
-          img.room-info__slide(src='../images/rooms/3-original.jpg', alt='Фото 3 Номер Комфорт')
+          each slide in rooms.comfort.slides
+            img.room-info__slide(src=slide.src, alt=slide.alt)
         .room-info__thumbs
-          img.room-info__thumb(src='../images/rooms/1-original.jpg', alt='Фото 1 Номер Комфорт', data-slide-id='1')
-          img.room-info__thumb(src='../images/rooms/2-original.jpg', alt='Фото 2 Номер Комфорт', data-slide-id='2')
-          img.room-info__thumb(src='../images/rooms/3-original.jpg', alt='Фото 3 Номер Комфорт', data-slide-id='3')
+          each thumb in rooms.comfort.thumbs
+            img.room-info__thumb(src=thumb.src, alt=thumb.alt, data-slide-id=thumb.slideId)
 
     .room-info__right-side
       ul.room-info__info-list
-        li.room-info__info-list-item - Теплый и удобный номер
-        li.room-info__info-list-item - Лоток и миски
-        li.room-info__info-list-item - Домик
-        li.room-info__info-list-item - Когтеточка
+        each item in rooms.comfort.composition
+          li.room-info__info-list-item - #{item}
 
-      .room-info__cost 550 р <span>/сутки</span>
+      .room-info__cost #{rooms.comfort.price} р <span>/сутки</span>
 
-      button.button.button_theme_borders.room-info__order-button Забронировать номер
+      button.button.button_theme_borders.room-info__order-button.popup-open(data-popup-target-id='booking', data-room-type='comfort') Забронировать номер

@@ -1,45 +1,37 @@
+- var rooms = require("../../data/rooms.json");
+
 section.rooms
   img.rooms__paws(src='../images/paws.svg', alt='Лапки')
   .rooms__content-wrapper
     .rooms__content
       h2.rooms__title Наши номера
-      p.rooms__text-main Каждый день котик будет иметь возможнось побегать и поиграть вне своего номера.
+      p.rooms__text-main Каждый день котик будет иметь возможность побегать и поиграть вне своего номера.
       p.rooms__text В наших номерах есть <b>все необходимое</b> для комфортного проживания питомца на время вашего отъезда.
       p.rooms__text Уборка номеров осуществляется <b>ежедневно</b>, при необходимости - чаще.
+
       .rooms__items
         .rooms__item
           .rooms__header
-            h3.rooms__header-title Комфорт
-              <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 1L7.44218 7.34921C7.76317 7.7237 7.76317 8.2763 7.44218 8.65079L2 15" stroke="#333333" stroke-width="3"/>
-              </svg>
+            button.rooms__header-button.popup-open(data-popup-target-id='room', data-room-type='comfort') #{rooms.comfort.name}
+              include ../../components/next-arrow/index
           .rooms__image
           .rooms__list-container
             ul.rooms__list
-              li.rooms__list-item - Теплый и удобный номер
-              li.rooms__list-item - Лоток и миски включены в стоимость
-              li.rooms__list-item - Домик
-              li.rooms__list-item - Когтеточка
-              li.rooms__list-item - Видеонаблюдение 24/7
-            .rooms__price 550 p
+              each item in rooms.comfort.composition
+                li.rooms__list-item - #{item}
+            .rooms__price #{rooms.comfort.price} p
           .rooms__booking-container
-            button.rooms__booking Забронировать номер
+            button.button.button_theme_borders.popup-open(data-popup-target-id='booking', data-room-type='comfort') Забронировать
 
         .rooms__item
           .rooms__header
-            h3.rooms__header-title Люкс
-              <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 1L7.44218 7.34921C7.76317 7.7237 7.76317 8.2763 7.44218 8.65079L2 15" stroke="#333333" stroke-width="3"/>
-              </svg>
+            button.rooms__header-button.popup-open(data-popup-target-id='room', data-room-type='lux') #{rooms.lux.name}
+              include ../../components/next-arrow/index
           .rooms__image
           .rooms__list-container
             ul.rooms__list
-              li.rooms__list-item - Более просторный номер
-              li.rooms__list-item - Лоток и миски включены в стоимость
-              li.rooms__list-item - Домик
-              li.rooms__list-item - Когтеточка
-              li.rooms__list-item - Видеонаблюдение 24/7
-            .rooms__price 550 p
+              each item in rooms.lux.composition
+                li.rooms__list-item - #{item}
+            .rooms__price #{rooms.lux.price} p
           .rooms__booking-container
-            button.button Забронировать
-            //button.rooms__booking Забронировать номер
+            button.button.button_theme_borders.popup-open(data-popup-target-id='booking', data-room-type='lux') Забронировать

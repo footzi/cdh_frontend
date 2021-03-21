@@ -23,6 +23,10 @@ class Popup {
 
   open() {
     document.body.classList.add('is-popup-open');
+
+    const openedPopups = document.querySelectorAll('.popup') ?? [];
+    openedPopups.forEach((popup) => popup.classList.remove('is-open'));
+
     this.popup.classList.add('is-open');
   }
 

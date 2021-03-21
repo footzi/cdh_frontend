@@ -1,5 +1,74 @@
 {
   "comfort": {
-    "name": "Комфорт"
+    "name": "Комфорт",
+    "price": 550,
+    "composition": ["Теплый и удобный номер", "Лоток и миски", "Домик", "Когтеточка"],
+    "slides": [
+      {
+        "src": "../images/rooms/1-original.jpg",
+        "alt": "Фото 1 Номер Комфорт"
+      },
+      {
+        "src": "../images/rooms/2-original.jpg",
+        "alt": "Фото 2 Номер Комфорт"
+      },
+      {
+        "src": "../images/rooms/3-original.jpg",
+        "alt": "Фото 3 Номер Комфорт"
+      }
+    ],
+    "thumbs": [
+      {
+        "src": "../images/rooms/1-original.jpg",
+        "alt": "Превью фото 1 Номер Комфорт",
+        "slideId": 1
+      },
+      {
+        "src": "../images/rooms/2-original.jpg",
+        "alt": "Превью фото 2 Номер Комфорт",
+        "slideId": 2
+      },
+      {
+        "src": "../images/rooms/3-original.jpg",
+        "alt": "Превью фото 3 Номер Комфорт",
+        "slideId": 3
+      }
+    ]
+  },
+  "lux": {
+    "name": "Люкс",
+    "price": 1000,
+    "composition": ["Теплый и удобный номер", "Лоток и миски", "Домик", "Когтеточка", "Видеонаблюдение 24/7"],
+    "slides": [
+      {
+        "src": "../images/rooms/3-original.jpg",
+        "alt": "Фото 1 Номер Комфорт"
+      },
+      {
+        "src": "../images/rooms/2-original.jpg",
+        "alt": "Фото 2 Номер Комфорт"
+      },
+      {
+        "src": "../images/rooms/1-original.jpg",
+        "alt": "Фото 3 Номер Комфорт"
+      }
+    ],
+    "thumbs": [
+      {
+        "src": "../images/rooms/3-original.jpg",
+        "alt": "Превью фото 1 Номер Комфорт",
+        "slideId": 1
+      },
+      {
+        "src": "../images/rooms/2-original.jpg",
+        "alt": "Превью фото 2 Номер Комфорт",
+        "slideId": 2
+      },
+      {
+        "src": "../images/rooms/1-original.jpg",
+        "alt": "Превью фото 3 Номер Комфорт",
+        "slideId": 3
+      }
+    ]
   }
 }
