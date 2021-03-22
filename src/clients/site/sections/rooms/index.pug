@@ -10,9 +10,9 @@ section.rooms
       p.rooms__text Уборка номеров осуществляется <b>ежедневно</b>, при необходимости - чаще.
 
       .rooms__items
-        .rooms__item
+        .rooms__item.popup-open(data-popup-target-id='room', data-popup-type-id='comfort', data-popup-use-url="true")
           .rooms__header
-            button.rooms__header-button.popup-open(data-popup-target-id='room', data-room-type='comfort') #{rooms.comfort.name}
+            h3.rooms__header-title #{rooms.comfort.name}
               include ../../components/next-arrow/index
           .rooms__image
           .rooms__list-container
@@ -23,10 +23,10 @@ section.rooms
           .rooms__booking-container
             button.button.button_theme_borders.popup-open(data-popup-target-id='booking', data-room-type='comfort') Забронировать
 
-        .rooms__item
+        .rooms__item.popup-open(data-popup-target-id='room', data-popup-type-id='lux', data-popup-use-url="true")
           .rooms__header
-            button.rooms__header-button.popup-open(data-popup-target-id='room', data-room-type='lux') #{rooms.lux.name}
-              include ../../components/next-arrow/index
+              h3.rooms__header-title #{rooms.lux.name}
+                include ../../components/next-arrow/index
           .rooms__image
           .rooms__list-container
             ul.rooms__list

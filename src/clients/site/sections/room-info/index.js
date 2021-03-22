@@ -32,13 +32,28 @@ class RoomInfo {
         this.prevRoomButton.classList.add('is-disabled');
       }
     };
-
-    $(this.$roomSlider).owlCarousel({
+  
+    this.$roomSlider.owlCarousel({
       items: 1,
       dots: false,
       mouseDrag: false,
       touchDrag: false,
       onChanged,
+      onRefreshed: () => {
+        const searchParams = new URLSearchParams(window.location.search);
+        const isLux = searchParams.get('room') === 'lux';
+        
+        if (isLux) {
+          this.$roomSlider.trigger('to.owl.carousel', 1);
+        } else {
+          this.$roomSlider.trigger('to.owl.carousel', 0);
+        }
+        
+  
+        console.log(isLux);
+        
+        this.$roomSlider.addClass('is-init');
+      },
     });
   }
 
@@ -70,6 +85,9 @@ class RoomInfo {
         margin: 10,
         dots: false,
         onChanged,
+        onRefreshed: () => {
+          $photoSlider.addClass('is-init');
+        },
       });
 
       thumbs.forEach((thumb) => {

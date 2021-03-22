@@ -12,6 +12,7 @@
 
 .room-info__wrapper {
   width: 100%;
+  max-height: 603px;
 }
 
 .room-info__left-side {
@@ -38,6 +39,22 @@
   span {
     color: $ORANGE;
     font-weight: 500;
+  }
+}
+
+.room-info__rooms {
+  opacity: 0;
+
+  &.is-init {
+    opacity: 1;
+  }
+}
+
+.room-info__slides {
+  opacity: 0;
+
+  &.is-init {
+    opacity: 1;
   }
 }
 
@@ -112,6 +129,7 @@
 .room-info__control-buttons {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -124,7 +142,6 @@
   align-items: center;
   font-size: 14px;
   line-height: 16px;
-  margin-top: 20px;
 
   &.is-disabled {
     pointer-events: none;
