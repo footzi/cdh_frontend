@@ -42,14 +42,6 @@
   }
 }
 
-.room-info__rooms {
-  opacity: 0;
-
-  &.is-init {
-    opacity: 1;
-  }
-}
-
 .room-info__slides {
   opacity: 0;
 
@@ -124,59 +116,4 @@
 .room-info__order-button {
   width: 220px;
   margin-top: auto;
-}
-
-.room-info__control-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  width: calc(100% + 95px);
-}
-
-.room-info__control-button {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  line-height: 16px;
-
-  &.is-disabled {
-    pointer-events: none;
-    opacity: 0.6;
-  }
-
-  svg {
-    transition: transform 0.3s;
-    width: 30px;
-    height: 30px;
-    fill: $WHITE;
-  }
-}
-
-.room-info__prev {
-  &:hover {
-    svg {
-      transform: translateX(-5px) rotate(180deg);
-    }
-  }
-
-  svg {
-    transform: rotate(180deg);
-    margin-right: 8px;
-  }
-}
-
-.room-info__next {
-  &:hover {
-    svg {
-      transform: translateX(5px);
-    }
-  }
-
-  svg {
-    margin-left: 8px;
-  }
 }

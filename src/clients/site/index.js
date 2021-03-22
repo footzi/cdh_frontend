@@ -5,6 +5,8 @@ import './components/popup';
 import './sections/room-info';
 import './index.scss';
 
+import { Datepicker } from 'components/Datepicker';
+
 // eslint-disable-next-line no-undef
 $(document).ready(function () {
   // eslint-disable-next-line no-undef
@@ -21,3 +23,7 @@ $(document).ready(function () {
     dots: true,
   });
 });
+
+const pick = new Datepicker();
+
+pick.mount();

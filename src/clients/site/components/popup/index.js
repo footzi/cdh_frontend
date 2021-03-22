@@ -1,12 +1,11 @@
+import { booking } from '../../sections/booking';
+
 class Popup {
   constructor(openButton) {
     this.openButton = openButton;
 
-    const contentId = this.openButton.dataset.popupTargetId;
-    this.popup = document.querySelector(`[data-popup-content-id="${contentId}"]`);
-    this.useUrl = !!this.openButton.dataset.popupUseUrl;
-    this.targetId = this.openButton.dataset.popupTargetId;
-    this.typeId = this.openButton.dataset.popupTypeId;
+    this.contentId = this.openButton.dataset.popupTargetId;
+    this.popup = document.querySelector(`[data-popup-content-id="${this.contentId}"]`);
 
     if (!this.popup) {
       return;
@@ -26,39 +25,33 @@ class Popup {
 
   open(event) {
     event.stopPropagation();
-    this.addUrlParams();
-
     document.body.classList.add('is-popup-open');
 
     const openedPopups = document.querySelectorAll('.popup') ?? [];
     openedPopups.forEach((popup) => popup.classList.remove('is-open'));
 
+    if (this.contentId === 'booking') {
+      const roomId = this.openButton.dataset.roomId;
+      booking.init(roomId);
+    }
+
     this.popup.classList.add('is-open');
   }
 
   close() {
-    this.clearUrlParams();
-
     document.body.classList.remove('is-popup-open');
     this.popup.classList.remove('is-open');
-  }
-
-  addUrlParams() {
-    if (this.useUrl) {
-      const searchParams = new URLSearchParams(window.location.search);
-      searchParams.append(this.targetId, this.typeId);
-
-      window.history.replaceState({}, '', `${window.location.pathname}?${searchParams}`);
-    }
-  }
-
-  clearUrlParams() {
-    if (this.useUrl) {
-      window.history.replaceState({}, '', `${window.location.pathname}`);
-    }
   }
 }
 
 document.querySelectorAll('.popup-open').forEach((openButton) => {
   new Popup(openButton);
+});
+
+document.querySelectorAll('.popup-close').forEach((closeButton) => {
+  closeButton.addEventListener('click', () => {
+    const openedPopups = document.querySelectorAll('.popup') ?? [];
+    document.body.classList.remove('is-popup-open');
+    openedPopups.forEach((popup) => popup.classList.remove('is-open'));
+  });
 });

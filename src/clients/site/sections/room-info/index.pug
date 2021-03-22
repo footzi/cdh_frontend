@@ -1,4 +1,4 @@
-.popup.room-info(data-popup-content-id='room')
+.popup.room-info(data-popup-content-id='room_comfort')
   .popup__overlay
   .popup__content
     .room-info__container.popup__container
@@ -6,12 +6,14 @@
         include ../../components/popup/close
 
       .room-info__wrapper
-        .room-info__rooms.owl-carousel
-          include rooms/comfort
-          include rooms/lux
+        include rooms/comfort
 
-    .room-info__control-buttons
-      button.room-info__control-button.room-info__prev
-        include ../../components/next-arrow/index
-      button.room-info__control-button.room-info__next
-        include ../../components/next-arrow/index
+.popup.room-info(data-popup-content-id='room_lux')
+  .popup__overlay
+  .popup__content
+    .room-info__container.popup__container
+      button.popup__close
+        include ../../components/popup/close
+
+      .room-info__wrapper
+        include rooms/lux

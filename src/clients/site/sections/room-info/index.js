@@ -2,59 +2,7 @@ import $ from 'jquery';
 
 class RoomInfo {
   constructor() {
-    this.prevRoomButton = document.querySelector('.room-info__prev');
-    this.nextRoomButton = document.querySelector('.room-info__next');
-    this.$roomSlider = $('.room-info__rooms');
-
-    this.bindEvents();
-    this.initRoomsSlider();
     this.initPhotoSliders();
-  }
-
-  bindEvents() {
-    this.prevRoomButton.addEventListener('click', () => this.$roomSlider.trigger('prev.owl.carousel'));
-    this.nextRoomButton.addEventListener('click', () => this.$roomSlider.trigger('next.owl.carousel'));
-  }
-
-  initRoomsSlider() {
-    const onChanged = (props) => {
-      const count = props.item.count;
-      const currentIndex = props.item.index;
-
-      this.nextRoomButton.classList.remove('is-disabled');
-      this.prevRoomButton.classList.remove('is-disabled');
-
-      if (count === currentIndex + 1) {
-        this.nextRoomButton.classList.add('is-disabled');
-      }
-
-      if (currentIndex === 0) {
-        this.prevRoomButton.classList.add('is-disabled');
-      }
-    };
-  
-    this.$roomSlider.owlCarousel({
-      items: 1,
-      dots: false,
-      mouseDrag: false,
-      touchDrag: false,
-      onChanged,
-      onRefreshed: () => {
-        const searchParams = new URLSearchParams(window.location.search);
-        const isLux = searchParams.get('room') === 'lux';
-        
-        if (isLux) {
-          this.$roomSlider.trigger('to.owl.carousel', 1);
-        } else {
-          this.$roomSlider.trigger('to.owl.carousel', 0);
-        }
-        
-  
-        console.log(isLux);
-        
-        this.$roomSlider.addClass('is-init');
-      },
-    });
   }
 
   initPhotoSliders() {

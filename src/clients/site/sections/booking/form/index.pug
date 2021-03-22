@@ -1,24 +1,26 @@
+- var rooms = require("../../../data/rooms.json");
+
 form
   ul.booking-form__checkbox-rooms
     li.booking-form__checkbox-room
-      input#room_1.booking-form__checkbox-room-input(name='room', type='radio', value='room_1')
-      label.booking-form__checkbox-room-label(for='room_1') Комфорт
+      input.booking-form__checkbox-room-input(id=rooms.comfort.id,  name='room', type='radio', value=rooms.comfort.id)
+      label.booking-form__checkbox-room-label(for=rooms.comfort.id) Комфорт
     li.booking-form__checkbox-room
-      input#room_2.booking-form__checkbox-room-input(name='room', type='radio', , value='room_2')
-      label.booking-form__checkbox-room-label(for='room_2') Люкс
+      input.booking-form__checkbox-room-input(id=rooms.lux.id, name='room', type='radio', value=rooms.lux.id)
+      label.booking-form__checkbox-room-label(for=rooms.lux.id) Люкс
 
-  .booking-form__number-info Подробнее о номерах <a href="#" class="link link_theme_extra-mini">здесь</a>
+  .booking-form__number-info Подробнее о номерах <a href="#rooms" class="link link_theme_extra-mini popup-close">здесь</a>
 
   .booking-form__form-inputs
     .booking-form__form-inputs-section
-      input.input(placeholder='Дата заезда')
-      input.input(placeholder='Ваше имя')
+      input.input(placeholder='Дата заезда', name="start_date")
+      input.input(placeholder='Ваше имя', name="name")
     .booking-form__form-inputs-section
-      input.input(placeholder='Дата отъезда')
-      input.input(placeholder='Ваш телефон')
-      input.input(placeholder='Ваш e-mail')
+      input.input(placeholder='Дата отъезда', name="end_date")
+      input.input(placeholder='Ваш телефон', name="end_date")
+      input.input(placeholder='Ваш e-mail', name="email", type="email")
 
-  input.input.booking-form__form-comments-input(placeholder='Комментарий')
+  input.input.booking-form__form-comments-input(placeholder='Комментарий', name="comment")
 
   .booking-form__cost
     .booking-form__cost-title Предварительная стоимость
@@ -27,6 +29,9 @@ form
   a.link.link_theme_normal.link_theme_mini.booking-form__cost-info(href='#') Как происходит оплата?
 
   .booking-form__submit
-    button.button Забронировать номер
+    button(type="submit").button
+     .button__loader
+         include ../../../components/loader/index
+     span.button__text Забронировать номер
 
   .booking-form__agreements Нажимая на кнопку, вы даете согласие на <a href='#' class="link link_theme_extra-mini">обработку своих персональных данных.<a/>

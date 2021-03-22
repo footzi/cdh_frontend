@@ -1,22 +1,22 @@
 div
   .booking-form__thanks
     span.booking-form__title Спасибо
-    span.booking-form__order Бронь <b>№0057</b> оформлена.
+    span.booking-form__order Бронь <b>№#{id}</b> оформлена.
 
   .booking-form__clients-info
     .booking-form__clients-info-item
       span.booking-form__clients-info-title Даты прибывания:
-      span.booking-form__clients-info-value 07.07.2021 - 21.07.2021
-      span.booking-form__clients-info-count-days 14 дней
+      span.booking-form__clients-info-value #{startDate} - #{endDate}
+      span.booking-form__clients-info-count-days #{countDays} дней
     .booking-form__clients-info-item
       span.booking-form__clients-info-title Ваше имя:
-      span.booking-form__clients-info-value Мария
+      span.booking-form__clients-info-value #{name}
     .booking-form__clients-info-item
       span.booking-form__clients-info-title Ваш телефон:
-      span.booking-form__clients-info-value +7(980)758-78-98
+      span.booking-form__clients-info-value #{phone}
     .booking-form__clients-info-item
       span.booking-form__clients-info-title Ваш e-mail:
-      span.booking-form__clients-info-value specy98@mail.ru
+      span.booking-form__clients-info-value #{email}
 
   p.booking-form__email-text На ваш e-mail будет отправлена информация о вашем бронировании.
 
@@ -26,8 +26,8 @@ div
     li.booking-form__payment - либо вы можете внести оплату в день заселения в гостиницу
 
   .booking-form__cost
-    span.booking-form__cost-text Стоимость проживания (14 дней)
-    span.booking-form__cost-value 7 700р
+    span.booking-form__cost-text Стоимость проживания (#{countDays} дней)
+    span.booking-form__cost-value #{price}р
 
   .booking-form-buttons
     button.button.button_theme_borders Оплатить при заселении

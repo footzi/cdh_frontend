@@ -33,4 +33,24 @@
       color: $WHITE;
     }
   }
+
+  &.is-loading {
+    pointer-events: none;
+    cursor: default;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    .button__loader {
+      display: flex;
+      justify-content: center;
+    }
+
+    .button__text {
+      display: none;
+    }
+  }
+}
+
+.button__loader {
+  display: none;
 }
