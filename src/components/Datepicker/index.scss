@@ -1,0 +1,132 @@
+@import './src/clients/site/styles/colors';
+
+.react-datepicker {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  line-height: 15px;
+  color: $BLACK;
+  border-radius: 5px;
+  background-color: $WHITE;
+  border: 1px solid $DARK_GREY;
+  font-weight: 400;
+  padding: 10px 15px 10px 15px;
+}
+
+.react-datepicker__triangle {
+  display: none;
+}
+
+.react-datepicker__navigation {
+  &--previous {
+    border-right-color: $ORANGE;
+
+    &:hover {
+      border-right-color: $LIGHT_GREEN;
+    }
+  }
+
+  &--next {
+    border-left-color: $ORANGE;
+
+    &:hover {
+      border-left-color: $LIGHT_GREEN;
+    }
+  }
+}
+
+.react-datepicker__header {
+  background-color: $WHITE;
+  border: 0;
+  padding: 0;
+}
+
+.react-datepicker__current-month {
+  font-size: 13px;
+  line-height: 15px;
+  color: $ORANGE;
+  font-weight: 400;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.react-datepicker__month {
+  margin: 0 -2px 0 -2px;
+}
+
+.react-datepicker__day-names {
+  margin: 10px -2px 5px -2px;
+  border-bottom: 0.5px solid $DARK_GREY;
+}
+
+.react-datepicker__day-name {
+  font-size: 13px;
+  line-height: 15px;
+  color: $DARK_GREY;
+  width: 25px;
+  margin: 2px;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
+  &:nth-child(6),
+  &:nth-child(7) {
+    font-weight: 700;
+  }
+}
+
+.react-datepicker__day {
+  color: $BLACK;
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 15px;
+  margin: 2px;
+  outline: none;
+  border: none;
+
+  &:hover {
+    background-color: $LIGHT_GREEN;
+    border-radius: 4px;
+  }
+
+  &--weekend {
+    font-weight: 700;
+  }
+
+  &--disabled,
+  &--excluded {
+    pointer-events: none;
+    color: $GREY;
+  }
+
+  &--selected,
+  &--keyboard-selected,
+  &--in-range,
+  &--range-start,
+  &-range-end,
+  &--in-selecting-range {
+    background-color: $LIGHT_GREEN;
+    border-radius: 4px;
+  }
+
+  &--today {
+    border: 1px solid $ORANGE;
+    color: $ORANGE;
+    border-radius: 50%;
+    font-weight: 400;
+
+    &:hover {
+      border-radius: 50%;
+    }
+  }
+
+  &--today.react-datepicker__day--selected {
+    background-color: $WHITE;
+    color: $ORANGE;
+  }
+}

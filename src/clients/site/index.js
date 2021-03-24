@@ -26,4 +26,4 @@ $(document).ready(function () {
 
 const pick = new Datepicker();
 
-pick.mount();
+pick.mount({ root: 'datepicker' });
