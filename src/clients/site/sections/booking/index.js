@@ -1,3 +1,4 @@
+import { CalendarBooking } from 'components/CalendarBooking';
 import resultTemplate from './result/index.pug';
 
 class Booking {
@@ -9,7 +10,14 @@ class Booking {
     this.submitButton = this.container.querySelector('button[type="submit"]');
     this.closePopupButon = this.container.querySelectorAll('.querySelectorAll');
 
+    this.initCalendar();
     this.bindEvents();
+  }
+
+  initCalendar() {
+    const calendar = new CalendarBooking();
+
+    calendar.mount('booking-calendar');
   }
 
   bindEvents() {

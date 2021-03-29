@@ -98,6 +98,10 @@
     font-weight: 700;
   }
 
+  &--outside-month {
+    color: $GREY;
+  }
+
   &--disabled,
   &--excluded {
     pointer-events: none;
@@ -128,5 +132,10 @@
   &--today.react-datepicker__day--selected {
     background-color: $WHITE;
     color: $ORANGE;
+  }
+
+  &--excluded.react-datepicker__day--in-range {
+    background-color: $LIGHT_RED;
+    color: $GREY;
   }
 }

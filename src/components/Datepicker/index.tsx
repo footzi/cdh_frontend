@@ -1,14 +1,24 @@
-import ReactDOM from 'react-dom';
 import React from 'react';
-import { App } from './app';
+import ru from 'date-fns/locale/ru';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './index.scss';
+import { DatepickerProps } from './interfaces';
 
-export class Datepicker {
-  mount({ root }): void {
-    ReactDOM.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>,
-      document.getElementById(root)
-    );
-  }
-}
+export const Datepicker: React.FC<DatepickerProps> = ({ selected, startDate, endDate, minDate, onChange, ...rest }) => {
+  return (
+    <DatePicker
+      selected={selected}
+      startDate={startDate}
+      endDate={endDate}
+      selectsStart
+      onChange={onChange}
+      locale={ru}
+      dateFormat="dd-MM-yyyy"
+      minDate={minDate}
+      disabledKeyboardNavigation
+      showDisabledMonthNavigation
+      {...rest}
+    />
+  );
+};

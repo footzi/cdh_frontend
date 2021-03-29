@@ -53,12 +53,29 @@
 
 .booking-form__form-inputs {
 	display: flex;
+	flex-wrap: wrap;
 	margin-top: 50px;
 
 	input {
 		width: 235px;
 		margin-bottom: 30px;
+
+		&:nth-child(2n) {
+			margin-left: auto;
+		}
+
+		&:last-child {
+			margin-left: auto;
+		}
+		//width: 50%;
 	}
+	//display: flex;
+	//margin-top: 50px;
+	//
+	//input {
+	//	width: 235px;
+	//	margin-bottom: 30px;
+	//}
 }
 
 .booking-form__form-inputs-section {
