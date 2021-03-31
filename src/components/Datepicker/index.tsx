@@ -5,7 +5,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './index.scss';
 import { DatepickerProps } from './interfaces';
 
-export const Datepicker: React.FC<DatepickerProps> = ({ selected, startDate, endDate, minDate, onChange, ...rest }) => {
+export const Datepicker: React.FC<DatepickerProps> = ({
+  selected,
+  startDate,
+  endDate,
+  minDate,
+  onChange,
+  portalId,
+  ...rest
+}) => {
   return (
     <DatePicker
       selected={selected}
@@ -18,6 +26,7 @@ export const Datepicker: React.FC<DatepickerProps> = ({ selected, startDate, end
       minDate={minDate}
       disabledKeyboardNavigation
       showDisabledMonthNavigation
+      portalId={portalId}
       {...rest}
     />
   );

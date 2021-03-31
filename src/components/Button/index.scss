@@ -1,4 +1,4 @@
-@import '../../styles/colors';
+@import './src/clients/site/styles/colors';
 
 .button {
   font-weight: 400;
@@ -48,6 +48,11 @@
     .button__text {
       display: none;
     }
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
   }
 }
 

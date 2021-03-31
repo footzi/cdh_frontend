@@ -1,4 +1,4 @@
-- var rooms = require("../../../data/rooms.json");
+- var rooms = require("../../../../../data/rooms.json");
 
 form
   ul.booking-form__checkbox-rooms
@@ -12,19 +12,10 @@ form
   .booking-form__number-info Подробнее о номерах <a href="#rooms" class="link link_theme_extra-mini popup-close">здесь</a>
 
   .booking-form__form-inputs
-    #booking-calendar
-    //input.input(placeholder='Дата заезда', name="start_date")
-    //input.input(placeholder='Дата заезда', name="start_date")
-    input.input(placeholder='Дата заезда', name="start_date")
-    input.input(placeholder='Дата заезда', name="start_date")
-    input.input(placeholder='Дата заезда', name="start_date")
-    //.booking-form__form-inputs-section
-    //  input.input(placeholder='Дата заезда', name="start_date")
-    //  input.input(placeholder='Ваше имя', name="name")
-    //.booking-form__form-inputs-section
-    //  input.input(placeholder='Дата отъезда', name="end_date")
-    //  input.input(placeholder='Ваш телефон', name="end_date")
-    //  input.input(placeholder='Ваш e-mail', name="email", type="email")
+    #booking-calendar.booking-form__calendar-inputs
+    input.input(placeholder='Ваше имя', name="name")
+    input.input(placeholder='Ваш телефон', name="phone")
+    input.input(placeholder='Ваш e-mail', name="email", type="email")
 
   input.input.booking-form__form-comments-input(placeholder='Комментарий', name="comment")
 
@@ -35,9 +26,9 @@ form
   a.link.link_theme_normal.link_theme_mini.booking-form__cost-info(href='#') Как происходит оплата?
 
   .booking-form__submit
-    button(type="submit").button
+    button(type="submit", disabled).button
      .button__loader
-         include ../../../components/loader/index
      span.button__text Забронировать номер
 
   .booking-form__agreements Нажимая на кнопку, вы даете согласие на <a href='#' class="link link_theme_extra-mini">обработку своих персональных данных.</a>
+  #booking-calendar-portal

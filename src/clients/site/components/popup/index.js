@@ -1,4 +1,4 @@
-import { booking } from '../../sections/booking';
+// import { booking } from '../../sections/booking';
 
 class Popup {
   constructor(openButton) {
@@ -30,10 +30,10 @@ class Popup {
     const openedPopups = document.querySelectorAll('.popup') ?? [];
     openedPopups.forEach((popup) => popup.classList.remove('is-open'));
 
-    if (this.contentId === 'booking') {
-      const roomId = this.openButton.dataset.roomId;
-      booking.init(roomId);
-    }
+    // if (this.contentId === 'booking') {
+    //   const roomId = this.openButton.dataset.roomId;
+    //   booking.init(roomId);
+    // }
 
     this.popup.classList.add('is-open');
   }

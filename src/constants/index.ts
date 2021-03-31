@@ -36,3 +36,5 @@ export const MONTHS_NAMES = {
   11: 'Ноября',
   12: 'Декабря',
 };
+
+export const STARTING_DATE_OF_BOOKING = '2021/07/01';

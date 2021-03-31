@@ -9,7 +9,8 @@
       "icons": ["./src/icons"],
       "interfaces": ["./src/interfaces"],
       "utils/*": ["./src/utils/*"],
-      "crm/*": ["./src/clients/crm/*"]
+      "crm/*": ["./src/clients/crm/*"],
+      "data/*": ["./src/data/*"]
     }
   }
 }

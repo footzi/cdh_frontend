@@ -25,6 +25,7 @@ module.exports = {
       components: path.resolve(__dirname, 'src/components'),
       crm: path.resolve(__dirname, 'src/clients/crm/'),
       utils: path.resolve(__dirname, 'src/utils/'),
+      data: path.resolve(__dirname, 'src/data'),
     },
   },
   module: {

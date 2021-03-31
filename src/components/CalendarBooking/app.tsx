@@ -1,10 +1,11 @@
 import React, { useCallback, useState, forwardRef, ForwardedRef } from 'react';
 import { Datepicker } from 'components/Datepicker';
+import { STARTING_DATE_OF_BOOKING } from 'constants/index';
 import { CustomInputProps } from './interfaces';
 
 export const CalendarBooking: React.FC = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
 
   const onChangeStart = useCallback((date: Date) => {
     setStartDate(date);
@@ -16,9 +17,31 @@ export const CalendarBooking: React.FC = () => {
 
   const StartInput = forwardRef(
     ({ value, onChange, onClick }: CustomInputProps, ref: ForwardedRef<HTMLInputElement>) => (
-      <input className="input" onChange={onChange} onClick={onClick} ref={ref} value={value} />
+      <input
+        className="input"
+        placeholder="Дата заезда"
+        name="start"
+        onChange={onChange}
+        onClick={onClick}
+        ref={ref}
+        value={value}
+        autoComplete="off"
+      />
     )
   );
+
+  const EndInput = forwardRef(({ value, onChange, onClick }: CustomInputProps, ref: ForwardedRef<HTMLInputElement>) => (
+    <input
+      className="input"
+      placeholder="Дата отъезда"
+      name="end"
+      onChange={onChange}
+      onClick={onClick}
+      ref={ref}
+      value={value}
+      autoComplete="off"
+    />
+  ));
 
   return (
     <>
@@ -27,8 +50,10 @@ export const CalendarBooking: React.FC = () => {
         startDate={startDate}
         endDate={endDate}
         onChange={onChangeStart}
-        minDate={new Date()}
+        minDate={new Date(STARTING_DATE_OF_BOOKING)}
         customInput={<StartInput />}
+        portalId="booking-calendar-portal"
+        dateFormat="dd.MM.yyyy"
       />
 
       <Datepicker
@@ -37,32 +62,10 @@ export const CalendarBooking: React.FC = () => {
         endDate={endDate}
         onChange={onChangeEnd}
         minDate={startDate}
-        customInput={<StartInput />}
+        customInput={<EndInput />}
+        portalId="booking-calendar-portal"
+        dateFormat="dd.MM.yyyy"
       />
-      {/*<DatePicker*/}
-      {/*  selected={startDate}*/}
-      {/*  startDate={startDate}*/}
-      {/*  endDate={endDate}*/}
-      {/*  selectsStart*/}
-      {/*  onChange={(date) => setStartDate(date)}*/}
-      {/*  locale={ru}*/}
-      {/*  dateFormat="dd-MM-yyyy"*/}
-      {/*  minDate={new Date()}*/}
-      {/*  disabledKeyboardNavigation*/}
-      {/*  showDisabledMonthNavigation*/}
-      {/*/>*/}
-      {/*<DatePicker*/}
-      {/*  selected={endDate}*/}
-      {/*  startDate={startDate}*/}
-      {/*  endDate={endDate}*/}
-      {/*  selectsEnd*/}
-      {/*  onChange={(date) => setEndDate(date)}*/}
-      {/*  locale={ru}*/}
-      {/*  dateFormat="dd-MM-yyyy"*/}
-      {/*  minDate={startDate}*/}
-      {/*  disabledKeyboardNavigation*/}
-      {/*  showDisabledMonthNavigation*/}
-      {/*/>*/}
     </>
   );
 };
