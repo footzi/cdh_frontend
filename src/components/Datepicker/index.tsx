@@ -1,8 +1,11 @@
-import React from 'react';
-import ru from 'date-fns/locale/ru';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
 import './index.scss';
+
+import ru from 'date-fns/locale/ru';
+import React from 'react';
+import DatePicker from 'react-datepicker';
+
 import { DatepickerProps } from './interfaces';
 
 export const Datepicker: React.FC<DatepickerProps> = ({

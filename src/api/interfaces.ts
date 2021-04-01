@@ -1,10 +1,18 @@
+import { Maybe } from 'api';
 import { AxiosError } from 'axios';
-import { Maybe } from 'interfaces';
 
-export interface UseRequestProps {
+export interface UseQueryProps {
   url: ApiPathItem;
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
   params?: unknown;
+  onSuccess?(): void;
+  onError?(): void;
+}
+
+export interface UseQueryResult {
+  data: unknown;
+  isLoading: boolean;
+  error: Maybe<AxiosError>;
+  refetch(): void;
 }
 
 export interface UseMutationProps {
@@ -13,13 +21,6 @@ export interface UseMutationProps {
   params?: unknown;
   onSuccess?(): void;
   onError?(): void;
-}
-
-export interface UseRequestResult {
-  data: unknown;
-  isLoading: boolean;
-  error: Maybe<AxiosError>;
-  refetch(): void;
 }
 
 export interface UseMutationResult {

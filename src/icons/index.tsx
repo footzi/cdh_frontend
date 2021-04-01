@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { IconDefaultProps } from './interfaces';
 
 export const ArrowDownIcon: React.FC<IconDefaultProps> = ({ stroke }) => (

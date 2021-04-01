@@ -1,6 +1,7 @@
-import React, { useCallback, useState, forwardRef, ForwardedRef } from 'react';
 import { Datepicker } from 'components/Datepicker';
 import { STARTING_DATE_OF_BOOKING } from 'constants/index';
+import React, { ForwardedRef, forwardRef, useCallback, useState } from 'react';
+
 import { CustomInputProps } from './interfaces';
 
 export const CalendarBooking: React.FC = () => {

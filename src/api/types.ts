@@ -1,4 +1,8 @@
-import { UseMutationResult } from './interfaces';
+import { ROOM_TYPES, STATUSES_ORDER } from 'constants/index';
+
+import { UseMutationResult, UseQueryResult } from './interfaces';
+
+export type Maybe<T> = T | (null | undefined);
 
 // Форма бронирования на сайте
 export interface BookingResponse {
@@ -12,6 +16,31 @@ export interface BookingResponse {
   price: string;
 }
 
-export interface UseMutationBookingRoom extends Omit<UseMutationResult, 'data'> {
-  data: BookingResponse;
+export interface UseMutationBookingRoomResponse extends Omit<UseMutationResult, 'data'> {
+  data: Maybe<BookingResponse>;
+}
+
+// Календарь в CRM
+export interface UseQueryGetScheduleRequest extends Omit<UseQueryResult, 'data'> {
+  data: ScheduleResponse;
+}
+
+export interface RoomDataResponse {
+  id: number;
+  type: ROOM_TYPES.LUX | ROOM_TYPES.NORMAL;
+  name: string;
+}
+
+export interface OrderDataResponse {
+  id: number;
+  uuid: string;
+  start: string;
+  end: string;
+  room: RoomDataResponse;
+  status: STATUSES_ORDER.PAID | STATUSES_ORDER.NOT_PAID;
+}
+
+export interface ScheduleResponse {
+  rooms: RoomDataResponse[];
+  orders: OrderDataResponse[];
 }

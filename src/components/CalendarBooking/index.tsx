@@ -1,5 +1,6 @@
-import ReactDOM from 'react-dom';
 import React from 'react';
+import ReactDOM from 'react-dom';
+
 import { CalendarBooking as App } from './app';
 
 export class CalendarBooking {

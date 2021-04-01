@@ -1,17 +1,17 @@
-import './index.scss';
-
 import { Button } from 'components/Button';
 import { CustomInputProps } from 'components/CalendarBooking/interfaces';
 import { Datepicker } from 'components/Datepicker';
 import { STARTING_DATE_OF_BOOKING } from 'constants/index';
 import rooms from 'data/rooms.json';
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useState } from 'react';
+import { closeAllPopups } from 'site/components/popup';
 import { formatToBackendDate } from 'utils/formatToBackendDate';
 
+import { useSendForm } from '../hooks/useSendForm';
 import { Fields, FormProps } from '../interfaces';
 import { getIsValid } from '../utils/getIsValid';
 
-export const Form: React.FC<FormProps> = ({ sendForm, isLoadingSend }) => {
+export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) => {
   const [fields, setFields] = useState<Fields>({
     start: '',
     end: '',
@@ -19,10 +19,14 @@ export const Form: React.FC<FormProps> = ({ sendForm, isLoadingSend }) => {
     phone: '',
     comment: '',
     email: '',
-    room: '',
+    room: checkedRoomId,
   });
 
   const [isValid, setIsValid] = useState<boolean>(true);
+
+  const { orderResult, sendForm, isLoading } = useSendForm({
+    fields,
+  });
 
   const onChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,8 +60,10 @@ export const Form: React.FC<FormProps> = ({ sendForm, isLoadingSend }) => {
         sendForm(fields);
       }
     },
-    [isValid]
+    [fields, sendForm, isValid]
   );
+
+  const onClosePopup = useCallback(() => closeAllPopups(), []);
 
   const StartInput = forwardRef(
     ({ value, onChange, onClick }: CustomInputProps, ref: ForwardedRef<HTMLInputElement>) => (
@@ -96,11 +102,17 @@ export const Form: React.FC<FormProps> = ({ sendForm, isLoadingSend }) => {
       start,
       end,
     });
-  }, [startDate, endDate]);
+  }, [startDate, endDate, fields]);
 
   useEffect(() => {
     setIsValid(getIsValid(fields));
   }, [fields]);
+
+  useEffect(() => {
+    if (orderResult) {
+      onSetOrderResult(orderResult);
+    }
+  }, [orderResult, onSetOrderResult]);
 
   return (
     <form onSubmit={onSubmit}>
@@ -138,7 +150,7 @@ export const Form: React.FC<FormProps> = ({ sendForm, isLoadingSend }) => {
 
       <div className="booking-form__number-info">
         Подробнее о номерах{' '}
-        <a href="#rooms" className="link link_theme_extra-mini popup-close">
+        <a href="#rooms" className="link link_theme_extra-mini popup-close" onClick={onClosePopup}>
           здесь
         </a>
       </div>
@@ -213,7 +225,7 @@ export const Form: React.FC<FormProps> = ({ sendForm, isLoadingSend }) => {
       </a>
 
       <div className="booking-form__submit">
-        <Button isDisabled={false} type="submit" isLoading={isLoadingSend}>
+        <Button isDisabled={false} type="submit" isLoading={isLoading}>
           Забронировать номер
         </Button>
       </div>

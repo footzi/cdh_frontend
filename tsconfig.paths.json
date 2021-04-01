@@ -10,6 +10,7 @@
       "interfaces": ["./src/interfaces"],
       "utils/*": ["./src/utils/*"],
       "crm/*": ["./src/clients/crm/*"],
+      "site/*": ["./src/clients/site/*"],
       "data/*": ["./src/data/*"]
     }
   }

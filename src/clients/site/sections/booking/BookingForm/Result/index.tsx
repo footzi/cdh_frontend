@@ -1,21 +1,12 @@
-import './index.scss';
-
 import { Button } from 'components/Button';
-import React from 'react';
+import React, { useCallback } from 'react';
+import { closeAllPopups } from 'site/components/popup';
 
-export const Result: React.FC = () => {
-  const result = {
-    id: '0057',
-    startDate: '07.07.2021',
-    endDate: '07.07.2021',
-    countDays: '14',
-    name: 'Мария',
-    phone: '+7(980)758-78-98',
-    email: 'specy98@mail.ru',
-    price: '7700',
-  };
+import { ResultProps } from '../interfaces';
 
+export const Result: React.FC<ResultProps> = ({ result }) => {
   const { id, startDate, endDate, countDays, name, phone, email, price } = result;
+  const onClosePopup = useCallback(() => closeAllPopups(), []);
 
   return (
     <div>
@@ -68,8 +59,12 @@ export const Result: React.FC = () => {
       </div>
 
       <div className="booking-form-buttons">
-        <Button theme="borders">Оплатить при заселении</Button>
-        <Button theme="borders">Оплатить сейчас</Button>
+        <Button theme="borders" onClick={onClosePopup}>
+          Оплатить при заселении
+        </Button>
+        <Button theme="borders" onClick={onClosePopup}>
+          Оплатить сейчас
+        </Button>
       </div>
     </div>
   );

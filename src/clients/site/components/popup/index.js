@@ -1,4 +1,4 @@
-// import { booking } from '../../sections/booking';
+import { bookingFormMount, bookingFormUnmount } from '../../sections/booking/BookingForm';
 
 class Popup {
   constructor(openButton) {
@@ -30,10 +30,10 @@ class Popup {
     const openedPopups = document.querySelectorAll('.popup') ?? [];
     openedPopups.forEach((popup) => popup.classList.remove('is-open'));
 
-    // if (this.contentId === 'booking') {
-    //   const roomId = this.openButton.dataset.roomId;
-    //   booking.init(roomId);
-    // }
+    if (this.contentId === 'booking') {
+      const checkedRoomId = this.openButton.dataset.roomId ?? '';
+      bookingFormMount(checkedRoomId);
+    }
 
     this.popup.classList.add('is-open');
   }
@@ -41,8 +41,21 @@ class Popup {
   close() {
     document.body.classList.remove('is-popup-open');
     this.popup.classList.remove('is-open');
+
+    if (this.contentId === 'booking') {
+      bookingFormUnmount();
+    }
   }
 }
+
+// eslint-disable-next-line
+export const closeAllPopups = () => {
+  const openedPopups = document.querySelectorAll('.popup') ?? [];
+  document.body.classList.remove('is-popup-open');
+  openedPopups.forEach((popup) => popup.classList.remove('is-open'));
+
+  bookingFormUnmount();
+};
 
 document.querySelectorAll('.popup-open').forEach((openButton) => {
   new Popup(openButton);
@@ -50,8 +63,6 @@ document.querySelectorAll('.popup-open').forEach((openButton) => {
 
 document.querySelectorAll('.popup-close').forEach((closeButton) => {
   closeButton.addEventListener('click', () => {
-    const openedPopups = document.querySelectorAll('.popup') ?? [];
-    document.body.classList.remove('is-popup-open');
-    openedPopups.forEach((popup) => popup.classList.remove('is-open'));
+    closeAllPopups();
   });
 });

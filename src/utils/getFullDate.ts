@@ -1,5 +1,5 @@
-import dayjs from 'dayjs';
 import { MONTHS_NAMES } from 'constants/index';
+import dayjs from 'dayjs';
 
 /**
  * Возвращает текст даты в виде 15 июля 2021г. из даты 2021-07-15

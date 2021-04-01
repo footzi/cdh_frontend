@@ -1,15 +1,26 @@
 import useAxios from 'axios-hooks';
+import { useEffect } from 'react';
 
-import { UseMutationProps, UseMutationResult, UseRequestProps, UseRequestResult } from './interfaces';
+import { UseMutationProps, UseMutationResult, UseQueryProps, UseQueryResult } from './interfaces';
 
 const USE_LOCAL_JSON = true;
 
-export const useRequest = ({ url, method = 'GET', params }: UseRequestProps): UseRequestResult => {
+export const useQuery = ({ url, params, onSuccess, onError }: UseQueryProps): UseQueryResult => {
   const [{ data, loading, error }, refetch] = useAxios({
     url: USE_LOCAL_JSON ? url.json : url.url,
-    method,
+    method: 'GET',
     params,
   });
+
+  useEffect(() => {
+    if (error) {
+      onError && onError();
+    }
+
+    if (data && !error) {
+      onSuccess && onSuccess();
+    }
+  }, [data, error, onSuccess, onError]);
 
   return {
     data,
@@ -35,13 +46,15 @@ export const useMutation = ({
     { manual: true }
   );
 
-  if (error) {
-    onError && onError();
-  }
+  useEffect(() => {
+    if (error) {
+      onError && onError();
+    }
 
-  if (data && !error) {
-    onSuccess && onSuccess();
-  }
+    if (data && !error) {
+      onSuccess && onSuccess();
+    }
+  }, [data, error, onSuccess, onError]);
 
   return {
     data,
@@ -52,5 +65,4 @@ export const useMutation = ({
 };
 
 export { ApiPaths } from './paths';
-export type { UseRequestResult } from './interfaces';
 export * from './types';

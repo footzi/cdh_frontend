@@ -24,6 +24,7 @@ module.exports = {
       interfaces: path.resolve(__dirname, 'src/interfaces'),
       components: path.resolve(__dirname, 'src/components'),
       crm: path.resolve(__dirname, 'src/clients/crm/'),
+      site: path.resolve(__dirname, 'src/clients/site/'),
       utils: path.resolve(__dirname, 'src/utils/'),
       data: path.resolve(__dirname, 'src/data'),
     },

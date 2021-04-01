@@ -1,8 +1,8 @@
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
+
 import './components/dropdown';
 import './components/popup';
-import './sections/booking/Form';
 import './sections/room-info';
 import './index.scss';
 

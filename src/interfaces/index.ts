@@ -1,23 +1,4 @@
-import { ROOM_TYPES, STATUSES_ORDER } from 'constants/index';
-
-export type Maybe<T> = T | (null | undefined);
-
-export interface ScheduleResponse {
-  rooms: RoomDataResponse[];
-  orders: OrderDataResponse[];
-}
-
-export interface RoomDataResponse {
-  id: number;
-  type: ROOM_TYPES.LUX | ROOM_TYPES.NORMAL;
-  name: string;
-}
-
-export interface OrderDataResponse {
-  id: number;
-  uuid: string;
-  start: string;
-  end: string;
-  room: RoomDataResponse;
-  status: STATUSES_ORDER.PAID | STATUSES_ORDER.NOT_PAID;
+// файл для общих интерфейсов - возможно стоит удалить
+export interface Test {
+  id: '1';
 }
