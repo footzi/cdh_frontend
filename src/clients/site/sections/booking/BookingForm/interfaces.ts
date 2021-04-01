@@ -31,5 +31,11 @@ export interface UseSendFormProps {
 export interface UseSendFormResult {
   orderResult: Maybe<BookingResponse>;
   isLoading: boolean;
-  sendForm(fields: Fields): void;
+  sendForm(): void;
+}
+
+export interface UsePrePriceProps {
+  startDate: Date | null;
+  endDate: Date | null;
+  roomId: string;
 }

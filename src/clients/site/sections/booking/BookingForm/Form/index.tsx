@@ -7,6 +7,7 @@ import React, { ForwardedRef, forwardRef, useCallback, useEffect, useState } fro
 import { closeAllPopups } from 'site/components/popup';
 import { formatToBackendDate } from 'utils/formatToBackendDate';
 
+import { usePrePrice } from '../hooks/usePrePrice';
 import { useSendForm } from '../hooks/useSendForm';
 import { Fields, FormProps } from '../interfaces';
 import { getIsValid } from '../utils/getIsValid';
@@ -22,7 +23,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
     room: checkedRoomId,
   });
 
-  const [isValid, setIsValid] = useState<boolean>(true);
+  const [isValid, setIsValid] = useState<boolean>(false);
 
   const { orderResult, sendForm, isLoading } = useSendForm({
     fields,
@@ -44,6 +45,8 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
+  const prePrice = usePrePrice({ startDate, endDate, roomId: fields.room });
+
   const onChangeStart = useCallback((date: Date) => {
     setStartDate(date);
   }, []);
@@ -56,8 +59,8 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      if (!isValid) {
-        sendForm(fields);
+      if (isValid) {
+        sendForm();
       }
     },
     [fields, sendForm, isValid]
@@ -69,7 +72,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
     ({ value, onChange, onClick }: CustomInputProps, ref: ForwardedRef<HTMLInputElement>) => (
       <input
         className="input"
-        placeholder="Дата заезда"
+        placeholder="Дата заезда*"
         name="start"
         onChange={onChange}
         onClick={onClick}
@@ -83,7 +86,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
   const EndInput = forwardRef(({ value, onChange, onClick }: CustomInputProps, ref: ForwardedRef<HTMLInputElement>) => (
     <input
       className="input"
-      placeholder="Дата отъезда"
+      placeholder="Дата отъезда*"
       name="end"
       onChange={onChange}
       onClick={onClick}
@@ -97,12 +100,12 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
     const start = startDate ? formatToBackendDate(startDate.toString()) : '';
     const end = endDate ? formatToBackendDate(endDate.toString()) : '';
 
-    setFields({
-      ...fields,
+    setFields((prevState) => ({
+      ...prevState,
       start,
       end,
-    });
-  }, [startDate, endDate, fields]);
+    }));
+  }, [startDate, endDate]);
 
   useEffect(() => {
     setIsValid(getIsValid(fields));
@@ -182,7 +185,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
 
         <input
           type="text"
-          placeholder="Ваше имя"
+          placeholder="Ваше имя*"
           name="name"
           className="input"
           value={fields.name}
@@ -190,7 +193,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         />
         <input
           type="phone"
-          placeholder="Ваш телефон"
+          placeholder="Ваш телефон*"
           name="phone"
           className="input"
           value={fields.phone}
@@ -198,7 +201,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         />
         <input
           type="email"
-          placeholder="Ваш e-mail"
+          placeholder="Ваш e-mail*"
           name="email"
           className="input"
           value={fields.email}
@@ -217,7 +220,8 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
 
       <div className="booking-form__cost">
         <div className="booking-form__cost-title">Предварительная стоимость</div>
-        <div className="booking-form__cost-value">2 500 р</div>
+
+        {!!prePrice && <div className="booking-form__cost-value">{prePrice} р</div>}
       </div>
 
       <a href="#" className="link link_theme_normal link_theme_mini booking-form__cost-info">
@@ -225,7 +229,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
       </a>
 
       <div className="booking-form__submit">
-        <Button isDisabled={false} type="submit" isLoading={isLoading}>
+        <Button isDisabled={!isValid} type="submit" isLoading={isLoading}>
           Забронировать номер
         </Button>
       </div>

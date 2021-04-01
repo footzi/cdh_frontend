@@ -1,6 +1,6 @@
 @import '../../../../styles/colors';
 
-.booking-form__thanks {
+.booking-form-result__thanks {
   border-radius: 10px 0 0 10px;
   background-color: $LIGHT_ORANGE;
   padding: 25px 20px;
@@ -9,7 +9,7 @@
   transform: translateX(-20px) translateY(-30px);
 }
 
-.booking-form__title {
+.booking-form-result__title {
   font-weight: 700;
   font-size: 20px;
   line-height: 23px;
@@ -17,17 +17,17 @@
   display: inline-block;
 }
 
-.booking-form__order {
+.booking-form-result__order {
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
 }
 
-.booking-form__clients-info {
+.booking-form-result__clients-info {
   margin-right: 30px;
 }
 
-.booking-form__clients-info-item {
+.booking-form-result__clients-info-item {
   margin-bottom: 25px;
   display: flex;
   align-items: center;
@@ -37,7 +37,7 @@
   }
 }
 
-.booking-form__clients-info-title {
+.booking-form-result__clients-info-title {
   width: 200px;
   display: inline-block;
   font-weight: 300;
@@ -45,28 +45,30 @@
   line-height: 19px;
 }
 
-.booking-form__clients-info-value {
+.booking-form-result__clients-info-value {
   font-size: 18px;
   line-height: 21px;
   font-weight: 400;
 }
 
-.booking-form__clients-info-count-days {
+.booking-form-result__clients-info-count-days {
   margin-left: 30px;
   font-size: 18px;
   line-height: 21px;
   color: $LIGHT_ORANGE;
 }
 
-.booking-form__email-text {
+.booking-form-result__email-text {
   margin-top: 30px;
+  font-style: italic;
   font-weight: 300;
   font-size: 14px;
   line-height: 16px;
   color: $LIGHT_ORANGE;
+  text-decoration-line: underline;
 }
 
-.booking-form__payments-text {
+.booking-form-result__payments-text {
   margin-top: 50px;
   font-weight: 300;
   font-size: 14px;
@@ -76,11 +78,11 @@
   color: $DARK_GREY;
 }
 
-.booking-form__payments {
+.booking-form-result__payments {
   margin-top: 10px;
 }
 
-.booking-form__payment {
+.booking-form-result__payment {
   font-style: italic;
   font-weight: 300;
   font-size: 14px;
@@ -93,23 +95,29 @@
   }
 }
 
-.booking-form__cost {
-  margin-top: 45px;
+.booking-form-result__footer {
+  margin-top: auto;
 }
 
-.booking-form__cost-text {
+.booking-form-result__cost {
+  margin-top: 45px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking-form-result__cost-text {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
 }
 
-.booking-form__cost-value {
+.booking-form-result__cost-value {
   font-weight: 700;
   font-size: 18px;
   line-height: 21px;
 }
 
-.booking-form-buttons {
+.booking-form-result-buttons {
   margin-top: 45px;
   display: flex;
   justify-content: space-between;
@@ -117,4 +125,12 @@
   button {
     width: 220px;
   }
+}
+
+.booking-form-result__insta {
+  font-size: 14px;
+  line-height: 16px;
+  color: $ORANGE;
+  margin-top: 38px;
+  margin-bottom: 20px;
 }

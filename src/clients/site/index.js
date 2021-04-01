@@ -16,9 +16,9 @@ $(document).ready(function () {
     dots: false,
   });
 
-  // eslint-disable-next-line no-undef
-  $('.reviews__slider').owlCarousel({
-    items: 1,
-    dots: true,
-  });
+  // // eslint-disable-next-line no-undef
+  // $('.reviews__slider').owlCarousel({
+  //   items: 1,
+  //   dots: true,
+  // });
 });

@@ -21,8 +21,8 @@
 .booking-form__checkbox-room-label {
   width: 100%;
   border: 1px solid $LIGHT_ORANGE;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 14px;
+  line-height: 16px;
   padding: 10px;
   text-align: center;
   color: $LIGHT_ORANGE;
@@ -93,6 +93,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 21px;
 }
 
 .booking-form__cost-title {
@@ -103,8 +104,8 @@
 
 .booking-form__cost-value {
   font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 18px;
+  line-height: 21px;
 }
 
 .booking-form__cost-info {

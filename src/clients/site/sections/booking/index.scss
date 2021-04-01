@@ -21,7 +21,13 @@
 
 .booking__content {
   width: 50%;
-  min-height: 580px;
+  min-height: 590px;
+}
+
+.booking__form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .booking__contacts {
