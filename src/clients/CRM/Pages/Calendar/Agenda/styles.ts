@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { COLORS } from 'colors';
 import { STATUSES_ORDER } from 'constants/index';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;

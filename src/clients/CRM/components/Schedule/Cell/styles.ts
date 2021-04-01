@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
 import { COLORS } from 'colors';
 import { STATUSES_ORDER } from 'constants/index';
+import styled, { css } from 'styled-components';
 
 export const Status = styled.div<{ status: string; isSelected: boolean }>`
   width: 40px;

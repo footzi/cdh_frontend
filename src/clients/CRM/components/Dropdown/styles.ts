@@ -1,6 +1,7 @@
-import styled from 'styled-components';
 import { COLORS } from 'colors';
-import { WrapperProps, ContainerProps, ArrowButtonProps, HeaderProps, TitleProps } from './interfaces';
+import styled from 'styled-components';
+
+import { ArrowButtonProps, ContainerProps, HeaderProps, TitleProps, WrapperProps } from './interfaces';
 
 export const Wrapper = styled.div<WrapperProps>`
   width: ${({ marginAround }) => (marginAround ? `calc(100% - ${marginAround})` : '100%')};

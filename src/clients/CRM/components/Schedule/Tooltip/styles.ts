@@ -1,6 +1,7 @@
-import styled from 'styled-components';
 import { COLORS } from 'colors';
 import { STATUSES_ORDER } from 'constants/index';
+import styled from 'styled-components';
+
 import { TooltipContainerProps } from '../interfaces';
 
 export const Container = styled.div<TooltipContainerProps>`

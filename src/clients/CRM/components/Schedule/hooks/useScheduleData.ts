@@ -1,10 +1,11 @@
-import { useRequest, ApiPaths } from 'api';
-import { getDaysInMonth } from '../utils/getDaysInMonth';
+import { ApiPaths, UseQueryGetScheduleRequest, useQuery } from 'api';
+
+import { UseScheduleResult } from '../interfaces';
 import { getColumns } from '../utils/getColumns';
-import { UseScheduleResult, UseScheduleRequest } from '../interfaces';
+import { getDaysInMonth } from '../utils/getDaysInMonth';
 
 export const useScheduleData = (month: number, year: number): UseScheduleResult => {
-  const { data, isLoading } = useRequest(ApiPaths.getSchedule) as UseScheduleRequest;
+  const { data, isLoading } = useQuery({ url: ApiPaths.getSchedule }) as UseQueryGetScheduleRequest;
   const days = getDaysInMonth(month, year);
   const columns = getColumns({ data, days, month, year });
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Container, List, Item } from './styles';
+
 import { NAVIGATION_MENU } from './constants';
+import { Container, Item, List } from './styles';
 
 export const Navigation: React.FC = () => {
   const { pathname } = useLocation();

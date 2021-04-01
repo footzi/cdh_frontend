@@ -1,11 +1,11 @@
-import React from 'react';
-import { Separate } from './Separate';
-import { Table } from './Table';
-import { ScheduleProps } from './interfaces';
 import { Preloader } from 'components/Preloader';
-import { useScheduleData } from './hooks/useScheduleData';
+import React from 'react';
 
-import { Container, LoaderContainer, DaysColumn, DayCell } from './styles';
+import { useScheduleData } from './hooks/useScheduleData';
+import { ScheduleProps } from './interfaces';
+import { Separate } from './Separate';
+import { Container, DayCell, DaysColumn, LoaderContainer } from './styles';
+import { Table } from './Table';
 
 export const Schedule: React.FC<ScheduleProps> = ({ year, month }) => {
   const { days, columns, isLoading } = useScheduleData(month, year);

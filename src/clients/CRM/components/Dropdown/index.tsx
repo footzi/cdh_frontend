@@ -1,10 +1,11 @@
+import { TRANSITION_GROUP_DEFAULT_TIMEOUT, TRANSITION_TIMEOUT } from 'constants/index';
+import { ArrowDownIcon } from 'icons';
 import React, { useCallback, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
-import { ArrowDownIcon } from 'icons';
-import { Container, Header, Title, Wrapper, Content, ArrowButton, RightBlock } from './styles';
-import { DropdownProps } from './interfaces';
+
 import { useDropdown } from './hooks/useDropdown';
-import { TRANSITION_TIMEOUT, TRANSITION_GROUP_DEFAULT_TIMEOUT } from 'constants/index';
+import { DropdownProps } from './interfaces';
+import { ArrowButton, Container, Content, Header, RightBlock, Title, Wrapper } from './styles';
 
 export const Dropdown: React.FC<DropdownProps> = ({ styles, titleText, rightBlock, isDefaultOpen, children }) => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -15,7 +16,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ styles, titleText, rightBloc
   const onToggle = useCallback(() => {
     setIsStart(true);
     setIsOpen(!isOpen);
-  }, [isOpen]);
+  }, [setIsOpen, isOpen]);
 
   const onEntered = useCallback(() => {
     setTimeout(() => {

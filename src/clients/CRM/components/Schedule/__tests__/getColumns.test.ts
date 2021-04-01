@@ -1,6 +1,7 @@
-import { ScheduleResponse } from 'interfaces';
+import { ScheduleResponse } from 'api';
+
 import { getColumns } from '../utils/getColumns';
-import { mockData1, daysInMonthMock } from './mocks';
+import { daysInMonthMock, mockData1 } from './mocks';
 
 describe('getColumns', () => {
   it('Возвращает правильный набор данных при вариации 1', () => {

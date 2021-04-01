@@ -1,14 +1,15 @@
+import { Maybe } from 'api';
+import { STATUSES_ORDER } from 'constants/index';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Maybe } from 'interfaces';
+import { getDateFormatFromNumbers } from 'utils/getDateFormatFromNumbers';
+
 import { Cell } from '../Cell';
+import { SelectedCell, TooltipCoords, TooltipData } from '../interfaces';
 import { Tooltip } from '../Tooltip';
-import { TooltipCoords, TooltipData, SelectedCell } from '../interfaces';
 import { TableProps } from './interface';
 import { Container, RoomColumn, RoomName } from './styles';
-import { STATUSES_ORDER } from 'constants/index';
-import { getDateFormatFromNumbers } from 'utils/getDateFormatFromNumbers';
-import { checkIsSelectedNotOrder } from './utils/checkIsSelectedNotOrder';
 import { checkIsCellsNotOrder } from './utils/checkIsCellsNotOrder';
+import { checkIsSelectedNotOrder } from './utils/checkIsSelectedNotOrder';
 
 export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
   const [tooltipData, setTooltipData] = useState<Maybe<TooltipData>>(null);
@@ -91,7 +92,7 @@ export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
     if (!selectedCells.length) {
       setTooltipData(null);
     }
-  }, [selectedCells]);
+  }, [selectedCells, setTooltipData, columns, month, year]);
 
   const getIsSelectedCell = useCallback(
     (roomId: number, dayId: number): boolean => {
@@ -132,7 +133,7 @@ export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
         end: '',
       });
     },
-    [selectedCells]
+    [selectedCells, columns, month, onSelected, year]
   );
 
   const onMouseMove = useCallback(
@@ -156,7 +157,7 @@ export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
         setTooltipData(null);
       }
     },
-    [tooltipData]
+    [tooltipData, selectedCells.length]
   );
 
   useEffect(() => {
@@ -172,7 +173,7 @@ export const Table: React.FC<TableProps> = ({ columns, year, month }) => {
 
   useEffect(() => {
     onUpdateTooltipSelectedCells();
-  }, [selectedCells]);
+  }, [selectedCells, onUpdateTooltipSelectedCells]);
 
   return (
     <Container onClick={onClick} onMouseMove={onMouseMove}>

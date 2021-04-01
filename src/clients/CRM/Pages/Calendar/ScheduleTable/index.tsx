@@ -1,7 +1,8 @@
-import React from 'react';
-import dayjs from 'dayjs';
 import { Dropdown, Schedule } from 'crm/components';
-import { YEAR_DROPDOWN_STYLES, MONTH_DROPDOWN_STYLES, YEARS_AND_MONTHS_SCHEDULE } from './constants';
+import dayjs from 'dayjs';
+import React from 'react';
+
+import { MONTH_DROPDOWN_STYLES, YEARS_AND_MONTHS_SCHEDULE, YEAR_DROPDOWN_STYLES } from './constants';
 import { Container } from './styles';
 
 export const ScheduleTable: React.FC = () => {

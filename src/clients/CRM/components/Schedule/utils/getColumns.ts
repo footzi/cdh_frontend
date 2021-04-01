@@ -1,8 +1,9 @@
-import dayjs from 'dayjs';
-import { RoomDataResponse, OrderDataResponse, Maybe } from 'interfaces';
+import { Maybe, OrderDataResponse, RoomDataResponse } from 'api';
 import { STATUSES_ORDER } from 'constants/index';
+import dayjs from 'dayjs';
 import { getDateFormatFromNumbers } from 'utils/getDateFormatFromNumbers';
-import { Column, Cell, GetColumnsProps } from '../interfaces';
+
+import { Cell, Column, GetColumnsProps } from '../interfaces';
 
 export const getColumns = ({ data, days, month, year }: GetColumnsProps): Maybe<Column[]> => {
   const rooms = data?.rooms;

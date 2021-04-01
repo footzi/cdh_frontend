@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
+
 import { UseDropdownProps, UseDropdownResult } from '../interfaces';
 
 export const useDropdown = ({ ref, isDefaultOpen }: UseDropdownProps): UseDropdownResult => {

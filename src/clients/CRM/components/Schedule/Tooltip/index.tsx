@@ -1,7 +1,8 @@
+import { STATUSES_ORDER, TRANSITION_GROUP_DEFAULT_TIMEOUT } from 'constants/index';
 import React, { useMemo } from 'react';
 import { Transition } from 'react-transition-group';
-import { STATUSES_ORDER, TRANSITION_GROUP_DEFAULT_TIMEOUT } from 'constants/index';
 import { getFullDate } from 'utils/getFullDate';
+
 import { TooltipProps } from '../interfaces';
 import { BookingButton, Container, Content, Date, Header, Room, Status } from './styles';
 
@@ -14,13 +15,12 @@ export const Tooltip: React.FC<TooltipProps> = ({ data, coords }) => {
 
   const order = cell?.order;
 
+  const date = useMemo(() => start && getFullDate(start), [start]);
+  const interval = useMemo(() => newOrder && (start !== end ? `${start} - ${end}` : start), [newOrder, start, end]);
+
   if (!order && !newOrder) {
     return null;
   }
-
-  const date = useMemo(() => start && getFullDate(start), [data]);
-
-  const interval = useMemo(() => newOrder && (start !== end ? `${start} - ${end}` : start), [data]);
 
   return (
     <Transition in={Boolean(data)} timeout={TRANSITION_GROUP_DEFAULT_TIMEOUT} unmountOnExit>

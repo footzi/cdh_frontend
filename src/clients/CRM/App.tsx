@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Header, Navigation, Layout } from './components';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+
+import { Header, Layout, Navigation } from './components';
 import { Calendar, Orders } from './pages';
 
 export const App: React.FC = () => (
@@ -20,5 +21,3 @@ export const App: React.FC = () => (
     </Layout>
   </Router>
 );
-
-

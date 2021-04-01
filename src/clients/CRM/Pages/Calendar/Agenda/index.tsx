@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Label, Item, Text } from './styles';
+
 import { AGENDA_ITEMS } from './constants';
+import { Container, Item, Label, Text } from './styles';
 
 export const Agenda: React.FC = () => (
   <Container>
