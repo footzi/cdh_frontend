@@ -10,7 +10,7 @@
   border-radius: 60px;
   width: 100%;
   border: 1px solid $ORANGE;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   box-shadow: none;
 
   &:hover {
@@ -18,9 +18,21 @@
     color: $ORANGE;
   }
 
+	&_theme_hover-white {
+		&:hover {
+			background-color: $WHITE;
+			border: 1px solid $WHITE;
+		}
+	}
+
   &_theme_orange-light {
     background-color: $LIGHT_ORANGE;
     border: 1px solid $LIGHT_ORANGE;
+
+	  &:hover {
+		  border: 1px solid $ORANGE;
+		  color: $ORANGE;
+	  }
   }
 
   &_theme_borders {
@@ -31,6 +43,18 @@
     &:hover {
       background-color: $ORANGE;
       color: $WHITE;
+    }
+  }
+
+  &_theme_white {
+    background-color: $WHITE;
+    color: $ORANGE;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: $ORANGE;
+      color: $WHITE;
+		border: 1px solid transparent;
     }
   }
 
