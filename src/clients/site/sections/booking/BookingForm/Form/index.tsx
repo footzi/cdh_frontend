@@ -63,7 +63,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         sendForm();
       }
     },
-    [fields, sendForm, isValid]
+    [sendForm, isValid]
   );
 
   const onClosePopup = useCallback(() => closeAllPopups(), []);
@@ -153,7 +153,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
 
       <div className="booking-form__number-info">
         Подробнее о номерах{' '}
-        <a href="#rooms" className="link link_theme_extra-mini popup-close" onClick={onClosePopup}>
+        <a href="#rooms" className="link popup-close" onClick={onClosePopup}>
           здесь
         </a>
       </div>
@@ -224,7 +224,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         {!!prePrice && <div className="booking-form__cost-value">{prePrice} р</div>}
       </div>
 
-      <a href="#" className="link link_theme_normal link_theme_mini booking-form__cost-info">
+      <a href="#" className="link link_theme_normal booking-form__cost-info">
         Как происходит оплата?
       </a>
 
@@ -236,7 +236,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
 
       <div className="booking-form__agreements">
         Нажимая на кнопку, вы даете согласие на{' '}
-        <a href="#" className="link link_theme_extra-mini">
+        <a href="#" className="link">
           обработку своих персональных данных.
         </a>
       </div>

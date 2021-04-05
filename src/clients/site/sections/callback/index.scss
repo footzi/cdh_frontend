@@ -4,14 +4,15 @@
 
 .callback {
   @include layout();
-  margin-top: 90px;
+  padding-top: 105px;
+  margin-bottom: 105px;
 }
 
 .callback__title {
   font-size: 28px;
   line-height: 33px;
   font-weight: 500;
-  color: $ORANGE;
+  color: $LIGHT_ORANGE;
   text-align: center;
 }
 

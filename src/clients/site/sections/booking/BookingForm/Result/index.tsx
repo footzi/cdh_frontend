@@ -60,7 +60,7 @@ export const Result: React.FC<ResultProps> = ({ result }) => {
 
         <p className="booking-form-result__insta">
           За процессом открытия гостиницы вы можете следить на нашей страничке в{' '}
-          <a href={links.instagram} className="link link_theme_mini link_theme_normal">
+          <a href={links.instagram} className="link link_theme_normal">
             Instagram
           </a>
         </p>

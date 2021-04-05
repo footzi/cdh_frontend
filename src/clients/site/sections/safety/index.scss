@@ -34,9 +34,6 @@
   z-index: 1;
 }
 
-.safety__content {
-}
-
 .safety__header {
   @include prefix(9, 48);
   @include suffix(9, 48);
@@ -75,11 +72,4 @@
   font-size: 16px;
   line-height: 18px;
   margin-top: 20px;
-}
-
-.safety__button {
-  @include column(10, 48);
-  @include push(5, 48);
-  margin-top: 60px;
-  margin-left: auto;
 }

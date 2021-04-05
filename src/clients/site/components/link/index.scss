@@ -5,9 +5,6 @@
   border: none;
   color: $ORANGE;
   text-decoration: underline;
-  font-size: 16px;
-  line-height: 18px;
-  font-weight: 400;
   font-style: italic;
   display: inline-block;
 
@@ -21,16 +18,5 @@
 
   &_theme_normal {
     font-style: normal;
-  }
-
-  &_theme_mini {
-    font-size: 14px;
-    line-height: 16px;
-  }
-
-  &_theme_extra-mini {
-    font-size: 12px;
-    line-height: 14px;
-    font-weight: 300;
   }
 }
