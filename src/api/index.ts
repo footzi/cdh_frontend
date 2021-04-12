@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import { UseMutationProps, UseMutationResult, UseQueryProps, UseQueryResult } from './interfaces';
 
-const USE_LOCAL_JSON = true;
+const USE_LOCAL_JSON = false;
 
 export const useQuery = ({ url, params, onSuccess, onError }: UseQueryProps): UseQueryResult => {
   const [{ data, loading, error }, refetch] = useAxios({

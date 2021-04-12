@@ -1,23 +1,15 @@
+- var links = require("../../../../data/links.json");
+
 header.header
   .header__top
     img.header__logo(src='../images/logo.svg', alt='Гостиница для животных')
+    img.header__logo-mini(src='../images/logo-mini.svg', alt='Гостиница для животных')
     .header__right-side
       .header__phone
-        .header__phone-value тел. +7 (905) 332-56-89
-        a.link.link(href='tel:+79053325689') Позвоните мне
+        .header__phone-value тел. #{links.phone}
+        a.link(href='#callback') Позвоните мне
       ul.header__social
-        li.header__social-item
-          a.header__social-link(href='https://vk.com')
-            include assets/vk
-        li.header__social-item
-          a.header__social-link(href='https://vk.com')
-            include assets/instagram
-        li.header__social-item
-          a.header__social-link(href='https://vk.com')
-            include assets/whatsapp
-        li.header__social-item
-          a.header__social-link(href='https://vk.com')
-            include assets/youtube
+        include ../../components/social/header
   nav.header__navigation
     ul.header__navigation-list
       li
@@ -30,5 +22,4 @@ header.header
         a.header__navigation-link(href='#') Отзывы
       li
         a.header__navigation-link(href='#') Контакты
-      li
-        a.header__navigation-link.header__navigation-link_theme_accent(href='#') Видеонаблюдение
+    a.header__navigation-link.header__navigation-link-video(href=links.video) Видеонаблюдение

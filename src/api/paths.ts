@@ -4,7 +4,7 @@ export const ApiPaths = {
     json: '/json/crm_calendar.json',
   },
   bookingRoom: {
-    url: '/booking',
+    url: 'http://localhost:7000/orders',
     json: '/json/booking_result.json',
   },
 };

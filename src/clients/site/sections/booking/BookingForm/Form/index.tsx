@@ -14,13 +14,13 @@ import { getIsValid } from '../utils/getIsValid';
 
 export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) => {
   const [fields, setFields] = useState<Fields>({
-    start: '',
-    end: '',
-    name: '',
+    startDate: '',
+    endDate: '',
+    firstName: '',
     phone: '',
     comment: '',
     email: '',
-    room: checkedRoomId,
+    roomTypeId: checkedRoomId,
   });
 
   const [isValid, setIsValid] = useState<boolean>(false);
@@ -45,7 +45,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
-  const prePrice = usePrePrice({ startDate, endDate, roomId: fields.room });
+  const prePrice = usePrePrice({ startDate, endDate, roomId: fields.roomTypeId });
 
   const onChangeStart = useCallback((date: Date) => {
     setStartDate(date);
@@ -58,7 +58,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
   const onSubmit = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-
+      
       if (isValid) {
         sendForm();
       }
@@ -73,7 +73,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
       <input
         className="input"
         placeholder="Дата заезда*"
-        name="start"
+        name="startDate"
         onChange={onChange}
         onClick={onClick}
         ref={ref}
@@ -87,7 +87,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
     <input
       className="input"
       placeholder="Дата отъезда*"
-      name="end"
+      name="endDate"
       onChange={onChange}
       onClick={onClick}
       ref={ref}
@@ -102,8 +102,8 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
 
     setFields((prevState) => ({
       ...prevState,
-      start,
-      end,
+      startDate: start,
+      endDate: end,
     }));
   }, [startDate, endDate]);
 
@@ -123,10 +123,10 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         <li className="booking-form__checkbox-room">
           <input
             id={rooms.comfort.id}
-            name="room"
+            name="roomTypeId"
             type="radio"
             onChange={onChange}
-            checked={rooms.comfort.id === fields.room}
+            checked={rooms.comfort.id === fields.roomTypeId}
             value={rooms.comfort.id}
             className="booking-form__checkbox-room-input"
           />
@@ -138,11 +138,11 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         <li className="booking-form__checkbox-room">
           <input
             id={rooms.lux.id}
-            name="room"
+            name="roomTypeId"
             type="radio"
             onChange={onChange}
             value={rooms.lux.id}
-            checked={rooms.lux.id === fields.room}
+            checked={rooms.lux.id === fields.roomTypeId}
             className="booking-form__checkbox-room-input"
           />
           <label htmlFor={rooms.lux.id} className="booking-form__checkbox-room-label">
@@ -186,9 +186,9 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         <input
           type="text"
           placeholder="Ваше имя*"
-          name="name"
+          name="firstName"
           className="input"
-          value={fields.name}
+          value={fields.firstName}
           onChange={onChange}
         />
         <input

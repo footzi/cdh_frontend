@@ -6,14 +6,16 @@ export type Maybe<T> = T | (null | undefined);
 
 // Форма бронирования на сайте
 export interface BookingResponse {
+ order: {
   id: string;
   startDate: string;
   endDate: string;
   countDays: string;
-  name: string;
+  firstName: string;
   phone: string;
   email: string;
   price: string;
+ }
 }
 
 export interface UseMutationBookingRoomResponse extends Omit<UseMutationResult, 'data'> {

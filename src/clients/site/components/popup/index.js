@@ -25,7 +25,7 @@ class Popup {
 
   open(event) {
     event.stopPropagation();
-    document.body.classList.add('is-popup-open');
+    document.body.classList.add('is-fixed');
 
     const openedPopups = document.querySelectorAll('.popup') ?? [];
     openedPopups.forEach((popup) => popup.classList.remove('is-open'));
@@ -39,7 +39,7 @@ class Popup {
   }
 
   close() {
-    document.body.classList.remove('is-popup-open');
+    document.body.classList.remove('is-fixed');
     this.popup.classList.remove('is-open');
 
     if (this.contentId === 'booking') {
@@ -51,7 +51,7 @@ class Popup {
 // eslint-disable-next-line
 export const closeAllPopups = () => {
   const openedPopups = document.querySelectorAll('.popup') ?? [];
-  document.body.classList.remove('is-popup-open');
+  document.body.classList.remove('is-fixed');
   openedPopups.forEach((popup) => popup.classList.remove('is-open'));
 
   bookingFormUnmount();

@@ -15,12 +15,12 @@ export interface ResultProps {
 }
 
 export interface Fields {
-  start: string;
-  end: string;
-  name: string;
+  startDate: string;
+  endDate: string;
+  firstName: string;
   phone: string;
   comment: string;
-  room: string;
+  roomTypeId: string;
   email: string;
 }
 

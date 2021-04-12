@@ -1,3 +1,32 @@
 {
-  "instagram": "https://instagram.com"
+  "social": {
+    "vk": "https://vk.com",
+    "instagram": "https://instagram.com",
+    "whatsapp": "https://whatsapp.com",
+    "youtube": "https://youtube.com"
+  },
+  "menu": [
+    {
+      "text": "Главная",
+      "link": "/"
+    },
+    {
+      "text": "Номера и цены",
+      "link": "#rooms"
+    },
+    {
+      "text": "Правила размещения",
+      "link": "/"
+    },
+    {
+      "text": "Отзывы",
+      "link": "/"
+    },
+    {
+      "text": "Контакты",
+      "link": "/"
+    }
+  ],
+  "video": "/",
+  "phone": "+7 (953) 173-32-97"
 }

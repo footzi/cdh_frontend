@@ -1,0 +1,24 @@
+- var links = require("../../../../data/links.json");
+
+header.header-mobile
+  .header-mobile__top
+      img.header-mobile__logo(src='../images/logo-mini.svg', alt='Гостиница для животных')
+      button.header-mobile__open-menu
+        span.header-mobile__open-menu-line
+
+  .header-mobile__menu
+    .header-mobile__menu-container
+      .header-mobile__menu-content
+        ul.header-mobile__menu-links
+          each item in links.menu
+            li
+              a(href=item.link) #{item.text}
+        a.header-mobile__menu-video(href=links.video) ВИДЕОНАБЛЮДЕНИЕ
+
+        .header-mobile__contacts
+          div г. Санкт-Петербург
+          div #{links.phone}
+        a.link Позвоните мне
+
+      ul.header-mobile__menu-social
+        include ../../components/social/header

@@ -4,7 +4,7 @@ import React from 'react';
 import { ResultProps } from '../interfaces';
 
 export const Result: React.FC<ResultProps> = ({ result }) => {
-  const { id, startDate, endDate, countDays, name, phone, email, price } = result;
+  const { id, startDate, endDate, countDays, firstName, phone, email, price } = result.order;
   // const onClosePopup = useCallback(() => closeAllPopups(), []);
 
   return (
@@ -27,7 +27,7 @@ export const Result: React.FC<ResultProps> = ({ result }) => {
 
         <div className="booking-form-result__clients-info-item">
           <span className="booking-form-result__clients-info-title">Ваше имя:</span>
-          <span className="booking-form-result__clients-info-value">{name}</span>
+          <span className="booking-form-result__clients-info-value">{firstName}</span>
         </div>
 
         <div className="booking-form-result__clients-info-item">

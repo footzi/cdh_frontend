@@ -1,12 +1,19 @@
 @import '../../styles/colors';
 @import '../../styles/grid';
 @import '../../styles/mixins';
+@import '../../styles/breakpoints';
 
 .firstscreen {
   @include row();
   position: relative;
-  height: 465px;
-  margin-top: 20px;
+  height: 540px;
+  margin-top: 53px;
+
+  @media ($tablet) {
+    height: 465px;
+    margin-top: 20px;
+  }
+
 
   &::before {
     content: '';
@@ -26,6 +33,24 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: none;
+
+  @media ($tablet) {
+    display: block;
+  }
+}
+
+.firstscreen__image-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  @media ($tablet) {
+    display: none;
+  }
 }
 
 .firstscreen__content-wrapper {
@@ -33,37 +58,80 @@
 }
 
 .firstscreen__content {
-  @include column(23);
-  padding-top: 100px;
+  padding-top: 35px;
   position: relative;
+
+  @media ($tablet) {
+    @include column(23);
+    padding-top: 100px;
+  }
 }
 
 .firstscreen__title {
   font-weight: 700;
-  font-size: 30px;
-  line-height: 35px;
-  margin-bottom: 15px;
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 25px;
   color: $WHITE;
-}
+
+  @media ($tablet) {
+    font-size: 20px;
+    line-height: 23px;
+    margin-bottom: 22px;
+  }
+
+  @media ($laptop) {
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 5px;
+  }
+  }
 
 .firstscreen__text {
   margin-bottom: 15px;
-  font-size: 18px;
-  line-height: 20px;
-  color: #e2e0e0;
+  font-size: 12px;
+  line-height: 14px;
+  color: $WHITE;
   font-weight: 400;
 
-  &:last-child {
+  @media ($tablet) {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 22px;
+  }
+
+  @media ($laptop) {
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 5px;
+  }
+
+  &:nth-child(3) {
     margin-bottom: 0;
+
+    @media ($mobile) {
+      margin-top: 50px;
+      text-align: right;
+    }
   }
 }
 
 .firstscreen__text-accent {
-  color: $ORANGE;
+  color: $LIGHT_ORANGE;
+
+  @media ($mobile) {
+    display: inline-block;
+    margin-top: 5px;
+  }
 }
 
 .firstscreen__button {
   @include column(9.3, 23);
   margin-top: 40px;
   margin-left: auto;
+  display: none;
+
+  @media ($tablet) {
+    display: block;
+  }
 }

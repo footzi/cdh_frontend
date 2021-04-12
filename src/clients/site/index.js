@@ -4,6 +4,7 @@ import 'owl.carousel';
 import './components/dropdown';
 import './components/popup';
 import './sections/room-info';
+import './sections/header-mobile';
 import './index.scss';
 
 // eslint-disable-next-line no-undef
