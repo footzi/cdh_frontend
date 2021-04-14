@@ -1,12 +1,20 @@
 @import '../../styles/colors';
 @import '../../styles/grid';
 @import '../../styles/mixins';
+@import '../../styles/breakpoints';
 
 .photo-slider {
-  @include layout();
-  margin-top: 38px;
   margin-bottom: 56px;
   position: relative;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 26px;
+  overflow: hidden;
+
+  @media ($tablet) {
+    @include layout();
+    padding: 0;
+  }
 
   .owl-nav {
     width: 100%;
@@ -16,32 +24,47 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+    pointer-events: none;
   }
 
   .nav-button {
-    width: 30px;
-    height: 90px;
-    background-image: url('../../icons/slider-arrow.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     transition: 0.3s transform;
+    pointer-events: all;
+
+    svg {
+      fill: $WHITE;
+      width: 30px;
+      height: 90px;
+      transform: rotate(180deg);
+    }
   }
 
   .nav-button-prev {
-    margin-left: 10px;
+    margin-left: 20px;
 
-    &:hover {
-      transform: translateX(-5px);
+    @media ($tablet) {
+      margin-left: 10px;
+    }
+
+    @media ($laptop) {
+      &:hover {
+        transform: translateX(-5px);
+      }
     }
   }
 
   .nav-button-next {
     transform: rotate(180deg);
-    margin-right: 10px;
+    margin-right: 20px;
 
-    &:hover {
-      transform: translateX(5px) rotate(180deg);
+    @media ($tablet) {
+      margin-right: 15px;
+    }
+
+    @media ($laptop) {
+      &:hover {
+        transform: translateX(5px) rotate(180deg);
+      }
     }
   }
 }

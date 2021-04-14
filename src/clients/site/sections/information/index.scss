@@ -1,28 +1,46 @@
 @import '../../styles/colors';
 @import '../../styles/grid';
 @import '../../styles/mixins';
+@import '../../styles/breakpoints';
 
 .information {
   @include layout();
   color: $BLACK;
-  padding-top: 90px;
+  padding-top: 65px;
+
+  @media ($tablet) {
+    padding-top: 90px;
+  }
 }
 
 .information__title {
   font-style: normal;
   font-weight: 500;
-  font-size: 28px;
-  line-height: 33px;
+  font-size: 22px;
+  line-height: 26px;
   text-align: center;
+
+  @media ($tablet) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @media ($laptop) {
+    font-size: 28px;
+    line-height: 33px;
+  }
 }
 
 .information__content {
-  @include suffix(4, 48);
-  @include prefix(4, 48);
   margin-top: 40px;
   font-weight: 300;
   font-size: 14px;
   line-height: 16px;
+
+  @media ($laptop) {
+    @include suffix(4, 48);
+    @include prefix(4, 48);
+  }
 
   b {
     font-weight: 500;
@@ -30,17 +48,31 @@
 }
 
 .information__content-item {
-  @include prefix(2, 40);
   padding-top: 30px;
   padding-bottom: 30px;
   border-bottom: 2px solid $MIDDLE_GREY;
+
+  @media ($tablet) {
+    @include prefix(1, 48);
+    @include suffix(1, 48);
+  }
+
+  @media ($laptop) {
+    @include prefix(1, 40);
+    @include suffix(1, 40);
+  }
 }
 
 .information__content-title {
   font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 19px;
   color: $BLACK;
+
+  @media ($tablet) {
+    font-size: 18px;
+    line-height: 21px;
+  }
 }
 
 .information__content-description {

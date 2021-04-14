@@ -13,7 +13,16 @@ $(document).ready(function () {
   $('.photo-slider').owlCarousel({
     items: 1,
     nav: true,
-    navText: ["<div class='nav-button nav-button-prev'></div>", "<div class='nav-button nav-button-next'></div>"],
+    navText: [
+      "<div class='nav-button nav-button-prev'>" +
+        '<svg width="9" height="12" viewBox="0 0 9 12">\n' +
+        '<path d="M2.02 12L8.02 6L2.02 0L0.610001 1.41L5.19 6L0.610001 10.59L2.02 12Z"/>\n' +
+        '</svg></div>',
+      "<div class='nav-button nav-button-next'>" +
+        '<svg width="9" height="12" viewBox="0 0 9 12">\n' +
+        '<path d="M2.02 12L8.02 6L2.02 0L0.610001 1.41L5.19 6L0.610001 10.59L2.02 12Z"/>\n' +
+        '</svg></div>',
+    ],
     dots: false,
   });
 

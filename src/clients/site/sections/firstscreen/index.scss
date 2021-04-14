@@ -10,10 +10,13 @@
   margin-top: 53px;
 
   @media ($tablet) {
-    height: 465px;
+    height: 255px;
     margin-top: 20px;
   }
 
+  @media ($laptop) {
+    height: 465px;
+  }
 
   &::before {
     content: '';
@@ -41,10 +44,10 @@
 }
 
 .firstscreen__image-mobile {
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
   object-fit: cover;
 
@@ -62,6 +65,12 @@
   position: relative;
 
   @media ($tablet) {
+    @include column(22);
+    @include post(1);
+    padding-top: 25px;
+  }
+
+  @media ($laptop) {
     @include column(23);
     padding-top: 100px;
   }
@@ -85,19 +94,23 @@
     line-height: 35px;
     margin-bottom: 5px;
   }
-  }
+}
 
 .firstscreen__text {
   margin-bottom: 15px;
   font-size: 12px;
   line-height: 14px;
-  color: $WHITE;
+  color: $LIGHT_GREY;
   font-weight: 400;
 
   @media ($tablet) {
     font-size: 14px;
     line-height: 16px;
     margin-bottom: 22px;
+  }
+
+  @media ($tablet-only) {
+    @include prefix(2, 22);
   }
 
   @media ($laptop) {
@@ -107,11 +120,17 @@
   }
 
   &:nth-child(3) {
+    margin-top: 50px;
+    text-align: right;
     margin-bottom: 0;
 
-    @media ($mobile) {
-      margin-top: 50px;
-      text-align: right;
+    @media ($tablet) {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    @media ($laptop) {
+      margin-top: 15px;
     }
   }
 }
@@ -131,7 +150,7 @@
   margin-left: auto;
   display: none;
 
-  @media ($tablet) {
+  @media ($laptop) {
     display: block;
   }
 }

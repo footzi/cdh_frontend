@@ -1,15 +1,15 @@
 @import '../styles/breakpoints';
 
 @mixin layout {
-	width: 300px; ///todo ???
+	max-width: 300px; ///todo ???
 	margin-right: auto;
 	margin-left: auto;
 
 	@media ($tablet) {
-		width: 708px;
+		max-width: 708px;
 	}
 
 	@media ($laptop) {
-		width: 1040px;
+		max-width: 1040px;
 	}
 }

@@ -3,8 +3,8 @@
 @import '../../styles/mixins';
 
 .advantages {
-  padding-top: 48px;
-  padding-bottom: 85px;
+  padding-top: 55px;
+  padding-bottom: 75px;
   position: relative;
 
   &:before {
@@ -16,6 +16,20 @@
     width: 100%;
     background-color: rgba($BLACK, 0.6);
   }
+
+  @media ($mobile) {
+    background-color: $BLACK;
+  }
+
+  @media ($tablet) {
+    padding-top: 45px;
+    padding-bottom: 35px;
+  }
+
+  @media ($laptop) {
+    padding-top: 48px;
+    padding-bottom: 85px;
+  }
 }
 
 .advantages__image {
@@ -25,6 +39,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  @media ($mobile) {
+    display: none;
+  }
 }
 
 .advantages__content-container {
@@ -34,76 +52,173 @@
 }
 
 .advantages__title {
-  @include prefix(5, 48);
-  @include suffix(5, 48);
   font-size: 18px;
   line-height: 21px;
   text-align: center;
   color: $WHITE;
   position: relative;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background-color: $WHITE;
+  div {
+    margin-top: 15px;
   }
 
-  &:before {
-    left: 0;
+  @media ($mobile) {
+    &:before {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      width: 100%;
+      background-color: $WHITE;
+    }
   }
 
-  &:after {
-    right: 0;
+  @media ($tablet) {
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background-color: $WHITE;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
+  }
+
+  @media ($laptop) {
+    @include prefix(5, 48);
+    @include suffix(5, 48);
   }
 }
 
 .advantages__list {
-  margin-top: 130px;
-  display: flex;
-  flex-wrap: wrap;
+  margin-top: 65px;
+
+  @media ($tablet) {
+    margin-top: 110px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media ($laptop) {
+    margin-top: 130px;
+  }
 }
 
 .advantages__item {
-  @include column(23, 48);
-  @include push(2, 48);
   display: flex;
-  margin-bottom: 35px;
+  margin-bottom: 45px;
 
-  &:nth-child(2n) {
-    @include push(0);
+  @media ($mobile) {
+    flex-wrap: wrap;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   svg {
     width: 62px;
     height: 62px;
-    margin-top: 5px;
     flex-shrink: 0;
+
+    @media ($tablet) {
+      margin-top: 5px;
+    }
+  }
+
+  @media ($tablet) {
+    @include column(23, 48);
+    @include push(2, 48);
+    margin-bottom: 35px;
+
+    &:nth-child(2n) {
+      @include push(0);
+    }
   }
 }
 
-.advantages__content {
-  margin-left: 25px;
+.advantages__item-header {
+  @media ($mobile) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.advantages__text-content {
+  @media ($mobile) {
+    order: 0;
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  @media ($tablet) {
+    margin-left: 25px;
+  }
 }
 
 .advantages__sub-title {
   font-weight: 500;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 18px;
+  line-height: 21px;
   color: $ORANGE;
-  margin-bottom: 15px;
+
+  @media ($mobile) {
+    margin-left: 15px;
+  }
+
+  @media ($tablet) {
+    margin-bottom: 15px;
+  }
+
+  @media ($laptop) {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  &_theme_mobile {
+    @media ($tablet) {
+      display: none;
+    }
+  }
+
+  &:not(&_theme_mobile) {
+    @media ($mobile) {
+      display: none;
+    }
+  }
 }
 
 .advantages__text {
   font-weight: 300;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 16px;
   color: $WHITE;
+
+  @media ($mobile) {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media ($laptop) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 
   &_theme_accent {
     font-style: italic;

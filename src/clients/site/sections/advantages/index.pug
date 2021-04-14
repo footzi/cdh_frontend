@@ -2,27 +2,35 @@ section.advantages
   img.advantages__image(src='../images/advantages-cat.jpg')
   .advantages__content-container
     .advantages__content
-      h2.advantages__title Для нас важно, чтобы вам и вашему котику понравилось в нашей гостинице!<br>Мы сделаем все, чтобы вы были уверены - у нас котику будет максимально комфортно и безопасно.
+      h2.advantages__title Для нас важно, чтобы вам и вашему котику понравилось в нашей гостинице!<div>Мы сделаем все, чтобы вы были уверены - у нас котику будет максимально комфортно и безопасно.</div>
       ul.advantages__list
         li.advantages__item
-          include assets/car
-          .advantages__content
+          .advantages__item-header
+            include assets/car
+            h3.advantages__sub-title.advantages__sub-title_theme_mobile Трансфер
+          .advantages__text-content
             h3.advantages__sub-title Трансфер
             p.advantages__text Трансфер вашего питомца в гостиницу и обратно. Безопасный и комфортный.
             p.advantages__text.advantages__text_theme_accent Стоимость - 500 р. в одну сторону.
         li.advantages__item
-          include assets/clean
-          .advantages__content
+          .advantages__item-header
+            include assets/clean
+            h3.advantages__sub-title.advantages__sub-title_theme_mobile Чистота и дезинфекция в номерах
+          .advantages__text-content
             h3.advantages__sub-title Чистота и дезинфекция в номерах
             p.advantages__text Уборка номеров происходит <b>ежедневно</b> и по мере необходимости. Лоток и миски постоянно поддерживаются в чистоте.
             p.advantages__text Также происходит периодическое <b>кварцевание</b> в помещения с помощью бактерицидного рециркулятор закрытого типа.
         li.advantages__item
-          include assets/people
-          .advantages__content
+          .advantages__item-header
+            include assets/people
+            h3.advantages__sub-title.advantages__sub-title_theme_mobile Экскурсия
+          .advantages__text-content
             h3.advantages__sub-title Экскурсия
             p.advantages__text Вы можете заранее прийти и посмотреть нашу гостиницу, чтобы убедиться в комфорте и безопасности для вашего котика.
         li.advantages__item
-          include assets/food
-          .advantages__content
+          .advantages__item-header
+            include assets/food
+            h3.advantages__sub-title.advantages__sub-title_theme_mobile Питание
+          .advantages__text-content
             h3.advantages__sub-title Питание
             p.advantages__text Кормим вашим <b>кормом</b>. Также в гостинице есть холодильник для тех, кто питается натуральными продуктами.

@@ -1,54 +1,109 @@
 @import '../../styles/colors';
 @import '../../styles/grid';
 @import '../../styles/mixins';
+@import '../../styles/breakpoints';
 
 .approach {
   @include layout();
-  margin-top: 115px;
-  margin-bottom: 80px;
+  margin-top: 70px;
+  margin-bottom: 50px;
+
+  @media ($tablet) {
+    margin-top: 50px;
+    margin-bottom: 65px;
+  }
+
+  @media ($tablet-only) {
+    @include suffix(1);
+    @include prefix(1);
+  }
+
+  @media ($laptop) {
+    margin-top: 115px;
+    margin-bottom: 80px;
+  }
 }
 
 .approach__title {
   font-weight: 500;
-  font-size: 35px;
-  line-height: 41px;
+  font-size: 22px;
+  line-height: 26px;
   color: $ORANGE;
   text-align: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   position: relative;
 
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background-color: $ORANGE;
+  @media ($mobile) {
+    &:before {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      width: 100%;
+      background-color: $ORANGE;
+    }
   }
 
-  &:before {
-    left: 0;
+  @media ($tablet) {
+    padding-top: 30px;
+    font-size: 25px;
+    line-height: 29px;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background-color: $ORANGE;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
   }
 
-  &:after {
-    right: 0;
+  @media ($laptop) {
+    font-size: 35px;
+    line-height: 41px;
   }
 }
 
 .approach__list {
-  @include suffix(6);
-  @include prefix(4);
-  margin-top: 56px;
+  margin-top: 40px;
   color: $DARK_GREY;
+
+  @media ($tablet) {
+    margin-top: 56px;
+  }
+
+  @media ($laptop) {
+    @include suffix(6);
+    @include prefix(4);
+  }
 }
 
 .approach__item {
   display: flex;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 18px;
   margin-bottom: 34px;
+
+  @media ($tablet) {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  @media ($laptop) {
+    font-size: 18px;
+    line-height: 21px;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -65,6 +120,10 @@
 }
 
 .approach__link {
-  @include post(6);
+  @include post(35);
   margin-top: 35px;
+
+  @media ($tablet) {
+    @include post(6);
+  }
 }
