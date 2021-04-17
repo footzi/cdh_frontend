@@ -100,8 +100,8 @@
   }
 
   @media ($laptop) {
-    @include prefix(5, 48);
-    @include suffix(5, 48);
+    padding-left: 100px;
+    padding-right: 100px;
   }
 }
 

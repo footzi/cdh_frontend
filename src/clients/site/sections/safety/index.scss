@@ -1,12 +1,18 @@
 @import '../../styles/colors';
 @import '../../styles/grid';
 @import '../../styles/mixins';
+@import '../../styles/breakpoints';
 
 .safety {
   position: relative;
-  padding-top: 25px;
-  padding-bottom: 380px;
+  padding-top: 45px;
+  padding-bottom: 420px;
   color: $WHITE;
+
+  @media ($tablet) {
+    padding-top: 25px;
+    padding-bottom: 480px;
+  }
 
   &:before {
     content: '';
@@ -35,41 +41,63 @@
 }
 
 .safety__header {
-  @include prefix(9, 48);
-  @include suffix(9, 48);
   position: relative;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 45px;
 
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background-color: $WHITE;
+  @media ($tablet) {
+    padding: 25px 50px 35px 50px;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background-color: $WHITE;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
   }
 
-  &:before {
-    left: 0;
-  }
-
-  &:after {
-    right: 0;
+  @media ($laptop) {
+    padding: 25px 100px 25px 100px;
   }
 }
 
 .safety__title {
   font-weight: 500;
-  font-size: 28px;
-  line-height: 33px;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+
+  @media ($tablet) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @media ($laptop) {
+    font-size: 28px;
+    line-height: 33px;
+  }
 }
 
 .safety__text {
   font-style: italic;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 16px;
   margin-top: 20px;
+  text-align: center;
+
+  @media ($laptop) {
+    font-size: 16px;
+    line-height: 18px;
+  }
 }

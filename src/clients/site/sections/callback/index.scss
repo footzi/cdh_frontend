@@ -1,33 +1,59 @@
 @import '../../styles/colors';
 @import '../../styles/grid';
 @import '../../styles/mixins';
+@import '../../styles/breakpoints';
 
 .callback {
   @include layout();
-  padding-top: 105px;
-  margin-bottom: 105px;
+  padding-top: 65px;
+  margin-bottom: 65px;
+
+  @media ($tablet) {
+    padding-top: 105px;
+    margin-bottom: 105px;
+  }
 }
 
 .callback__title {
-  font-size: 28px;
-  line-height: 33px;
+  font-size: 22px;
+  line-height: 26px;
   font-weight: 500;
   color: $LIGHT_ORANGE;
   text-align: center;
+
+  @media ($tablet) {
+    font-size: 28px;
+    line-height: 33px;
+  }
 }
 
 .callback__form {
   margin-top: 45px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  @media ($tablet) {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .callback__form-item {
-  @include column(10);
-  margin-left: 15px;
+  width: 220px;
+  margin-bottom: 15px;
 
-  &:first-child {
-    margin-left: 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media ($tablet) {
+    margin-left: 15px;
+    margin-bottom: 0;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
 
