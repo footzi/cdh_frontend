@@ -30,12 +30,8 @@ class RoomInfo {
 
       $photoSlider.owlCarousel({
         items: 1,
-        margin: 10,
         dots: false,
         onChanged,
-        onRefreshed: () => {
-          $photoSlider.addClass('is-init');
-        },
       });
 
       thumbs.forEach((thumb) => {

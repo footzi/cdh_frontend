@@ -1,9 +1,11 @@
 .popup.room-info(data-popup-content-id='room_comfort')
   .popup__overlay
   .popup__content
-    .room-info__container.popup__container
-      button.popup__close
-        include ../../components/popup/close
+    .popup__container
+      .popup__header
+        include ../../../../components/Logo/logo-mini
+        button.popup__close
+          include ../../components/popup/close
 
       .room-info__wrapper
         include rooms/comfort
@@ -11,9 +13,11 @@
 .popup.room-info(data-popup-content-id='room_lux')
   .popup__overlay
   .popup__content
-    .room-info__container.popup__container
-      button.popup__close
-        include ../../components/popup/close
+    .popup__container
+      .popup__header
+        include ../../../../components/Logo/logo-mini
+        button.popup__close
+          include ../../components/popup/close
 
       .room-info__wrapper
         include rooms/lux

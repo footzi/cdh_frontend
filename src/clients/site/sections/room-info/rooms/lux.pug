@@ -1,23 +1,27 @@
 - var rooms = require("../../../../../data/rooms.json");
 
 .room-info__room
-    h3.room-info__title Номер <span>“#{rooms.lux.name}”</span>
+  h3.room-info__title Номер <span>“#{rooms.lux.name}”</span>
 
-    .room-info__content
-        .room-info__left-side
-            .room-info__slider
-                .room-info__slides.owl-carousel
-                  each slide in rooms.lux.slides
-                      img.room-info__slide(src=slide.src, alt=slide.alt)
-                .room-info__thumbs
-                  each thumb in rooms.lux.thumbs
-                      img.room-info__thumb(src=thumb.src, alt=thumb.alt, data-slide-id=thumb.slideId)
+  .room-info__content
+    .room-info__left-side
+      .room-info__slider
+        .room-info__slides-wrapper
+          .room-info__slides.owl-carousel
+            each slide in rooms.lux.slides
+              img.room-info__slide(src=slide.src, alt=slide.alt)
+        .room-info__thumbs
+          each thumb in rooms.lux.thumbs
+            img.room-info__thumb(src=thumb.src, alt=thumb.alt, data-slide-id=thumb.slideId)
 
-        .room-info__right-side
-            ul.room-info__info-list
-              each item in rooms.lux.composition
-                  li.room-info__info-list-item - #{item}
+    .room-info__right-side
+      ul.room-info__info-list
+        each item in rooms.lux.composition
+          li.room-info__info-list-item - #{item}
 
-            .room-info__cost #{rooms.lux.price} р <span>/сутки</span>
+      .room-info__cost #{rooms.lux.price} р <span>/сутки</span>
 
-            button.button.button_theme_borders.room-info__order-button.popup-open(data-popup-target-id='booking', data-room-id=rooms.lux.id) Забронировать номер
+      button.button.button_theme_borders.room-info__order-button.popup-open(
+        data-popup-target-id='booking',
+        data-room-id=rooms.lux.id
+      ) Забронировать номер

@@ -6,9 +6,10 @@
   .room-info__content
     .room-info__left-side
       .room-info__slider
-        .room-info__slides.owl-carousel
-          each slide in rooms.comfort.slides
-            img.room-info__slide(src=slide.src, alt=slide.alt)
+        .room-info__slides-wrapper
+          .room-info__slides.owl-carousel
+            each slide in rooms.comfort.slides
+              img.room-info__slide(src=slide.src, alt=slide.alt)
         .room-info__thumbs
           each thumb in rooms.comfort.thumbs
             img.room-info__thumb(src=thumb.src, alt=thumb.alt, data-slide-id=thumb.slideId)
@@ -20,4 +21,7 @@
 
       .room-info__cost #{rooms.comfort.price} р <span>/сутки</span>
 
-      button.button.button_theme_borders.room-info__order-button.popup-open(data-popup-target-id='booking', data-room-id=rooms.comfort.id) Забронировать номер
+      button.button.button_theme_borders.room-info__order-button.popup-open(
+        data-popup-target-id='booking',
+        data-room-id=rooms.comfort.id
+      ) Забронировать номер
