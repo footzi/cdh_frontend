@@ -116,6 +116,9 @@
 
 .rooms__items {
   margin-top: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
   @media ($tablet) {
     display: flex;
@@ -131,9 +134,11 @@
   color: $BLACK;
   transition: 0.3s transform;
   cursor: pointer;
+  flex-shrink: 1;
 
   @media ($mobile) {
     margin-bottom: 55px;
+    width: 300px;
 
     &:last-child {
       margin-bottom: 0;

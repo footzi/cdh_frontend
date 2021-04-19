@@ -57,7 +57,17 @@
 }
 
 .firstscreen__content-wrapper {
-  @include layout();
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media ($tablet) {
+    width: 780px;
+  }
+
+  @media ($laptop) {
+    width: 1024px;
+  }
 }
 
 .firstscreen__content {

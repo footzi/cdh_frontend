@@ -79,29 +79,28 @@
 
 .footer__content {
   @include layout();
-  @include suffix(2);
-  @include prefix(2);
+  @include suffix(4);
+  @include prefix(4);
   padding-top: 60px;
   padding-bottom: 60px;
+
+  @media ($tablet) {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
 
   @media ($laptop) {
     max-width: 100%;
     width: 50%;
     margin: 0;
-    padding-top: 60px;
-    padding-bottom: 70px;
     padding-left: 60px;
   }
 }
 
 .footer__info {
   display: flex;
-  flex-direction: column;
-
-  @media ($tablet) {
-    display: flex;
-    flex-direction: row;
-  }
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .footer__section {
@@ -112,6 +111,10 @@
   @media ($mobile) {
     &:first-child {
       order: 1;
+    }
+
+    &:last-child {
+      margin-right: 40px;
     }
   }
 
