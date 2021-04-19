@@ -1,36 +1,77 @@
 @import '../../../../styles/colors';
+@import '../../../../styles/breakpoints';
 
 .booking-form-result__thanks {
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
+  text-align: center;
   background-color: $LIGHT_ORANGE;
-  padding: 25px 20px;
+  padding: 15px 10px;
   color: $WHITE;
-  width: calc(100% + 95px);
-  transform: translateX(-20px) translateY(-30px);
+  width: 100%;
+
+  @media ($tablet) {
+    padding: 25px 20px;
+    width: calc(100% + 180px);
+    border-radius: 10px 0 0 10px;
+    transform: translateX(-60px);
+    text-align: left;
+  }
+
+  @media ($laptop) {
+    width: calc(100% + 75px);
+    border-radius: 10px 0 0 10px;
+    transform: translateX(-20px) translateY(-30px);
+  }
+
+  @media ($laptop-wide) {
+    width: calc(100% + 95px);
+  }
 }
 
 .booking-form-result__title {
   font-weight: 700;
-  font-size: 20px;
-  line-height: 23px;
-  width: 200px;
-  display: inline-block;
+  font-size: 18px;
+  line-height: 21px;
+  display: block;
+  margin-bottom: 5px;
+
+  @media ($tablet) {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 23px;
+    margin-bottom: 0;
+    width: 250px;
+  }
+
+  @media ($laptop) {
+    width: 200px;
+  }
 }
 
 .booking-form-result__order {
   font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 18px;
+  line-height: 21px;
+
+  @media ($laptop) {
+    font-size: 20px;
+    line-height: 23px;
+  }
 }
 
 .booking-form-result__clients-info {
-  margin-right: 30px;
+  margin-top: 30px;
+
+  @media ($tablet) {
+    margin-top: 50px;
+  }
 }
 
 .booking-form-result__clients-info-item {
   margin-bottom: 25px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   &:last-child {
     margin-bottom: 0;
@@ -38,24 +79,39 @@
 }
 
 .booking-form-result__clients-info-title {
-  width: 200px;
-  display: inline-block;
+  width: 100%;
+  display: block;
   font-weight: 300;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 18px;
+
+  @media ($tablet) {
+    width: 200px;
+    display: inline-block;
+  }
 }
 
 .booking-form-result__clients-info-value {
   font-size: 18px;
   line-height: 21px;
-  font-weight: 400;
+  font-weight: 500;
+  margin-top: 10px;
+
+  @media ($tablet) {
+    margin-top: 0;
+  }
 }
 
 .booking-form-result__clients-info-count-days {
-  margin-left: 30px;
+  margin-left: auto;
   font-size: 18px;
   line-height: 21px;
   color: $LIGHT_ORANGE;
+  margin-top: 10px;
+
+  @media ($tablet) {
+    margin-top: 0;
+  }
 }
 
 .booking-form-result__email-text {
@@ -100,21 +156,45 @@
 }
 
 .booking-form-result__cost {
-  margin-top: 45px;
+  margin-top: 60px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $BLACK;
+  padding-top: 10px;
+
+  @media ($tablet) {
+    padding-top: 20px;
+    margin-top: 100px;
+  }
+
+  @media ($laptop) {
+    margin-top: 45px;
+    border-top: none;
+    padding-top: 0;
+  }
 }
 
 .booking-form-result__cost-text {
   font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 14px;
+  line-height: 16px;
+
+  @media ($tablet) {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 .booking-form-result__cost-value {
   font-weight: 700;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 18px;
+
+  @media ($tablet) {
+    font-size: 18px;
+    line-height: 21px;
+  }
 }
 
 .booking-form-result-buttons {

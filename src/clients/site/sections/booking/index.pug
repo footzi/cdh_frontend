@@ -1,15 +1,22 @@
+- var links = require("../../../../data/links.json");
+
 .popup.booking(data-popup-content-id='booking')
   .popup__overlay
   .popup__content
     .booking__container.popup__container
-      button.popup__close
-        include ../../components/popup/close
+      .popup__header
+        include ../../../../components/Logo/logo-mini
+        button.popup__close
+          include ../../components/popup/close
       .booking__info
         img.booking__logo(src='../images/logo.svg', alt='Гостиница для животных')
         .booking__contacts
           .booking__contacts-label Наш телефон:
           .booking__phone-section
-            .booking__contacts-phone +7(953) 173-32-97
+            .booking__contacts-phone #{links.phone}
             a.link.link_theme_normal.popup-close(href='#callback') Связаться со мной
       .booking__content
         #booking-form.booking__form
+      .booking__info-mobile
+        div тел. #{links.phone}
+        div г. Санкт-Петербург

@@ -1,33 +1,104 @@
 @import './BookingForm/Form/index.scss';
 @import './BookingForm/Result/index.scss';
 @import '../../styles/colors';
+@import '../../styles/breakpoints';
 
 .booking__container {
-  padding: 60px 75px 60px 75px;
   color: $BLACK;
+
+  @media ($laptop) {
+    padding: 60px 55px 60px 55px;
+    display: flex;
+  }
+
+  @media ($laptop-wide) {
+    padding: 60px 75px 60px 75px;
+  }
 }
 
 .booking__info {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: none;
+
+  @media ($laptop) {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media ($laptop-wide) {
+    width: 50%;
+  }
 }
 
 .booking__logo {
-  margin-top: 100px;
-  width: 390px;
+  display: none;
+
+  @media ($laptop) {
+    margin-top: 100px;
+    width: 300px;
+    display: block;
+  }
+
+  @media ($laptop-wide) {
+    width: 390px;
+  }
+}
+
+.booking__info-mobile {
+  margin-top: 25px;
+  margin-bottom: 40px;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+
+  div {
+    margin-bottom: 5px;
+  }
+
+  @media ($tablet) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  @media ($laptop) {
+    display: none;
+  }
 }
 
 .booking__content {
-  width: 50%;
-  min-height: 590px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 320px;
+  padding: 30px 15px;
+
+  @media ($tablet) {
+    max-width: 740px;
+    padding: 30px 100px;
+  }
+
+  @media ($laptop) {
+    max-width: inherit;
+    width: 60%;
+    min-height: 590px;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media ($laptop-wide) {
+    width: 50%;
+  }
 }
 
 .booking__form {
   display: flex;
   flex-direction: column;
   height: 100%;
+  justify-content: center;
+
+  @media ($laptop) {
+    justify-content: flex-end;
+  }
 }
 
 .booking__contacts {
