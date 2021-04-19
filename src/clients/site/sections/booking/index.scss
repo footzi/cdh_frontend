@@ -52,7 +52,8 @@
   line-height: 14px;
   text-align: center;
 
-  div {
+  a {
+    display: block;
     margin-bottom: 5px;
   }
 
@@ -121,4 +122,11 @@
   font-size: 16px;
   line-height: 18px;
   margin-bottom: 5px;
+  display: block;
+
+  @media ($laptop) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

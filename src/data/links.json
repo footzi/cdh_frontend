@@ -16,17 +16,15 @@
     },
     {
       "text": "Правила размещения",
-      "link": "/"
-    },
-    {
-      "text": "Отзывы",
-      "link": "/"
+      "link": "#information"
     },
     {
       "text": "Контакты",
-      "link": "/"
+      "link": "#footer"
     }
   ],
   "video": "/",
-  "phone": "+7 (953) 173-32-97"
+  "phone": "+7 (953) 173-32-97",
+  "phoneValue": "+79531733297",
+  "email": "catdoghouse@mail.ru"
 }

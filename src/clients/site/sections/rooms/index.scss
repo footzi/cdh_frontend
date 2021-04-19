@@ -4,6 +4,10 @@
 @import '../../styles/breakpoints';
 
 .rooms {
+  padding-top: 56px; // для скролла по якорям
+}
+
+.rooms__wrapper {
   padding-top: 10px;
   position: relative;
 

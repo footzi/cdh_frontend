@@ -13,10 +13,10 @@
         .booking__contacts
           .booking__contacts-label Наш телефон:
           .booking__phone-section
-            .booking__contacts-phone #{links.phone}
+            a(href="tel:" + links.phoneValue).booking__contacts-phone #{links.phone}
             a.link.link_theme_normal.popup-close(href='#callback') Связаться со мной
       .booking__content
         #booking-form.booking__form
       .booking__info-mobile
-        div тел. #{links.phone}
+        a(href="tel:" + links.phoneValue) тел. #{links.phone}
         div г. Санкт-Петербург

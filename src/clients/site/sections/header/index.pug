@@ -6,20 +6,13 @@ header.header
     img.header__logo-mini(src='../images/logo-mini.svg', alt='Гостиница для животных')
     .header__right-side
       .header__phone
-        .header__phone-value тел. #{links.phone}
+        a.header__phone-link(href="tel:" + links.phoneValue) тел. #{links.phone}
         a.link(href='#callback') Позвоните мне
       ul.header__social
         include ../../components/social/header
   nav.header__navigation
     ul.header__navigation-list
-      li
-        a.header__navigation-link.is-active(href='/') Главная
-      li
-        a.header__navigation-link(href='#rooms') Номера и цены
-      li
-        a.header__navigation-link(href='#') Правила размещения
-      li
-        a.header__navigation-link(href='#') Отзывы
-      li
-        a.header__navigation-link(href='#') Контакты
+      each item in links.menu
+        li
+          a.header__navigation-link(href=item.link) #{item.text}
     a.header__navigation-link.header__navigation-link-video(href=links.video) Видеонаблюдение

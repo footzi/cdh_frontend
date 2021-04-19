@@ -161,6 +161,16 @@
   }
 }
 
+.footer__link {
+  display: block;
+
+  @media ($laptop) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 .footer__social {
   margin-top: 30px;
   display: flex;
@@ -168,22 +178,22 @@
   @media ($tablet) {
     margin-top: 50px;
   }
-}
 
-.footer__social-item {
-  margin-right: 10px;
+  li {
+    margin-right: 10px;
 
-  &:last-child {
-    margin-right: 0;
+    &:last-child {
+      margin-right: 0;
+    }
   }
-}
 
-.footer__social-link {
-  transition: transform 0.3s;
-  display: block;
+  a {
+    transition: transform 0.3s;
+    display: block;
 
-  &:hover {
-    transform: scale(1.2);
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }
 

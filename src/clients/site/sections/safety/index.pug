@@ -1,7 +1,9 @@
+- var links = require("../../../../data/links.json");
+
 section.safety
   img.safety__image(src='../images/safety-cat.jpg')
   .safety__content-container
     .safety__content
       .safety__header
         h2.safety__title Безопасность и комфорт животных - это важно!
-        p.safety__text Мы хотим, чтобы вы были уверены в нас, поэтому по любым вопросам вы можете писать нам на почту <a href="#" class="link">catdoghouse@mail.ru</a> или звонить по телефону <a href="#" class="link">+7(953)1733297</a>
+        p.safety__text Мы хотим, чтобы вы были уверены в нас, поэтому по любым вопросам вы можете писать нам на почту <a href=mailto:#{links.email} class="link">#{links.email}</a> или звонить по телефону <a href="tel:#{links.phoneValue}" class="link">#{links.phone}</a>

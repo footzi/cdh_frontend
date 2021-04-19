@@ -1,37 +1,41 @@
 - var rooms = require("../../../../data/rooms.json");
 
-section.rooms#rooms
-  img.rooms__paws(src='../images/paws.svg', alt='Лапки')
-  .rooms__content-wrapper
-    .rooms__content
-      h2.rooms__title Наши номера
-      p.rooms__text-main Каждый день котик будет иметь возможность побегать и поиграть вне своего номера.
-      p.rooms__text В наших номерах есть <b>все необходимое</b> для комфортного проживания питомца на время вашего отъезда.
-      p.rooms__text Уборка номеров осуществляется <b>ежедневно</b>, при необходимости - чаще.
+section#rooms.rooms
+  .rooms__wrapper
+    img.rooms__paws(src='../images/paws.svg', alt='Лапки')
+    .rooms__content-wrapper
+      .rooms__content
+        h2.rooms__title Наши номера
+        p.rooms__text-main Каждый день котик будет иметь возможность побегать и поиграть вне своего номера.
+        p.rooms__text В наших номерах есть <b>все необходимое</b> для комфортного проживания питомца на время вашего отъезда.
+        p.rooms__text Уборка номеров осуществляется <b>ежедневно</b>, при необходимости - чаще.
 
-      .rooms__items
-        .rooms__item.popup-open(data-popup-target-id='room_comfort')
-          .rooms__header
-            h3.rooms__header-title #{rooms.comfort.name}
-              include ../../components/next-arrow/index
-          .rooms__image
-          .rooms__list-container
-            ul.rooms__list
-              each item in rooms.comfort.composition
-                li.rooms__list-item - #{item}
-            .rooms__price #{rooms.comfort.price} p
-          .rooms__booking-container
-            button.button.button_theme_borders.popup-open(data-popup-target-id='booking', data-room-id=rooms.comfort.id) Забронировать
+        .rooms__items
+          .rooms__item.popup-open(data-popup-target-id='room_comfort')
+            .rooms__header
+              h3.rooms__header-title #{rooms.comfort.name}
+                include ../../components/next-arrow/index
+            .rooms__image
+            .rooms__list-container
+              ul.rooms__list
+                each item in rooms.comfort.composition
+                  li.rooms__list-item - #{item}
+              .rooms__price #{rooms.comfort.price} p
+            .rooms__booking-container
+              button.button.button_theme_borders.popup-open(
+                data-popup-target-id='booking',
+                data-room-id=rooms.comfort.id
+              ) Забронировать
 
-        .rooms__item.popup-open(data-popup-target-id='room_lux')
-          .rooms__header
+          .rooms__item.popup-open(data-popup-target-id='room_lux')
+            .rooms__header
               h3.rooms__header-title #{rooms.lux.name}
                 include ../../components/next-arrow/index
-          .rooms__image
-          .rooms__list-container
-            ul.rooms__list
-              each item in rooms.lux.composition
-                li.rooms__list-item - #{item}
-            .rooms__price #{rooms.lux.price} p
-          .rooms__booking-container
-            button.button.button_theme_borders.popup-open(data-popup-target-id='booking', data-room-id=rooms.lux.id) Забронировать
+            .rooms__image
+            .rooms__list-container
+              ul.rooms__list
+                each item in rooms.lux.composition
+                  li.rooms__list-item - #{item}
+              .rooms__price #{rooms.lux.price} p
+            .rooms__booking-container
+              button.button.button_theme_borders.popup-open(data-popup-target-id='booking', data-room-id=rooms.lux.id) Забронировать
