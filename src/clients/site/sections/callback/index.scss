@@ -53,3 +53,31 @@
   margin-top: 60px;
   margin-bottom: 10px;
 }
+
+.callback__success,
+.callback__error {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 16px;
+  color: $GREEN;
+  text-align: center;
+  display: none;
+  width: 100%;
+
+  &.is-visible {
+    display: block;
+  }
+
+  @media ($tablet) {
+    font-size: 16px;
+    line-height: 18px;
+    order: 4;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.callback__error {
+  color: $RED;
+}

@@ -60,6 +60,7 @@ export const useMutation = ({
     data,
     isLoading: loading,
     error,
+    errorMessage: error?.response?.data.message,
     executePut,
   };
 };

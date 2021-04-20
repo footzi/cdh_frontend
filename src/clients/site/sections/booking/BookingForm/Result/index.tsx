@@ -4,7 +4,7 @@ import React from 'react';
 import { ResultProps } from '../interfaces';
 
 export const Result: React.FC<ResultProps> = ({ result }) => {
-  const { id, startDate, endDate, countDays, firstName, phone, email, price } = result.order;
+  const { id, startDate, endDate, countDays, firstName, phone, email, price } = result;
   // const onClosePopup = useCallback(() => closeAllPopups(), []);
 
   return (

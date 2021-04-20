@@ -25,9 +25,11 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
 
   const [isValid, setIsValid] = useState<boolean>(false);
 
-  const { orderResult, sendForm, isLoading } = useSendForm({
+  const { orderResult, sendForm, errorMessage, isLoading } = useSendForm({
     fields,
   });
+
+  const isNotFreeRoom = orderResult?.order === null;
 
   const onChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -159,6 +161,12 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
       </div>
 
       <div className="booking-form__form-inputs">
+        {isNotFreeRoom && (
+          <p className="booking-form__no-result">
+            На данные дни нет свободных номеров, пожалуйста выберете другие даты
+          </p>
+        )}
+
         <div className="booking-form__calendar-inputs">
           <Datepicker
             selected={startDate}
@@ -233,6 +241,8 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
           Забронировать номер
         </Button>
       </div>
+
+      {errorMessage && <p className="booking-form__error">{errorMessage}</p>}
 
       <div className="booking-form__agreements">
         Нажимая на кнопку, вы даете согласие на{' '}

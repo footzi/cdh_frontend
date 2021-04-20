@@ -1,4 +1,4 @@
-import { BookingResponse } from 'api';
+import { BookingData, BookingResponse } from 'api';
 import { Maybe } from 'api';
 
 export interface BookingFormProps {
@@ -11,7 +11,7 @@ export interface FormProps {
 }
 
 export interface ResultProps {
-  result: BookingResponse;
+  result: BookingData;
 }
 
 export interface Fields {
@@ -32,6 +32,7 @@ export interface UseSendFormResult {
   orderResult: Maybe<BookingResponse>;
   isLoading: boolean;
   sendForm(): void;
+  errorMessage?: string;
 }
 
 export interface UsePrePriceProps {

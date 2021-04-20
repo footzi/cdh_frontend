@@ -5,6 +5,7 @@ import './components/dropdown';
 import './components/popup';
 import './sections/room-info';
 import './sections/header-mobile';
+import './sections/callback';
 import './index.scss';
 
 // eslint-disable-next-line no-undef
@@ -25,10 +26,4 @@ $(document).ready(function () {
     ],
     dots: false,
   });
-
-  // // eslint-disable-next-line no-undef
-  // $('.reviews__slider').owlCarousel({
-  //   items: 1,
-  //   dots: true,
-  // });
 });

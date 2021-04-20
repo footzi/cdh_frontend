@@ -27,6 +27,7 @@ export interface UseMutationResult {
   data: unknown;
   isLoading: boolean;
   error: Maybe<AxiosError>;
+  errorMessage?: string;
   executePut(): void;
 }
 

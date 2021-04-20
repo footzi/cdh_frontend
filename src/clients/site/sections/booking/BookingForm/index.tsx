@@ -13,13 +13,11 @@ const BookingForm: React.FC<BookingFormProps> = ({ checkedRoomId }) => {
     setOrderResult(result);
   }, []);
 
+  const result = orderResult?.order;
+
   return (
     <>
-      {orderResult ? (
-        <Result result={orderResult} />
-      ) : (
-        <Form onSetOrderResult={onSetOrderResult} checkedRoomId={checkedRoomId} />
-      )}
+      {result ? <Result result={result} /> : <Form onSetOrderResult={onSetOrderResult} checkedRoomId={checkedRoomId} />}
     </>
   );
 };

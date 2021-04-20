@@ -3,5 +3,12 @@ section.callback#callback
   form.callback__form
     input#name.input.input_theme_border.callback__form-item(name='name', placeholder='Ваше имя')
     input#phone.input.input_theme_border.callback__form-item(name='phone', placeholder='Ваш телефон')
+
+    p.callback__success Ваша Заявка успешно отправлена.
+    p.callback__error При отправки заявки произошла ошибка, попробуйте позже.
+
     .callback__form-item
-      button(type="submit").button.button_theme_orange-light Позвоните мне!
+      button(type="submit", disabled).button.button_theme_orange-light
+        .button__text Позвоните мне!
+        .button__loader
+          include ../../../../components/Loader/index
