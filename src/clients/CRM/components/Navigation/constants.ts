@@ -1,10 +1,10 @@
 export const NAVIGATION_MENU = [
   {
     name: 'Календарь',
-    href: '/',
+    href: '/crm',
   },
   {
     name: 'Заказы',
-    href: '/orders',
+    href: '/crm/orders',
   },
 ];

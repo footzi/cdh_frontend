@@ -3,15 +3,15 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-// public папка для статики всей
 module.exports = {
   mode: 'development',
   entry: {
-    app: path.join(__dirname, 'src', 'index.tsx'),
-    site: path.join(__dirname, 'src/clients/site', 'index.js'),
+    crm: path.join(__dirname, 'src/clients/crm', 'index'),
+    site: path.join(__dirname, 'src/clients/site', 'index'),
   },
   target: 'web',
   resolve: {
@@ -67,6 +67,16 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [isProduction ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(woff2?|ttf|otf|eot|svg)$/,
+        exclude: /node_modules/,
+        loader: 'file-loader',
+        options: {
+          outputPath: './fonts/',
+          publicPath: '/fonts',
+          name: '[name].[ext]',
+        },
+      },
     ],
   },
   output: {
@@ -76,9 +86,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, './public', 'index.html'),
+      template: path.join(__dirname, './src/clients/crm', 'index.html'),
       inject: true,
-      chunks: ['app'],
+      filename: './crm/index.html',
+      chunks: ['crm'],
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './src/clients/site', 'index.pug'),
@@ -93,6 +104,11 @@ module.exports = {
       '$': 'jquery',
       'jQuery': 'jquery',
       'window.jQuery': 'jquery',
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: './public/images', to: './images' },
+      ],
     }),
   ],
   devServer: {

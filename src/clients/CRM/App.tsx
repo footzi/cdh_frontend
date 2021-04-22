@@ -11,10 +11,10 @@ export const App: React.FC = () => (
       <Navigation />
 
       <Switch>
-        <Route path="/" exact>
+        <Route path="/crm" exact>
           <Calendar />
         </Route>
-        <Route path="/orders" exact>
+        <Route path="/crm/orders" exact>
           <Orders />
         </Route>
       </Switch>
