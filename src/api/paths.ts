@@ -3,11 +3,14 @@ export const ApiPaths = {
     url: '/schedule',
     json: '/json/crm_calendar.json',
   },
+  test: {
+    url: '/api',
+  },
   bookingRoom: {
-    url: 'http://localhost:7000/orders',
+    url: '/api/orders',
     json: '/json/booking_result.json',
   },
   callback: {
-    url: 'http://localhost:7000/callback',
+    url: '/api/callback',
   },
 };

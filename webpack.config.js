@@ -5,7 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
-const isProduction = process.env.NODE_ENV === 'production';
+const { NODE_ENV, PORT, BACKEND_HOST } = process.env;
+const isProduction = NODE_ENV === 'production';
 
 module.exports = {
   mode: 'development',
@@ -106,14 +107,15 @@ module.exports = {
       'window.jQuery': 'jquery',
     }),
     new CopyPlugin({
-      patterns: [
-        { from: './public/images', to: './images' },
-      ],
+      patterns: [{ from: './public/images', to: './images' }],
     }),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'public'),
-    port: 3000,
+    port: PORT,
+    proxy: {
+      '/api': BACKEND_HOST,
+    },
     hot: true,
     historyApiFallback: true,
   },
