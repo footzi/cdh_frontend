@@ -11,8 +11,8 @@ const isProduction = NODE_ENV === 'production';
 module.exports = {
   mode: 'development',
   entry: {
-    crm: path.join(__dirname, 'src/clients/crm', 'index'),
-    site: path.join(__dirname, 'src/clients/site', 'index'),
+    crm: path.resolve(__dirname, 'src/clients/crm', 'index'),
+    site: path.resolve(__dirname, 'src/clients/site', 'index'),
   },
   target: 'web',
   resolve: {
@@ -87,13 +87,13 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, './src/clients/crm', 'index.html'),
+      template: path.resolve(__dirname, 'src/clients/crm', 'index.html'),
       inject: true,
       filename: './crm/index.html',
       chunks: ['crm'],
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, './src/clients/site', 'index.pug'),
+      template: path.resolve(__dirname, 'src/clients/site', 'index.pug'),
       inject: true,
       filename: './site/index.html',
       chunks: ['site'],
@@ -111,7 +111,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.resolve(__dirname, 'public'),
     port: PORT,
     proxy: {
       '/api': BACKEND_HOST,
