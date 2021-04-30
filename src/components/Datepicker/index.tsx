@@ -1,7 +1,3 @@
-import 'react-datepicker/dist/react-datepicker.css';
-
-import './index.scss';
-
 import ru from 'date-fns/locale/ru';
 import React from 'react';
 import DatePicker from 'react-datepicker';

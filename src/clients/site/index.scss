@@ -1,7 +1,10 @@
+@import '~owl.carousel/dist/assets/owl.carousel.css';
+@import '~react-datepicker/dist/react-datepicker.css';
+
 // Стили для React компонентов подключать только тут
 @import '../../components/Input';
-
 @import '../../components/Button';
+@import '../../components/Datepicker';
 @import './components/link';
 @import './components/dropdown';
 @import './components/popup';

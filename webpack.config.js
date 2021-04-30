@@ -66,7 +66,18 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [isProduction ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                includePaths: [require('path').resolve(__dirname, 'node_modules')],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(woff2?|ttf|otf|eot|svg)$/,
