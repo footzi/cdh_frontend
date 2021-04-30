@@ -9,9 +9,9 @@ export const Button: React.FC<ButtonProps> = ({ children, theme, isDisabled, isL
   return (
     <button className={className} disabled={isDisabled} {...rest}>
       {isLoading && (
-        <div className="button__loader">
+        <span className="button__loader">
           <Loader />
-        </div>
+        </span>
       )}
       <span className="button__text">{children}</span>
     </button>

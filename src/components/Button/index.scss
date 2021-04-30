@@ -18,21 +18,21 @@
     color: $ORANGE;
   }
 
-	&_theme_hover-white {
-		&:hover {
-			background-color: $WHITE;
-			border: 1px solid $WHITE;
-		}
-	}
+  &_theme_hover-white {
+    &:hover {
+      background-color: $WHITE;
+      border: 1px solid $WHITE;
+    }
+  }
 
   &_theme_orange-light {
     background-color: $LIGHT_ORANGE;
     border: 1px solid $LIGHT_ORANGE;
 
-	  &:hover {
-		  border: 1px solid $ORANGE;
-		  color: $ORANGE;
-	  }
+    &:hover {
+      border: 1px solid $ORANGE;
+      color: $ORANGE;
+    }
   }
 
   &_theme_borders {
@@ -54,7 +54,7 @@
     &:hover {
       background-color: $ORANGE;
       color: $WHITE;
-		border: 1px solid transparent;
+      border: 1px solid transparent;
     }
   }
 

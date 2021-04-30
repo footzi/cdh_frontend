@@ -73,7 +73,7 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sassOptions: {
-                includePaths: [require('path').resolve(__dirname, 'node_modules')],
+                includePaths: [path.resolve(__dirname, 'node_modules')],
               },
             },
           },
@@ -118,7 +118,10 @@ module.exports = {
       'window.jQuery': 'jquery',
     }),
     new CopyPlugin({
-      patterns: [{ from: './public/images', to: './images' }],
+      patterns: [
+        { from: './public/images', to: './images' },
+        { from: './public/assets', to: './assets' },
+      ],
     }),
   ],
   devServer: {
