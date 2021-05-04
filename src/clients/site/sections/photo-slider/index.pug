@@ -1,10 +1,12 @@
-div.photo-slider.owl-carousel
-    div.photo-slider__item
-        img(src='../images/common-rooms-1.png', alt='Современная гостиница для кошек')
-    div.photo-slider__item
-        img(src='../images/common-rooms-1.png', alt='Современная гостиница для кошек')
-    div.photo-slider__item
-        img(src='../images/common-rooms-1.png', alt='Современная гостиница для кошек')
-    div.photo-slider__item
-        img(src='../images/common-rooms-1.png', alt='Современная гостиница для кошек')
-
+.photo-slider.owl-carousel
+  .photo-slider__item
+    picture
+      source(
+        srcset='../images/photo-slider/photo-slider-1.webp',
+        type='image/webp'
+      )
+      source(
+        srcset='../images/photo-slider/photo-slider-1.jpg',
+        type='image/jpg'
+      )
+      img(src='../images/photo-slider/photo-slider-1.jpg', alt='Современная гостиница для кошек', loading='lazy')

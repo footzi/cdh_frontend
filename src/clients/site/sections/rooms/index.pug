@@ -15,7 +15,16 @@ section#rooms.rooms
             .rooms__header
               h3.rooms__header-title #{rooms.comfort.name}
                 include ../../components/next-arrow/index
-            .rooms__image
+            picture.rooms__image
+              source(
+                srcset='../images/rooms/comfort/comfort-preview-1x.webp 1x, ../images/rooms/comfort/comfort-preview-2x.webp 2x',
+                type='image/webp'
+              )
+              source(
+                srcset='../images/rooms/comfort/comfort-preview-1x.jpg 1x, ../images/rooms/comfort/comfort-preview-2x.jpg 2x',
+                type='image/jpg'
+              )
+              img(src='../images/rooms/comfort/comfort-preview-1x.jpg', alt='Номер комфорт', loading='lazy')
             .rooms__list-container
               ul.rooms__list
                 each item in rooms.comfort.composition

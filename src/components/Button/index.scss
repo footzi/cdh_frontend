@@ -13,13 +13,15 @@
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   box-shadow: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $WHITE;
     color: $ORANGE;
   }
 
   &_theme_hover-white {
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $WHITE;
       border: 1px solid $WHITE;
     }
@@ -29,7 +31,8 @@
     background-color: $LIGHT_ORANGE;
     border: 1px solid $LIGHT_ORANGE;
 
-    &:hover {
+    &:hover,
+    &:focus {
       border: 1px solid $ORANGE;
       color: $ORANGE;
     }
@@ -40,7 +43,8 @@
     color: $ORANGE;
     border: 1px solid $ORANGE;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $ORANGE;
       color: $WHITE;
     }
@@ -51,7 +55,8 @@
     color: $ORANGE;
     border: 1px solid transparent;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $ORANGE;
       color: $WHITE;
       border: 1px solid transparent;

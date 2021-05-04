@@ -15,13 +15,14 @@
             img.room-info__thumb(src=thumb.src, alt=thumb.alt, data-slide-id=thumb.slideId)
 
     .room-info__right-side
+      p.rooms-info__size Размеры номера (см):<br />150 х 75 х 70
       ul.room-info__info-list
         each item in rooms.comfort.composition
           li.room-info__info-list-item - #{item}
 
-      .room-info__cost #{rooms.comfort.price} р <span>/сутки</span>
-
-      button.button.button_theme_borders.room-info__order-button.popup-open(
-        data-popup-target-id='booking',
-        data-room-id=rooms.comfort.id
-      ) Забронировать номер
+      .rooms__info-bottom 
+        .room-info__cost #{rooms.comfort.price} р <span>/сутки</span>
+        button.button.button_theme_borders.room-info__order-button.popup-open(
+          data-popup-target-id='booking',
+          data-room-id=rooms.comfort.id
+        ) Забронировать номер
