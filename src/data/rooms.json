@@ -3,36 +3,54 @@
     "id": "1",
     "name": "Комфорт",
     "price": 500,
-    "composition": ["Теплый и удобный номер", "Лоток и миски", "Домик", "Когтеточка"],
+    "composition": ["Теплый и удобный номер", "Лоток и миски", "Домик", "Когтеточка", "Видеонаблюдение 24/7"],
     "slides": [
       {
-        "src": "../images/rooms/1-original.jpg",
+        "src": "../images/rooms/comfort/1/comfort-1",
         "alt": "Фото 1 Номер Комфорт"
       },
       {
-        "src": "../images/rooms/2-original.jpg",
+        "src": "../images/rooms/comfort/2/comfort-2",
         "alt": "Фото 2 Номер Комфорт"
       },
       {
-        "src": "../images/rooms/3-original.jpg",
+        "src": "../images/rooms/comfort/3/comfort-3",
         "alt": "Фото 3 Номер Комфорт"
+      },
+      {
+        "src": "../images/rooms/comfort/4/comfort-4",
+        "alt": "Фото 4 Номер Комфорт"
+      },
+      {
+        "src": "../images/rooms/comfort/5/comfort-5",
+        "alt": "Фото 5 Номер Комфорт"
       }
     ],
     "thumbs": [
       {
-        "src": "../images/rooms/1-original.jpg",
+        "src": "../images/rooms/comfort/1/comfort-1",
         "alt": "Превью фото 1 Номер Комфорт",
         "slideId": 1
       },
       {
-        "src": "../images/rooms/2-original.jpg",
+        "src": "../images/rooms/comfort/2/comfort-2",
         "alt": "Превью фото 2 Номер Комфорт",
         "slideId": 2
       },
       {
-        "src": "../images/rooms/3-original.jpg",
+        "src": "../images/rooms/comfort/3/comfort-3",
         "alt": "Превью фото 3 Номер Комфорт",
         "slideId": 3
+      },
+      {
+        "src": "../images/rooms/comfort/4/comfort-4",
+        "alt": "Превью фото 4 Номер Комфорт",
+        "slideId": 4
+      },
+      {
+        "src": "../images/rooms/comfort/5/comfort-5",
+        "alt": "Превью фото 5 Номер Комфорт",
+        "slideId": 5
       }
     ]
   },
@@ -40,19 +58,17 @@
     "id": "2",
     "name": "Люкс",
     "price": 750,
-    "composition": ["Более просторный 3х - этажный номер", "Лоток и миски", "Домик", "Когтеточка", "Видеонаблюдение 24/7"],
+    "composition": [
+      "Более просторный 3х - этажный номер",
+      "Лоток и миски",
+      "Домик",
+      "Когтеточка",
+      "Видеонаблюдение 24/7"
+    ],
     "slides": [
       {
-        "src": "../images/rooms/3-original.jpg",
+        "src": "./images/rooms/1/comfort-1",
         "alt": "Фото 1 Номер Комфорт"
-      },
-      {
-        "src": "../images/rooms/2-original.jpg",
-        "alt": "Фото 2 Номер Комфорт"
-      },
-      {
-        "src": "../images/rooms/1-original.jpg",
-        "alt": "Фото 3 Номер Комфорт"
       }
     ],
     "thumbs": [
