@@ -9,10 +9,21 @@
         .room-info__slides-wrapper
           .room-info__slides.owl-carousel
             each slide in rooms.lux.slides
-              img.room-info__slide(src=slide.src, alt=slide.alt)
+              picture
+                source(srcset=slide.src + "-1x.webp 1x," + slide.src + "-2x.webp 2x", type='image/webp')
+                source(srcset=slide.src + "-1x.jpg 1x," + slide.src + "-2x.jpg 2x", type='image/jpg')
+                img.room-info__slide(src=slide.src + "-1x.jpg", alt=slide.alt, loading='lazy')
         .room-info__thumbs
           each thumb in rooms.lux.thumbs
-            img.room-info__thumb(src=thumb.src, alt=thumb.alt, data-slide-id=thumb.slideId)
+            picture
+              source(srcset=thumb.src + "-preview-1x.webp 1x," + thumb.src + "-preview-2x.webp 2x", type='image/webp')
+              source(srcset=thumb.src + "-preview-1x.jpg 1x," + thumb.src + "-preview-2x.jpg 2x", type='image/jpg')
+              img.room-info__thumb(
+                src=thumb.src + "-preview-1x.jpg",
+                alt=thumb.alt,
+                data-slide-id=thumb.slideId,
+                loading='lazy'
+              )
 
     .room-info__right-side
       p.rooms-info__size Размеры номера (см):<br />150 х 60 х 200

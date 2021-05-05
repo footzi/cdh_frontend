@@ -67,25 +67,42 @@
     ],
     "slides": [
       {
-        "src": "./images/rooms/1/comfort-1",
-        "alt": "Фото 1 Номер Комфорт"
+        "src": "../images/rooms/lux/1/lux-1",
+        "alt": "Фото 1 Номер Люкс"
+      },
+      {
+        "src": "../images/rooms/lux/2/lux-2",
+        "alt": "Фото 2 Номер Люкс"
+      },
+      {
+        "src": "../images/rooms/lux/3/lux-3",
+        "alt": "Фото 3 Номер Люкс"
+      },
+      {
+        "src": "../images/rooms/lux/4/lux-4",
+        "alt": "Фото 4 Номер Люкс"
       }
     ],
     "thumbs": [
       {
-        "src": "../images/rooms/3-original.jpg",
+        "src": "../images/rooms/lux/1/lux-1",
         "alt": "Превью фото 1 Номер Комфорт",
         "slideId": 1
       },
       {
-        "src": "../images/rooms/2-original.jpg",
+        "src": "../images/rooms/lux/2/lux-2",
         "alt": "Превью фото 2 Номер Комфорт",
         "slideId": 2
       },
       {
-        "src": "../images/rooms/1-original.jpg",
+        "src": "../images/rooms/lux/3/lux-3",
         "alt": "Превью фото 3 Номер Комфорт",
         "slideId": 3
+      },
+      {
+        "src": "../images/rooms/lux/4/lux-4",
+        "alt": "Превью фото 4 Номер Комфорт",
+        "slideId": 4
       }
     ]
   }

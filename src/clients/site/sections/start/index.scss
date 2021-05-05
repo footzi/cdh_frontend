@@ -5,17 +5,18 @@
 
 .start {
   margin-top: 35px;
-  margin-bottom: 75px;
+  margin-bottom: 64px;
   position: relative;
   overflow: hidden;
 
   @media ($tablet) {
     margin-top: 25px;
+		margin-bottom: 80px;
   }
 
   @media ($laptop) {
     margin-top: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 130px;
   }
 
   &_theme_reverse {
@@ -271,11 +272,11 @@
   line-height: 26px;
   text-align: center;
   color: $BLACK;
+	max-width: 800px;
+	margin-right: auto;
+	margin-left: auto;
 
   @media ($tablet) {
-    @include layout();
-    @include suffix(5);
-    @include prefix(5);
     margin-top: 80px;
   }
 

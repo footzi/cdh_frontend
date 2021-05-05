@@ -28,6 +28,7 @@ module.exports = {
       site: path.resolve(__dirname, 'src/clients/site/'),
       utils: path.resolve(__dirname, 'src/utils/'),
       data: path.resolve(__dirname, 'src/data'),
+      public: path.resolve(__dirname, 'src/public/'),
     },
   },
   module: {

@@ -3,11 +3,11 @@ const { exec } = require('child_process');
 // room-info
 const jobs = [
   {
-    fileName: 'comfort-5.jpg',
+    fileName: 'lux-4.jpg',
     prefix: '-2x',
   },
   {
-    fileName: 'comfort-5.jpg',
+    fileName: 'lux-4.jpg',
     prefix: '-1x',
     resize: {
       width: 1024,
@@ -15,7 +15,7 @@ const jobs = [
     },
   },
   {
-    fileName: 'comfort-5.jpg',
+    fileName: 'lux-4.jpg',
     prefix: '-preview-1x',
     resize: {
       width: 240,
@@ -23,7 +23,7 @@ const jobs = [
     },
   },
   {
-    fileName: 'comfort-5.jpg',
+    fileName: 'lux-4.jpg',
     prefix: '-preview-2x',
     resize: {
       width: 480,

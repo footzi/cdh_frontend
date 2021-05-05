@@ -13,6 +13,8 @@
   padding-top: 30px;
   padding-bottom: 30px;
   width: 100%;
+	background-image: url("/public/images/rooms-info-background.png");
+	background-size: cover;
 }
 
 .room-info__left-side {
@@ -64,6 +66,8 @@
   width: 100%;
   height: 100%;
   position: absolute;
+	border-radius: 20px;
+	overflow: hidden;
 
   .owl-stage-outer {
     height: 100%;

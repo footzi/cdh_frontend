@@ -5,14 +5,11 @@
 
 .photo-slider {
   position: relative;
-  padding-right: 15px;
-  padding-left: 15px;
   border-radius: 26px;
   overflow: hidden;
 
   @media ($tablet) {
     @include layout();
-    padding: 0;
   }
 
   .owl-nav {
@@ -42,7 +39,7 @@
     margin-left: 20px;
 
     @media ($tablet) {
-      margin-left: 10px;
+      margin-left: 15px;
     }
 
     @media ($laptop) {
@@ -69,6 +66,9 @@
 }
 
 .photo-slider__item {
+	padding-right: 10px;
+	padding-left: 10px;
+
   img {
     border-radius: 26px;
   }
