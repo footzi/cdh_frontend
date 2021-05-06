@@ -111,6 +111,18 @@ module.exports = {
       filename: './site/index.html',
       chunks: ['site'],
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/clients/site', 'agreements.pug'),
+      inject: true,
+      filename: './site/agreements.html',
+      chunks: ['site'],
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/clients/site', 'privacy-policy.pug'),
+      inject: true,
+      filename: './site/privacy-policy.html',
+      chunks: ['site'],
+    }),
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),

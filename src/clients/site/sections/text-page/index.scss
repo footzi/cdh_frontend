@@ -1,0 +1,49 @@
+@import '~styles/colors';
+@import '~styles/mixins.scss';
+
+.text-page {
+	@include layout();
+  margin-top: 80px;
+  margin-bottom: 100px;
+  color: $BLACK;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+.text-page__title {
+	font-size: 24px;
+	line-height: 33px;
+	text-align: center;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+.text-page__subtitle {
+	font-size: 20px;
+	line-height: 22px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	font-weight: normal;
+}
+
+.text-page__paragraph {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.text-page__list {
+	margin-top: 10px;
+
+	> li {
+		margin-bottom: 5px;
+		margin-left: 10px;
+	}
+}
+
+.text-page__number-list {
+	> li {
+		margin-bottom: 10px;
+	}
+}

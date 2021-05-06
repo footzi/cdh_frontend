@@ -25,6 +25,7 @@
 @import './sections/booking';
 @import './sections/room-info';
 @import './sections/start';
+@import './sections/text-page';
 
 @font-face {
   font-display: swap;
@@ -109,7 +110,7 @@ a {
   color: inherit;
 }
 
-ul {
+ul, ol {
   list-style: none;
   margin: 0;
   padding: 0;

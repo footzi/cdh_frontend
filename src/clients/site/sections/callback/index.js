@@ -4,6 +4,11 @@ import axios from 'axios';
 class Callback {
   constructor() {
     this.container = document.querySelector('.callback');
+
+    if (!this.container) {
+      return null;
+    }
+
     this.form = this.container.querySelector('form');
     this.inputs = this.form.querySelectorAll('input') ?? [];
     this.submitButton = this.form.querySelector('button[type="submit"]');
