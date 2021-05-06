@@ -1,7 +1,16 @@
 - var links = require("../../../../data/links.json");
 
 section.safety
-  img.safety__image(src='../images/safety-cat.jpg' alt="Безопасность и комфорт животных - это важно!")
+  picture
+    source(srcset='../images/safety-cat-960.webp', type='image/webp', media='(max-width: 1024px)')
+    source(srcset='../images/safety-cat-960.jpg', type='image/jpg', media='(max-width: 1024px)')
+    source(srcset='../images/safety-cat-1x.webp', type='image/webp')
+    source(srcset='../images/safety-cat-1x.jpg', type='image/jpg')
+    img.safety__image(
+      src='../images/advantages-cat-1x.jpg',
+      alt='Безопасность и комфорт животных - это важно!',
+      loading='lazy'
+    )
   .safety__content-container
     .safety__content
       .safety__header

@@ -29,6 +29,7 @@ module.exports = {
       utils: path.resolve(__dirname, 'src/utils/'),
       data: path.resolve(__dirname, 'src/data'),
       public: path.resolve(__dirname, 'src/public/'),
+      styles: path.resolve(__dirname, 'src/styles/'),
     },
   },
   module: {

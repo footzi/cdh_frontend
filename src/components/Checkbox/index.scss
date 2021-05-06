@@ -1,0 +1,31 @@
+@import '~styles/colors';
+
+.checkbox {
+	width: 16px;
+	height: 16px;
+	border-radius: 4px;
+	display: flex;
+	cursor: pointer;
+	overflow: hidden;
+	background-color: $MIDDLE_GREY;
+}
+
+.checkbox__input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+
+	&:checked ~ .checkbox__mark {
+		transform: translateY(0);
+	}
+}
+
+.checkbox__mark {
+	transition: transform 0.3s;
+	margin: 0 auto;
+	fill: $BLACK;
+	width: 10px;
+	transform: translateY(-100%);
+}

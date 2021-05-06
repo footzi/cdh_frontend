@@ -1,5 +1,14 @@
 section.advantages
-  img.advantages__image(src='../images/advantages-cat.jpg' alt="Для нас важно, чтобы вам и вашему котику понравилось в нашей гостинице")
+  picture
+    source(srcset='../images/advantages-cat-960.webp', type='image/webp' media="(max-width: 1024px)")
+    source(srcset='../images/advantages-cat-960.jpg', type='image/jpg' media="(max-width: 1024px)")
+    source(srcset='../images/advantages-cat-1x.webp', type='image/webp')
+    source(srcset='../images/advantages-cat-1x.jpg', type='image/jpg')
+    img.advantages__image(
+      src='../images/advantages-cat-1x.jpg',
+      alt='Для нас важно, чтобы вам и вашему котику понравилось в нашей гостинице',
+      loading='lazy'
+    )
   .advantages__content-container
     .advantages__content
       h2.advantages__title Для нас важно, чтобы вам и вашему котику понравилось в нашей гостинице!<span>Мы сделаем все, чтобы вы были уверены - у нас котику будет максимально комфортно и безопасно.</span>

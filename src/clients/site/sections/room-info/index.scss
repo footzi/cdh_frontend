@@ -15,6 +15,7 @@
   width: 100%;
 	background-image: url("/public/images/rooms-info-background.png");
 	background-size: cover;
+	border-radius: 30px;
 }
 
 .room-info__left-side {
@@ -139,7 +140,7 @@
 	line-height: 18px;
 	text-align: center;
 	margin-top: 20px;
-	margin-bottom: 25px;
+	margin-bottom: 35px;
 
 	@media ($tablet) {
 		font-size: 18px;

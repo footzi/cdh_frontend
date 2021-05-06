@@ -168,11 +168,7 @@
 .booking-form__submit {
   width: 220px;
   display: flex;
-  margin: 40px auto 0 auto;
-
-  @media ($laptop) {
-    margin: 50px auto 0 auto;
-  }
+  margin: 30px auto 0 auto;
 }
 
 .booking-form__error {
@@ -186,12 +182,18 @@
 .booking-form__agreements {
   font-weight: 300;
   font-size: 12px;
-  line-height: 14px;
+	line-height: 17px;
   margin-top: 25px;
-  text-align: center;
+	display: flex;
+	cursor: pointer;
+
+	label {
+		flex-shrink: 0;
+		margin-right: 18px;
+	}
 
   @media ($tablet) {
     text-align: left;
-    line-height: 19px;
+		margin-top: 50px;
   }
 }

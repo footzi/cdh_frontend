@@ -1,5 +1,6 @@
 import { Button } from 'components/Button';
 import { CustomInputProps } from 'components/CalendarBooking/interfaces';
+import { Checkbox } from 'components/Checkbox';
 import { Datepicker } from 'components/Datepicker';
 import { STARTING_DATE_OF_BOOKING } from 'constants/index';
 import rooms from 'data/rooms.json';
@@ -20,6 +21,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
     phone: '',
     comment: '',
     email: '',
+    agreements: false,
     roomTypeId: checkedRoomId,
   });
 
@@ -33,12 +35,12 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
 
   const onChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      const name = event.target.name;
-      const value = event.target.value;
+      const { name, value, checked, type } = event.target;
+      const valueField = type !== 'checkbox' ? value : checked;
 
       setFields({
         ...fields,
-        [name]: value,
+        [name]: valueField,
       });
     },
     [fields, setFields]
@@ -236,20 +238,28 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         Как происходит оплата?
       </a>
 
+      <label className="booking-form__agreements">
+        <Checkbox name="agreements" onChange={onChange} />
+        <span>
+          Нажимая кнопку &quot;Забронировать&quot;, принимаю условия{' '}
+          <a href="#" className="link link_theme_normal">
+            Политики конфиденциальности
+          </a>{' '}
+          и даю своё согласие на{' '}
+          <a href="#" className="link link_theme_normal">
+            Обработку моих персональных данных
+          </a>
+        </span>
+      </label>
+
       <div className="booking-form__submit">
         <Button isDisabled={!isValid} type="submit" isLoading={isLoading}>
-          Забронировать номер
+          Забронировать
         </Button>
       </div>
 
       {errorMessage && <p className="booking-form__error">{errorMessage}</p>}
 
-      <div className="booking-form__agreements">
-        Нажимая на кнопку, вы даете согласие на{' '}
-        <a href="#" className="link">
-          обработку своих персональных данных.
-        </a>
-      </div>
       <div id="booking-calendar-portal" />
     </form>
   );

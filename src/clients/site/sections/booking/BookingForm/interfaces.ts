@@ -22,6 +22,7 @@ export interface Fields {
   comment: string;
   roomTypeId: string;
   email: string;
+  agreements: boolean;
 }
 
 export interface UseSendFormProps {
