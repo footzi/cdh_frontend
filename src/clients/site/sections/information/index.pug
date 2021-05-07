@@ -1,3 +1,5 @@
+- var links = require("../../../../data/links.json");
+
 section.information#information
   h2.information__title Полезная информация
   .information__content
@@ -46,7 +48,7 @@ section.information#information
             span.information__text-warning Важно!
             b <u>Возьмите с собой свой паспорт, он необходим при составлении договора.</u>
 
-    .information__content-item.dropdown
+    .information__content-item.dropdown#how-is-payment
       .dropdown__header
         h3.information__content-title.dropdown__header-title Как происходит оплата?
         include ../../components/dropdown/arrow
@@ -76,5 +78,5 @@ section.information#information
       .dropdown__container
         .information__content-description.dropdown__content
           p <b>При заселении вы получите пароль</b> ( он будет указан в договоре, а также придет вам на вашу электронную почту).
-          p.information__content-margin-mini На сайте вам необходимо будет перейти в раздел “ВИДЕОНАБЛЮДЕНИЕ” или перейти по <a class="link" href="#">ссылке</a>, и ввести пароль в нужное поле.
+          p.information__content-margin-mini На сайте вам необходимо будет перейти в раздел “ВИДЕОНАБЛЮДЕНИЕ” или перейти по <a class="link" href=#{links.video}>ссылке</a>, и ввести пароль в нужное поле.
           p.information__content-margin-medium <b>Таким образом вы сможете наблюдать за вашим питомцем в режиме онлайн, в любое время 24/7.</b>

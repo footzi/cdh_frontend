@@ -5,6 +5,11 @@
     "whatsapp": "https://whatsapp.com",
     "youtube": "https://youtube.com"
   },
+  "agreements": "/agreements",
+  "privacyPolicy": "/privacy-policy",
+  "video": "/video",
+  "rooms": "/#rooms",
+  "howIsPayment": "/#how-is-payment",
   "menu": [
     {
       "text": "Главная",
@@ -12,19 +17,19 @@
     },
     {
       "text": "Номера и цены",
-      "link": "#rooms"
+      "link": "/#rooms"
     },
     {
       "text": "Правила размещения",
-      "link": "#information"
+      "link": "/#information"
     },
     {
       "text": "Контакты",
-      "link": "#footer"
+      "link": "/#footer"
     }
   ],
-  "video": "/",
   "phone": "+7 (953) 173-32-97",
   "phoneValue": "+79531733297",
-  "email": "catdoghouse@mail.ru"
+  "email": "catdog-house@mail.ru",
+  "domain": "https://catdog-house.ru"
 }
