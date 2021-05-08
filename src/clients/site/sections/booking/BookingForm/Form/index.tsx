@@ -158,7 +158,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
 
       <div className="booking-form__number-info">
         Подробнее о номерах{' '}
-        <a href={links.rooms} className="link popup-close" onClick={onClosePopup}>
+        <a href={links.rooms} target="_blank" rel="noreferrer" className="link popup-close" onClick={onClosePopup}>
           здесь
         </a>
       </div>
@@ -235,7 +235,12 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         {!!prePrice && <div className="booking-form__cost-value">{prePrice} р</div>}
       </div>
 
-      <a href={links.howIsPayment} className="link link_theme_normal booking-form__cost-info" onClick={onClosePopup}>
+      <a
+        href={links.howIsPayment}
+        target="_blank"
+        rel="noreferrer"
+        className="link link_theme_normal booking-form__cost-info"
+        onClick={onClosePopup}>
         Как происходит оплата?
       </a>
 
@@ -243,11 +248,11 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         <Checkbox name="agreements" onChange={onChange} />
         <span>
           Нажимая кнопку &quot;Забронировать&quot;, принимаю условия{' '}
-          <a href={links.privacyPolicy} className="link link_theme_normal">
+          <a href={links.privacyPolicy} target="_blank" rel="noreferrer" className="link link_theme_normal">
             Политики конфиденциальности
           </a>{' '}
           и даю своё согласие на{' '}
-          <a href={links.agreements} className="link link_theme_normal">
+          <a href={links.agreements} target="_blank" rel="noreferrer" className="link link_theme_normal">
             Обработку моих персональных данных
           </a>
         </span>

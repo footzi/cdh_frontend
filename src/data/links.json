@@ -2,7 +2,7 @@
   "social": {
     "vk": "https://vk.com",
     "instagram": "https://instagram.com",
-    "whatsapp": "https://whatsapp.com",
+    "whatsapp": "https://api.whatsapp.com/send?phone=+79531733297",
     "youtube": "https://youtube.com"
   },
   "agreements": "/agreements",
@@ -10,6 +10,7 @@
   "video": "/video",
   "rooms": "/#rooms",
   "howIsPayment": "/#how-is-payment",
+  "callback": "/#callback",
   "menu": [
     {
       "text": "Главная",

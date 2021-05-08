@@ -1,6 +1,15 @@
 section.firstscreen
-  img.firstscreen__image(src='../images/banner.jpg', alt='Современная гостиница для кошек')
-  img.firstscreen__image-mobile(src='../images/banner-mobile.jpg', alt='Современная гостиница для кошек')
+  picture
+    source(srcset='/images/banner.webp', type='image/webp')
+    source(srcset='/images/banner.jpg', type='image/jpg')
+    img.firstscreen__image(src='/images/banner.jpg', alt='Современная гостиница для кошек')
+  img.firstscreen__image-paws(src='/images/banner-paws.png', alt='Лапки')
+
+  .firstscreen__image-background-mobile
+    picture
+      source(srcset='/images/banner-mobile.webp', type='image/webp')
+      source(srcset='/images/banner-mobile.jpg', type='image/jpg')
+      img(src='/images/banner-mobile.jpg', alt='Современная гостиница для кошек')
   .firstscreen__content-wrapper
     .firstscreen__content
       h1.firstscreen__title Современная гостиница для кошек

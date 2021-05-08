@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class RoomInfo {
   constructor() {
     this.initPhotoSliders();
@@ -9,6 +7,7 @@ class RoomInfo {
     const sliders = document.querySelectorAll('.room-info__slider') ?? [];
 
     sliders.forEach((slider) => {
+      // eslint-disable-next-line no-undef
       const $photoSlider = $(slider.querySelector('.room-info__slides'));
       const thumbs = slider.querySelectorAll('.room-info__thumb') ?? [];
 
