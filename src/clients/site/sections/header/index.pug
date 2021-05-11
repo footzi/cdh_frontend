@@ -5,8 +5,9 @@ header.header
     img.header__logo(src='../images/logo.svg', alt='Гостиница для животных')
     img.header__logo-mini(src='../images/logo-mini.svg', alt='Гостиница для животных')
     .header__right-side
-      .header__phone
+      .header__contacts
         a.header__phone-link(href="tel:" + links.phoneValue) тел. #{links.phone}
+        div г.Санкт-Петербург
         a.link(href=links.callback) Позвоните мне
       ul.header__social
         include ../../components/social/header

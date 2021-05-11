@@ -128,6 +128,12 @@ module.exports = {
       filename: './site/privacy-policy.html',
       chunks: ['site'],
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/clients/site', 'video.pug'),
+      inject: true,
+      filename: './site/video.html',
+      chunks: ['site'],
+    }),
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
     }),
