@@ -11,6 +11,7 @@
   "rooms": "/#rooms",
   "howIsPayment": "/#how-is-payment",
   "callback": "/#callback",
+  "information": "/#information",
   "menu": [
     {
       "text": "Главная",

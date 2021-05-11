@@ -122,6 +122,7 @@
 .approach__link {
   @include post(35);
   margin-top: 35px;
+	font-weight: 300;
 
   @media ($tablet) {
     @include post(6);

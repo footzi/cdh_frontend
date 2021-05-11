@@ -13,6 +13,7 @@ $(document).ready(function () {
   $('.photo-slider').owlCarousel({
     items: 1,
     nav: true,
+    loop: true,
     navText: [
       "<div class='nav-button nav-button-prev'>" +
         '<svg width="9" height="12" viewBox="0 0 9 12">\n' +

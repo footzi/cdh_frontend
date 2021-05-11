@@ -24,15 +24,23 @@
   }
 
   .nav-button {
-    transition: 0.3s transform;
+    transition: 0.3s transform, opacity;
     pointer-events: all;
+		opacity: 0.8;
 
-    svg {
-      fill: $WHITE;
-      width: 30px;
-      height: 90px;
-      transform: rotate(180deg);
-    }
+		svg {
+			fill: $WHITE;
+			transform: rotate(180deg);
+			width: 15px;
+			height: 45px;
+		}
+
+		@media ($tablet) {
+			svg {
+				width: 30px;
+				height: 90px;
+			}
+		}
   }
 
   .nav-button-prev {
@@ -44,6 +52,7 @@
 
     @media ($laptop) {
       &:hover {
+				opacity: 1;
         transform: translateX(-5px);
       }
     }
@@ -59,6 +68,7 @@
 
     @media ($laptop) {
       &:hover {
+				opacity: 1;
         transform: translateX(5px) rotate(180deg);
       }
     }

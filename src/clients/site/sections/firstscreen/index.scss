@@ -58,7 +58,6 @@
   }
 }
 
-
 .firstscreen__image-background-mobile {
 	width: 100%;
 	position: absolute;
@@ -172,6 +171,16 @@
       margin-top: 15px;
     }
   }
+}
+
+.firstscreen__bottom-text {
+	max-width: 300px;
+	display: flex;
+	justify-content: flex-end;
+
+	@media ($laptop) {
+	  max-width: inherit;
+	}
 }
 
 .firstscreen__text-accent {

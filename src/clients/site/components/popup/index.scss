@@ -109,6 +109,11 @@
   transition: transform 0.3s;
   transform-origin: 50%;
   z-index: 1;
+	margin-top: 7px;
+
+	@media ($tablet) {
+		margin-top: 0;
+	}
 
   svg {
     width: 30px;

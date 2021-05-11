@@ -7,17 +7,17 @@ footer.footer#footer
       | Наша гостиница будет находится на юге Санкт-Петербурга
   .footer__content
     .footer__info
-      .footer__section
-        .footer__title Адрес
-        .footer__text-block
-          .footer__text Пр-т Ветеранов д.34
-        a.link.link_theme_white.link_theme_normal(href='#') Как добраться?
+      //.footer__section
+      //  .footer__title Адрес
+      //  .footer__text-block
+      //    .footer__text
+      //  a.link.link_theme_white.link_theme_normal(href='#') Как добраться?
       .footer__section
         .footer__title Контакты
         .footer__text-block
           a(href='tel:' + links.phoneValue).footer__text.footer__link Тел. #{links.phone}
           a(href='mailto:' + links.email).footer__text.footer__link E-mail: #{links.email}
-        a.link.link_theme_white.link_theme_normal(href='#callback') Свяжитесь со мной
+        a.link.link_theme_white.link_theme_normal(href=links.callback) Свяжитесь со мной
         ul.footer__social
           include ../../components/social/footer
     nav.footer__navigation

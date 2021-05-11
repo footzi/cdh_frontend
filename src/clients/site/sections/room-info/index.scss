@@ -222,34 +222,12 @@
 }
 
 .rooms__info-bottom {
-	margin-top: 20px;
+	margin-top: 40px;
 	display: flex;
 	flex-direction: column;
 
 	@media ($laptop) {
 		margin-top: auto;
-	}
-}
-
-.rooms-info__additionally {
-	font-style: italic;
-	font-weight: 300;
-	font-size: 14px;
-	line-height: 16px;
-	color: $ORANGE;
-	margin-bottom: 20px;
-
-	@media ($tablet) {
-		margin-bottom: 45px;
-		font-size: 16px;
-		line-height: 19px;
-		max-width: 300px;
-		margin-left: 15px;
-	}
-
-	@media ($laptop) {
-		max-width: 275px;
-		margin-left: 0;
 	}
 }
 

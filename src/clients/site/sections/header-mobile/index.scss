@@ -26,18 +26,22 @@
   width: 200px;
 }
 
-.header-mobile__open-menu.is-open {
-  .header-mobile__open-menu-line {
-    background-color: $WHITE;
+.header-mobile__open-menu {
+	margin-top: 7px;
 
-    &:after {
-      transform: rotate(-45deg)
-    }
+	&.is-open {
+		.header-mobile__open-menu-line {
+			background-color: $WHITE;
 
-    &:before {
-      transform: rotate(45deg)
-    }
-  }
+			&:after {
+				transform: rotate(-45deg)
+			}
+
+			&:before {
+				transform: rotate(45deg)
+			}
+		}
+	}
 }
 
 .header-mobile__open-menu-line {
