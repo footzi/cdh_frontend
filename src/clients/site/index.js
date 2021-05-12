@@ -15,11 +15,11 @@ $(document).ready(function () {
     nav: true,
     loop: true,
     navText: [
-      "<div class='nav-button nav-button-prev'>" +
+      "<div class='nav-button nav-button-prev' aria-label=' Предыдущий слайд'>" +
         '<svg width="9" height="12" viewBox="0 0 9 12">\n' +
         '<path d="M2.02 12L8.02 6L2.02 0L0.610001 1.41L5.19 6L0.610001 10.59L2.02 12Z"/>\n' +
         '</svg></div>',
-      "<div class='nav-button nav-button-next'>" +
+      "<div class='nav-button nav-button-next' aria-label='Следующий слайд'>" +
         '<svg width="9" height="12" viewBox="0 0 9 12">\n' +
         '<path d="M2.02 12L8.02 6L2.02 0L0.610001 1.41L5.19 6L0.610001 10.59L2.02 12Z"/>\n' +
         '</svg></div>',

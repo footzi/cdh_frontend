@@ -175,6 +175,7 @@
 
 .firstscreen__bottom-text {
 	max-width: 300px;
+	margin-left: auto;
 
 	@media ($laptop) {
 	  max-width: initial;
