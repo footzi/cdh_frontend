@@ -99,7 +99,7 @@ module.exports = {
     ],
   },
   output: {
-    filename: '[name]/index.js',
+    filename: `[name]/index.js?v${Date.now()}`,
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
