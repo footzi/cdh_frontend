@@ -1,3 +1,6 @@
+- var title = title || 'Гостиница для кошек "CatDogHOUSE", Санкт-Петербург | Зоогостиница'
+
+block vars
 head
   meta(charset='UTF-8')
   meta(
@@ -16,7 +19,7 @@ head
   link(rel='preload', href='/fonts/Roboto-MediumItalic.woff2', as='font', crossorigin='anonymous')
   link(rel='preload', href='/fonts/Roboto-Regular.woff2', as='font', crossorigin='anonymous')
   link(rel='preload', href='/fonts/Roboto-Bold.woff2', as='font', crossorigin='anonymous')
-  title Гостиница для кошек "CatDogHOUSE", Санкт-Петербург | Зоогостиница
+  title #{title}
   // Yandex.Metrika counter
   script(type='text/javascript', async).
     (function (m, e, t, r, i, k, a) {
