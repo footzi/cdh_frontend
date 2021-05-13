@@ -84,6 +84,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
         ref={ref}
         value={value}
         autoComplete="off"
+        readOnly
       />
     )
   );
@@ -98,6 +99,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
       ref={ref}
       value={value}
       autoComplete="off"
+      readOnly
     />
   ));
 
@@ -180,6 +182,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
             customInput={<StartInput />}
             portalId="booking-calendar-portal"
             dateFormat="dd.MM.yyyy"
+            // onChangeRaw={e => e.preventDefault()}
           />
 
           <Datepicker
