@@ -6,7 +6,7 @@ import { STARTING_DATE_OF_BOOKING } from 'constants/index';
 import links from 'data/links.json';
 import rooms from 'data/rooms.json';
 import React, { ForwardedRef, forwardRef, useCallback, useEffect, useState } from 'react';
-import { closeAllPopups } from 'site/components/popup';
+import { closeAllPopups, scrollTopInPopup } from 'site/components/popup';
 import { formatToBackendDate } from 'utils/formatToBackendDate';
 
 import { usePrePrice } from '../hooks/usePrePrice';
@@ -120,6 +120,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
 
   useEffect(() => {
     if (orderResult) {
+      scrollTopInPopup('booking');
       onSetOrderResult(orderResult);
     }
   }, [orderResult, onSetOrderResult]);
@@ -239,8 +240,7 @@ export const Form: React.FC<FormProps> = ({ checkedRoomId, onSetOrderResult }) =
       </div>
 
       <a
-        href={links.howIsPayment}
-        target="_blank"
+        href={links.information}
         rel="noreferrer"
         className="link link_theme_normal booking-form__cost-info"
         onClick={onClosePopup}>

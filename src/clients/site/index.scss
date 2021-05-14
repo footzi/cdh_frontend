@@ -90,6 +90,11 @@ body {
 
 body.is-fixed {
   overflow: hidden;
+	position: fixed;
+
+	@media ($tablet) {
+		position: static;
+	}
 }
 
 code {
@@ -126,4 +131,39 @@ h6,
 p {
   margin: 0;
   padding: 0;
+}
+
+body {
+	//overflow: hidden;
+}
+
+.test {
+	background-color: white;
+	position: fixed;
+	inset: 0;
+	z-index: 10000;
+	overflow: auto;
+	display: none;
+
+
+	&.is-open {
+		display: block;
+	}
+}
+
+.test-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	//inset: 0px auto auto 50%;
+	overflow: initial;
+	min-height: 100%;
+	margin-top: 100px;
+	//padding-bottom: 500px;
+	//height: 1000px;
+
+	p {
+		font-size: 18px;
+	}
+
 }

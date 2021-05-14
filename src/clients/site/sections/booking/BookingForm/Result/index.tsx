@@ -22,7 +22,7 @@ export const Result: React.FC<ResultProps> = ({ result }) => {
           <span className="booking-form-result__clients-info-value">
             {startDate} - {endDate}
           </span>
-          <span className="booking-form-result__clients-info-count-days">{countDays} дней</span>
+          <span className="booking-form-result__clients-info-count-days">{countDays} суток</span>
         </div>
 
         <div className="booking-form-result__clients-info-item">
@@ -54,7 +54,7 @@ export const Result: React.FC<ResultProps> = ({ result }) => {
 
       <div className="booking-form-result__footer">
         <div className="booking-form-result__cost">
-          <span className="booking-form-result__cost-text">Стоимость проживания ({countDays} дней)</span>
+          <span className="booking-form-result__cost-text">Стоимость проживания ({countDays} суток)</span>
           <span className="booking-form-result__cost-value">{price} р</span>
         </div>
 

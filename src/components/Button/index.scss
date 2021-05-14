@@ -17,6 +17,10 @@
   &:focus {
     background-color: $WHITE;
     color: $ORANGE;
+
+		&.is-loading .button__loader circle {
+			stroke: $ORANGE;
+		}
   }
 
   &_theme_hover-white {
@@ -51,7 +55,15 @@
     &:focus {
       background-color: $ORANGE;
       color: $WHITE;
+
+			&.is-loading .button__loader circle {
+				stroke: $WHITE;
+			}
     }
+
+		&.is-loading .button__loader circle {
+			stroke: $ORANGE;
+		}
   }
 
   &_theme_white {
