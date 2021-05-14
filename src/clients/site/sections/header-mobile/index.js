@@ -4,7 +4,9 @@ class MobileMenu {
     this.openButton = this.header.querySelector('.header-mobile__open-menu');
     this.menu = this.header.querySelector('.header-mobile__menu');
     this.links = this.header.querySelectorAll('.header-mobile__menu-links');
-
+  
+    this.menu.style.removeProperty('display');
+    
     this.bindEvents();
   }
 
