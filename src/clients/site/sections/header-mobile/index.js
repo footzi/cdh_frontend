@@ -4,9 +4,9 @@ class MobileMenu {
     this.openButton = this.header.querySelector('.header-mobile__open-menu');
     this.menu = this.header.querySelector('.header-mobile__menu');
     this.links = this.header.querySelectorAll('.header-mobile__menu-links');
-  
+
     this.menu.style.removeProperty('display');
-    
+
     this.bindEvents();
   }
 
@@ -20,7 +20,7 @@ class MobileMenu {
   handleClick() {
     this.openButton.classList.toggle('is-open');
     this.menu.classList.toggle('is-open');
-    document.body.classList.toggle('is-fixed');
+    document.body.classList.toggle('is-overflow');
   }
 }
 

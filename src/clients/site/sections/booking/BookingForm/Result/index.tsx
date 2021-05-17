@@ -1,5 +1,6 @@
 import links from 'data/links.json';
 import React from 'react';
+import { formatToFrontendDate } from 'utils/formatToFrontendDate';
 
 import { ResultProps } from '../interfaces';
 
@@ -18,9 +19,9 @@ export const Result: React.FC<ResultProps> = ({ result }) => {
 
       <div className="booking-form-result__clients-info">
         <div className="booking-form-result__clients-info-item">
-          <span className="booking-form-result__clients-info-title">Даты прибывания:</span>
+          <span className="booking-form-result__clients-info-title">Даты пребывания:</span>
           <span className="booking-form-result__clients-info-value">
-            {startDate} - {endDate}
+            {formatToFrontendDate(startDate)} - {formatToFrontendDate(endDate)}
           </span>
           <span className="booking-form-result__clients-info-count-days">{countDays} суток</span>
         </div>

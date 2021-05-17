@@ -97,6 +97,10 @@ body.is-fixed {
 	}
 }
 
+body.is-overflow {
+	overflow: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
