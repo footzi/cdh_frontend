@@ -1,23 +1,22 @@
+import { LoginForm } from 'components/LoginForm';
 import React from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import { Header, Layout, Navigation } from './components';
 import { Calendar, Orders } from './pages';
 
 export const App: React.FC = () => (
-  <Router>
-    <Layout>
-      <Header />
-      <Navigation />
+  <BrowserRouter>
+    <LoginForm />
+    {/*<Layout>*/}
 
-      <Switch>
-        <Route path="/crm" exact>
-          <Calendar />
-        </Route>
-        <Route path="/crm/orders" exact>
-          <Orders />
-        </Route>
-      </Switch>
-    </Layout>
-  </Router>
+    {/*<Header />*/}
+    {/*<Navigation />*/}
+
+    {/*<Routes>*/}
+    {/*  <Route path="/crm" element={<Calendar />} />*/}
+    {/*  <Route path="/crm/orders" element={<Orders />} />*/}
+    {/*</Routes>*/}
+    {/*</Layout>*/}
+  </BrowserRouter>
 );
