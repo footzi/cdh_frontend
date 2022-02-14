@@ -1,0 +1,68 @@
+{
+  "orders": [
+    {
+      "id": 1,
+      "startDate": "2021-07-02",
+      "endDate": "2021-07-05",
+      "countDays": 3,
+      "price": 1500,
+      "status": "BOOKED",
+      "room": "Комфорт 6",
+      "client": {
+        "id": "1",
+        "login": "+79213331122",
+        "firstName": "Светлана",
+        "lastName": "Жукова",
+        "email": "email@test.ru",
+        "phone": "+79213331122"
+      },
+      "pets": [
+        {
+          "id": 1,
+          "name": "Муська",
+          "age": "2",
+          "type": "CAT_FEMALE",
+          "reproduction": "STERILIZED",
+          "special": "Особые отметки",
+          "comments": "Любит поиграть с мышкой"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "startDate": "2021-07-10",
+      "endDate": "2021-07-20",
+      "countDays": 10,
+      "price": 10000,
+      "status": "PAID",
+      "room": "Комфорт 1",
+      "client": {
+        "id": "1",
+        "login": "+79213331122",
+        "firstName": "Петр",
+        "lastName": "Жукова",
+        "email": "email@test.ru",
+        "phone": "+79213331122"
+      },
+      "pets": [
+        {
+          "id": 1,
+          "name": "Буська",
+          "age": "2",
+          "type": "CAT_FEMALE",
+          "reproduction": "STERILIZED",
+          "special": "Особые отметки",
+          "comments": "Любит поиграть с мышкой"
+        }, {
+          "id": 2,
+          "name": "Перец",
+          "age": "10",
+          "type": "CAT_MALE",
+          "reproduction": "NOT_NEUTERED",
+          "special": "",
+          "comments": ""
+        }
+      ]
+    }
+  ]
+}

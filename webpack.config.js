@@ -129,6 +129,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/clients/crm', 'index.html'),
       filename: './crm/index.html',
+      inject: true,
+      chunks: ['crm'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/clients/site', 'index.pug'),

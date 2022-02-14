@@ -1,7 +1,7 @@
 import './index.less';
 
 import { Button, Card, Col, Form, Input, Row, Typography } from 'antd';
-import React, { ChangeEvent, useState } from 'react';
+import React from 'react';
 import InputMask from 'react-input-mask';
 
 export const REGEXP_LOGIN = /^(\+7)?[\s\-]?\(?[0-9][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/gm;

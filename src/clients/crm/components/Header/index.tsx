@@ -1,10 +1,10 @@
+import './index.less';
+
 import { Logo } from 'components/Logo';
 import React from 'react';
 
-import { Container } from './styles';
-
 export const Header: React.FC = () => (
-  <Container>
+  <header className="header">
     <Logo />
-  </Container>
+  </header>
 );

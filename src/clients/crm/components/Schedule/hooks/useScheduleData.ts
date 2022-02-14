@@ -5,6 +5,7 @@ import { getColumns } from '../utils/getColumns';
 import { getDaysInMonth } from '../utils/getDaysInMonth';
 
 export const useScheduleData = (month: number, year: number): UseScheduleResult => {
+  // @ts-ignore
   const { data, isLoading } = useQuery({ url: ApiPaths.getSchedule }) as UseQueryGetScheduleRequest;
   const days = getDaysInMonth(month, year);
   const columns = getColumns({ data, days, month, year });

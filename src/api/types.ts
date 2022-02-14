@@ -4,6 +4,8 @@ import { UseMutationResult, UseQueryResult } from './interfaces';
 
 export type Maybe<T> = T | (null | undefined);
 
+// @deprecated
+// @todo снести все типы
 // Форма бронирования на сайте
 export interface BookingResponse {
   order: Maybe<BookingData>;
@@ -25,7 +27,7 @@ export interface UseMutationBookingRoomResponse extends Omit<UseMutationResult, 
 }
 
 // Календарь в CRM
-export interface UseQueryGetScheduleRequest extends Omit<UseQueryResult, 'data'> {
+export interface UseQueryGetScheduleRequest extends Omit<unknown, 'data'> {
   data: ScheduleResponse;
 }
 

@@ -13,4 +13,8 @@ export const ApiPaths = {
   callback: {
     url: '/api/callback',
   },
+  allOrders: {
+    url: '/api/orders',
+    json: '/json/all_orders.json',
+  },
 };

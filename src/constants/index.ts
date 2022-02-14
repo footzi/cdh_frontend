@@ -1,3 +1,10 @@
+export * from './orderStatuses';
+export * from './userRoles';
+export * from './petTypes';
+export * from './petReproductionTypes';
+// export * from './rooms';
+
+// Разнести все по файлам
 export const TRANSITION_TIMEOUT = 300;
 
 export const TRANSITION_GROUP_DEFAULT_TIMEOUT = {

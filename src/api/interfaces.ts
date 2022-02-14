@@ -8,8 +8,8 @@ export interface UseQueryProps {
   onError?(): void;
 }
 
-export interface UseQueryResult {
-  data: unknown;
+export interface UseQueryResult<T> {
+  data: T;
   isLoading: boolean;
   error: Maybe<AxiosError>;
   refetch(): void;
