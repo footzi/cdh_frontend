@@ -17,4 +17,8 @@ export const ApiPaths = {
     url: '/api/orders',
     json: '/json/all_orders.json',
   },
+  allClients: {
+    url: '/api/clients',
+    json: '/json/clients.json',
+  },
 };

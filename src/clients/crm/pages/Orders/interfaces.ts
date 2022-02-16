@@ -11,8 +11,3 @@ export interface RENDER_ORDER {
   phone: string;
   email: string;
 }
-
-export interface UseGetAllOrdersResult {
-  isLoading: boolean;
-  orders: RENDER_ORDER[];
-}

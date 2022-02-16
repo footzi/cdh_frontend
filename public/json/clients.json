@@ -1,0 +1,20 @@
+{
+  "clients": [
+    {
+      "id": "1",
+      "login": "+79213331122",
+      "firstName": "Светлана",
+      "lastName": "Жукова",
+      "email": "email@test.ru",
+      "phone": "+79213331122"
+    },
+    {
+      "id": "2",
+      "login": "+79222224444",
+      "firstName": "Макар Макарыч",
+      "lastName": "Жуков",
+      "email": "email@test.ru",
+      "phone": "+79222224444"
+    }
+  ]
+}

@@ -47,7 +47,7 @@ export const columns = [
     key: 'pet',
     render: (text: string) => (
       <Tooltip title={text}>
-        <div className="orders__table-pet">{text}</div>
+        <div className="orders__table-pet" dangerouslySetInnerHTML={{ __html: text }} />
       </Tooltip>
     ),
   },

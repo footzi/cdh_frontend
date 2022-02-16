@@ -63,6 +63,88 @@
           "comments": ""
         }
       ]
+    },
+    {
+      "id": 3,
+      "startDate": "2021-07-02",
+      "endDate": "2021-07-05",
+      "countDays": 3,
+      "price": 1500,
+      "status": "NOT_PAID",
+      "room": "Комфорт 6",
+      "client": {
+        "id": "1",
+        "login": "+79213331122",
+        "firstName": "Светлана",
+        "lastName": "Жукова",
+        "email": "email@test.ru",
+        "phone": "+79213331122"
+      },
+      "pets": [
+        {
+          "id": 1,
+          "name": "Муська",
+          "age": "2",
+          "type": "CAT_FEMALE",
+          "reproduction": "STERILIZED",
+          "special": "Особые отметки",
+          "comments": "Любит поиграть с мышкой"
+        }
+      ]
+    }, {
+      "id": 8,
+      "startDate": "2021-07-02",
+      "endDate": "2021-07-05",
+      "countDays": 3,
+      "price": 1500,
+      "status": "CANCELED",
+      "room": "Комфорт 6",
+      "client": {
+        "id": "1",
+        "login": "+79213331122",
+        "firstName": "Светлана",
+        "lastName": "Жукова",
+        "email": "email@test.ru",
+        "phone": "+79213331122"
+      },
+      "pets": [
+        {
+          "id": 1,
+          "name": "Муська",
+          "age": "2",
+          "type": "CAT_FEMALE",
+          "reproduction": "STERILIZED",
+          "special": "Особые отметки",
+          "comments": "Любит поиграть с мышкой"
+        }
+      ]
+    }, {
+      "id": 4,
+      "startDate": "2021-07-02",
+      "endDate": "2021-07-05",
+      "countDays": 3,
+      "price": 1500,
+      "status": "COMPLETED",
+      "room": "Комфорт 6",
+      "client": {
+        "id": "1",
+        "login": "+79213331122",
+        "firstName": "Светлана",
+        "lastName": "Жукова",
+        "email": "email@test.ru",
+        "phone": "+79213331122"
+      },
+      "pets": [
+        {
+          "id": 1,
+          "name": "Муська",
+          "age": "2",
+          "type": "CAT_FEMALE",
+          "reproduction": "STERILIZED",
+          "special": "Особые отметки",
+          "comments": "Любит поиграть с мышкой"
+        }
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
 import { ApiPaths, useQuery } from 'api';
 import { Order } from 'interfaces';
 
-import { UseGetAllOrdersResult } from '../interfaces';
+import { UseGetAllOrdersResult } from './interfaces';
 import { normalizeOrders } from './utils/normalizeOrders';
 
 export const useGetAllOrders = (): UseGetAllOrdersResult => {

@@ -12,14 +12,16 @@ export const normalizePets = (pets: Pet[]): string => {
 
   pets.forEach((pet) => {
     const ageLocale = getDeclination(pet.age, ['год', 'года', 'лет']);
+    const special = pet.special ? `, ${pet.special}` : '';
 
-    const string = `${getLocalePetType(pet.type)} ${pet.name} ${pet.age} ${ageLocale} ${getLocaleReproductionType(
+    const comments = pet.comments ? `, (${pet.comments})` : '';
+
+    const string = `${getLocalePetType(pet.type)} ${pet.name}, ${pet.age} ${ageLocale}, ${getLocaleReproductionType(
       pet.reproduction
-    )} (${pet.comments}) ${pet.special}`;
+    )}${special} ${comments}`;
 
     result = result + string;
   });
-
   return result;
 };
 
@@ -31,7 +33,8 @@ export const normalizeOrders = (order: Order): RENDER_ORDER => {
     } ${getDeclinationDays(order.countDays)})`,
     room: order.room,
     price: formatPrice(order.price),
-    status: getLocaleOrderStatus(order.status),
+    // status: getLocaleOrderStatus(order.status),
+    status: order.status,
     pet: normalizePets(order.pets ?? []),
     name: order.client?.firstName,
     phone: order.client?.phone,
