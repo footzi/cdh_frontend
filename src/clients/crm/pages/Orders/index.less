@@ -1,10 +1,16 @@
 .orders {
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__table {
     &-pet {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .ant-table-thead .ant-table-cell {
@@ -12,9 +18,9 @@
     }
 
     .ant-table-tbody .ant-table-cell {
-      &:nth-child(2),
-      &:nth-child(4),
-      &:nth-child(6) {
+      &:nth-child(3),
+      &:nth-child(5),
+      &:nth-child(7) {
         white-space: nowrap;
       }
     }

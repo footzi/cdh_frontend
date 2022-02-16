@@ -7,6 +7,11 @@ import { mapStatusToColor } from 'utils/index';
 
 export const columns = [
   {
+    title: '№',
+    dataIndex: 'key',
+    key: 'key',
+  },
+  {
     title: 'Имя',
     dataIndex: 'name',
     key: 'name',
