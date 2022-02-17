@@ -45,3 +45,5 @@ export const MONTHS_NAMES = {
 };
 
 export const STARTING_DATE_OF_BOOKING = '2021/07/01';
+
+export const DATE_FORMAT = 'DD.MM.YYYY';

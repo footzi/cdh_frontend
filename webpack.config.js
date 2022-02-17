@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
 const { NODE_ENV, PORT, BACKEND_HOST } = process.env;
 const isProduction = NODE_ENV === 'production';
@@ -125,6 +126,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
+    new AntdDayjsWebpackPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/clients/crm', 'index.html'),

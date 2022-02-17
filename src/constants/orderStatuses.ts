@@ -1,3 +1,5 @@
+import { SelectOption } from 'interfaces';
+
 export enum ORDER_STATUSES {
   // Забронирован
   BOOKED = 'BOOKED',
@@ -26,3 +28,11 @@ export const COLOR_ORDER_STATUSES = {
   [ORDER_STATUSES.CANCELED]: 'red',
   [ORDER_STATUSES.COMPLETED]: 'geekblue',
 };
+
+export const ORDER_STATUSES_OPTIONS: SelectOption[] = [
+  { label: LOCALE_ORDER_STATUSES.BOOKED, value: ORDER_STATUSES.BOOKED },
+  { label: LOCALE_ORDER_STATUSES.PAID, value: ORDER_STATUSES.PAID },
+  { label: LOCALE_ORDER_STATUSES.NOT_PAID, value: ORDER_STATUSES.NOT_PAID },
+  { label: LOCALE_ORDER_STATUSES.CANCELED, value: ORDER_STATUSES.CANCELED },
+  { label: LOCALE_ORDER_STATUSES.COMPLETED, value: ORDER_STATUSES.COMPLETED },
+];

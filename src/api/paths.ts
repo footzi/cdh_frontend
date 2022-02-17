@@ -21,4 +21,8 @@ export const ApiPaths = {
     url: '/api/clients',
     json: '/json/clients.json',
   },
+  allRooms: {
+    url: '/api/rooms',
+    json: '/json/all_rooms.json',
+  },
 };
