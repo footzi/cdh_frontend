@@ -7,7 +7,11 @@
       "countDays": 3,
       "price": 1500,
       "status": "BOOKED",
-      "room": "Комфорт 6",
+      "room": {
+        "id": "1",
+        "name": "Комфорт 6",
+        "price": 1000
+      },
       "client": {
         "id": "1",
         "login": "+79213331122",
@@ -35,7 +39,11 @@
       "countDays": 10,
       "price": 10000,
       "status": "PAID",
-      "room": "Комфорт 1",
+      "room": {
+        "id": "1",
+        "name": "Комфорт 6",
+        "price": 1000
+      },
       "client": {
         "id": "1",
         "login": "+79213331122",
@@ -71,7 +79,11 @@
       "countDays": 3,
       "price": 1500,
       "status": "NOT_PAID",
-      "room": "Комфорт 6",
+      "room": {
+        "id": "1",
+        "name": "Комфорт 6",
+        "price": 1000
+      },
       "client": {
         "id": "1",
         "login": "+79213331122",
@@ -98,7 +110,11 @@
       "countDays": 3,
       "price": 1500,
       "status": "CANCELED",
-      "room": "Комфорт 6",
+      "room": {
+        "id": "1",
+        "name": "Комфорт 6",
+        "price": 1000
+      },
       "client": {
         "id": "1",
         "login": "+79213331122",
@@ -125,7 +141,11 @@
       "countDays": 3,
       "price": 1500,
       "status": "COMPLETED",
-      "room": "Комфорт 6",
+      "room": {
+        "id": "1",
+        "name": "Комфорт 6",
+        "price": 1000
+      },
       "client": {
         "id": "1",
         "login": "+79213331122",

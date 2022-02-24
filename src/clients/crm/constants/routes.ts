@@ -1,5 +1,5 @@
 export const ROUTES = {
   CALENDAR: '/crm/calendar',
-  ORDERS: '/crm/orders',
+  ORDERS: '/crm',
   CLIENTS: '/crm/clients',
 };

@@ -31,6 +31,7 @@ module.exports = {
       data: path.resolve(__dirname, 'src/data'),
       public: path.resolve(__dirname, 'src/public/'),
       styles: path.resolve(__dirname, 'src/styles/'),
+      hooks: path.resolve(__dirname, 'src/hooks/'),
     },
   },
   module: {

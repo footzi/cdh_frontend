@@ -1,6 +1,8 @@
 import { USER_ROLES } from 'constants/index';
 
-export interface User {
+import { Tokens } from './tokens';
+
+export interface CommonUser {
   id?: number;
   login: string;
   firstName: string;
@@ -22,3 +24,14 @@ export interface Client {
   email: string;
   phone: string;
 }
+
+export interface Admin {
+  id?: number;
+  login: string;
+  firstName: string;
+  lastName?: string;
+  email: string;
+  phone: string;
+}
+
+export type User = Client | Admin;

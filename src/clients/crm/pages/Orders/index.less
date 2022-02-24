@@ -1,3 +1,5 @@
+@import '~antd/lib/style/themes/default.less';
+
 .orders {
   &__controls {
     display: flex;
@@ -6,11 +8,15 @@
 
   &__table {
     &-pet {
-      //display: -webkit-box;
-      //-webkit-box-orient: vertical;
-      //-webkit-line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
       overflow: hidden;
       cursor: pointer;
+    }
+
+    &-count-days {
+      color: @primary-6;
     }
 
     .ant-table-thead .ant-table-cell {

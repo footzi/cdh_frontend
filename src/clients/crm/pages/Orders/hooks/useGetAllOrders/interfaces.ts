@@ -1,6 +1,9 @@
-import { RENDER_ORDER } from '../../interfaces';
+import { Order } from 'interfaces';
+
+import { RenderOrder } from '../../interfaces';
 
 export interface UseGetAllOrdersResult {
   isLoading: boolean;
-  orders: RENDER_ORDER[];
+  orders: Order[];
+  renderOrders: RenderOrder[];
 }

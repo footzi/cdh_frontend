@@ -9,6 +9,7 @@ export const useGetAllOrders = (): UseGetAllOrdersResult => {
 
   return {
     isLoading,
-    orders: data?.orders?.map(normalizeOrders) ?? [],
+    renderOrders: data?.orders?.map(normalizeOrders) ?? [],
+    orders: data?.orders ?? [],
   };
 };

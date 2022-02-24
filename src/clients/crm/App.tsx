@@ -1,4 +1,6 @@
+import { Loader } from 'components/index';
 import { LoginForm } from 'components/LoginForm';
+import { useGetUser } from 'hooks/';
 import React from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
@@ -6,29 +8,49 @@ import { Header, Navigation } from './components';
 import { ROUTES } from './constants';
 import { Calendar, Orders } from './pages';
 
-export const App: React.FC = () => (
-  <div className="root-container">
-    <BrowserRouter>
-      <Header />
-      <Navigation />
+export const App: React.FC = () => {
+  const { user, setUser, isLoading } = useGetUser();
 
-      <Routes>
-        <Route path={ROUTES.CALENDAR} element={<Calendar />} />
-        <Route path={ROUTES.ORDERS} element={<Orders />} />
-      </Routes>
+  return (
+    <div className="root-container">
+      <BrowserRouter>
+        <Header />
 
-      {/*<Orders />*/}
-      {/*<LoginForm />*/}
-      {/*<Layout>*/}
+        {isLoading && (
+          <div className="app-loader">
+            <Loader />
+          </div>
+        )}
 
-      {/*<Header />*/}
-      {/*<Navigation />*/}
+        {!isLoading && (
+          <>
+            {user ? (
+              <>
+                <Navigation />
+                <Routes>
+                  <Route path={ROUTES.CALENDAR} element={<Calendar />} />
+                  <Route path={ROUTES.ORDERS} element={<Orders />} />
+                </Routes>
+              </>
+            ) : (
+              <LoginForm setUser={setUser} />
+            )}
+          </>
+        )}
 
-      {/*<Routes>*/}
-      {/*  <Route path="/crm" element={<Calendar />} />*/}
-      {/*  <Route path="/crm/orders" element={<Orders />} />*/}
-      {/*</Routes>*/}
-      {/*</Layout>*/}
-    </BrowserRouter>
-  </div>
-);
+        {/*<Orders />*/}
+        {/*<LoginForm />*/}
+        {/*<Layout>*/}
+
+        {/*<Header />*/}
+        {/*<Navigation />*/}
+
+        {/*<Routes>*/}
+        {/*  <Route path="/crm" element={<Calendar />} />*/}
+        {/*  <Route path="/crm/orders" element={<Orders />} />*/}
+        {/*</Routes>*/}
+        {/*</Layout>*/}
+      </BrowserRouter>
+    </div>
+  );
+};

@@ -11,7 +11,8 @@
       "utils/*": ["./src/utils/*"],
       "crm/*": ["./src/clients/crm/*"],
       "site/*": ["./src/clients/site/*"],
-      "data/*": ["./src/data/*"]
+      "data/*": ["./src/data/*"],
+      "hooks/*": ["./src/hooks/"]
     }
   }
 }

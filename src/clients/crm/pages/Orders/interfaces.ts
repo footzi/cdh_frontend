@@ -1,12 +1,11 @@
-import { Room } from 'interfaces';
-
-export interface RENDER_ORDER {
+export interface RenderOrder {
   key: number;
   dates: string;
-  room: Room;
+  countDays: string;
+  room: string;
   price: string;
   status: string;
-  pet: string;
+  pets: string;
   name: string;
   phone: string;
   email: string;

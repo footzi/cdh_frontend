@@ -6,3 +6,4 @@ export * from './getLocalePetType';
 export * from './mapStatusToColor';
 export * from './getCountDays';
 export * from './getPrePrice';
+export * from './localStorage';

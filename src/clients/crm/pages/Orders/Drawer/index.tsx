@@ -1,8 +1,11 @@
-//@ts-nocheck
 import './index.less';
 
-import { ORDER_STATUSES_OPTIONS } from 'constants';
-import { DATE_FORMAT, PET_REPRODUCTION_TYPES_OPTIONS, PET_TYPES_OPTIONS } from 'constants/index';
+import {
+  DATE_FORMAT,
+  ORDER_STATUSES_OPTIONS,
+  PET_REPRODUCTION_TYPES_OPTIONS,
+  PET_TYPES_OPTIONS,
+} from 'constants/index';
 
 import {
   AutoComplete,
@@ -17,70 +20,31 @@ import {
   InputNumber,
   Row,
   Select,
-  Statistic,
+  Tag,
   Typography,
 } from 'antd';
 import locale from 'antd/lib/date-picker/locale/ru_RU';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import { Client, SelectOption } from 'interfaces';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { formatPrice, getCountDays, getPrePrice } from 'utils';
+import { formatPrice, getCountDays, getLocaleOrderStatus, getPrePrice, mapStatusToColor } from 'utils/index';
 
-export interface OrderDrawer {
-  isOpen: boolean;
-  onClose(): void;
-  clients: Client[];
-  rooms: Room[];
-}
+import { REQUIRED_RULE } from './constants';
+import { useSearchClient } from './hooks';
+import { OrderDrawerProps } from './interfaces';
+import { getIsDisabledFields } from './utils';
 
-interface UseSearchClientResult {
-  options: SelectOption[];
-  search(value: string): void;
-}
-
-const useSearchClient = (clients: Client[]): UseSearchClientResult => {
-  const [initialOptions, setInitialOptions] = useState<SelectOption[]>([]);
-  const [options, setOptions] = useState<SelectOption[]>([]);
-
-  const search = useCallback(
-    (value: string) => {
-      const filtered = value
-        ? initialOptions.filter(
-            (item) =>
-              item.label.toUpperCase().includes(value.toUpperCase()) ||
-              item.value.toUpperCase().includes(value.toUpperCase())
-          )
-        : initialOptions;
-
-      setOptions(filtered);
-    },
-    [initialOptions]
-  );
-
-  useEffect(() => {
-    const options = clients.map((item) => {
-      return { label: `${item.firstName} ${item.lastName}`, value: item.login };
-    });
-
-    setInitialOptions(options);
-    setOptions(options);
-  }, [clients]);
-
-  return {
-    options,
-    search,
-  };
-};
-
-export const OrderDrawer: React.FC<OrderDrawer> = ({ isOpen, onClose, clients, rooms }) => {
-  const [client, setClient] = useState<Client | null>(null);
+export const OrderDrawer: React.FC<OrderDrawerProps> = ({ isOpen, onClose, clients, rooms, editableOrder }) => {
+  const [isNewClient, setIsNewClient] = useState<boolean>(false);
   const { options, search } = useSearchClient(clients);
+
+  const title = editableOrder ? `Редактирование заказа № ${editableOrder.id}` : 'Новый заказ';
 
   const roomOptions: SelectOption[] = useMemo(
     () =>
       rooms.map((room) => ({
         label: room.name,
-        value: room.id,
+        value: String(room.id),
       })),
     [rooms]
   );
@@ -91,117 +55,119 @@ export const OrderDrawer: React.FC<OrderDrawer> = ({ isOpen, onClose, clients, r
     const client = clients.find((item: Client) => item.login === value);
 
     if (client) {
-      setClient(client);
+      form.setFieldsValue({
+        firstName: client.firstName,
+        lastName: client.lastName,
+        phone: client.phone,
+        email: client.email,
+      });
+      setIsNewClient(true);
     }
   };
 
   const onCreateClient = () => {
-    setClient({
-      firstName: '',
-      lastName: '',
-      phone: '',
-      email: '',
-    });
+    setIsNewClient(true);
   };
 
+  // @ts-ignore
   const onFinish = (p) => {
     console.log(p);
   };
 
   useEffect(() => {
-    // defaultValue={roomOptions.length > 0 ? roomOptions[0].value : null}
-    // console.log(ORDER_STATUSES_OPTIONS[0].value);
-    //
+    if (editableOrder) {
+      form.setFieldsValue({
+        firstName: editableOrder.client.firstName,
+        lastName: editableOrder.client.lastName,
+        phone: editableOrder.client.phone,
+        email: editableOrder.client.email,
+        room: String(editableOrder.room.id),
+        status: editableOrder.status,
+        comment: editableOrder.comment,
+        dates: [dayjs(editableOrder.startDate), dayjs(editableOrder.endDate)],
+        pets: [...editableOrder.pets],
+        count: editableOrder.countDays,
+      });
+    } else {
+      form.setFieldsValue({
+        room: roomOptions[0],
+        status: ORDER_STATUSES_OPTIONS[0],
+        pets: [
+          {
+            type: PET_TYPES_OPTIONS[0],
+            reproduction: PET_REPRODUCTION_TYPES_OPTIONS[0],
+          },
+        ],
+      });
+    }
+  }, [form, editableOrder, roomOptions]);
 
-    form.setFieldsValue({
-      // firstName: client.firstName,
-      // lastName: client.lastName,
-      // phone: client.phone,
-      // email: client.email,
-      room: roomOptions[0].value,
-      status: ORDER_STATUSES_OPTIONS[0].value,
-    });
-    // if (client) {
-    //   console.log('set');
-    //
-    //
-    // }
-  }, [roomOptions, ORDER_STATUSES_OPTIONS]);
-
-  const getCountSelectedDays = useCallback((days: [Moment, Moment]) => {
+  const getCountSelectedDays = useCallback((days: [Dayjs, Dayjs]) => {
     return days?.length > 1 ? getCountDays(days[0], days[1]) : 0;
   }, []);
 
   const getTotalPrice = useCallback(
     (days, roomId) => {
-      const price = days?.length > 1 ? getPrePrice(days[0], days[1], roomId, rooms) : null;
-
-      return formatPrice(price);
+      return days?.length > 1 ? getPrePrice(days[0], days[1], roomId, rooms) : null;
     },
     [rooms]
   );
 
-  // const initialV = {
-  //   // firstName: client.firstName,
-  //   // lastName: client.lastName,
-  //   // phone: client.phone,
-  //   // email: client.email,
-  //   // room: roomOptions[0].label,
-  //   status: ORDER_STATUSES_OPTIONS[0].value,
-  // };
-
-  // console.log(client);
-
-  // initialValues={initialV}
-
   return (
     <Drawer
-      title="Создание заказа"
+      title={title}
       placement="right"
       visible={isOpen}
       width={720}
       onClose={onClose}
-      className="orders-drawer">
-      <Form layout="vertical" name="order" onFinish={onFinish} form={form}>
-        {/*<Typography.Title level={5}>Клиент</Typography.Title>*/}
-
-        <Collapse defaultActiveKey="client">
+      destroyOnClose
+      className="orders-drawer"
+      extra={
+        editableOrder && (
+          <Tag color={mapStatusToColor(editableOrder.status)}>{getLocaleOrderStatus(editableOrder.status)}</Tag>
+        )
+      }>
+      <Form layout="vertical" name="order" onFinish={onFinish} form={form} preserve={false}>
+        <Collapse defaultActiveKey={editableOrder ? ['client', 'order', 'pets'] : 'client'}>
           <Collapse.Panel key="client" header="Клиент">
             <Row gutter={16}>
-              <Col span={12}>
-                <Form.Item>
-                  <AutoComplete options={options} onSelect={onSelect} onSearch={search}>
-                    <Input.Search placeholder="Найти клиента" enterButton />
-                  </AutoComplete>
-                </Form.Item>
-              </Col>
-
-              <Col span={12} className="orders-drawer__form-button">
-                <Button onClick={onCreateClient}>Создать клиента</Button>
-              </Col>
-
-              {client && (
+              {!editableOrder && (
                 <>
                   <Col span={12}>
-                    <Form.Item label="Имя" required name="firstName">
+                    <Form.Item>
+                      <AutoComplete options={options} onSelect={onSelect} onSearch={search}>
+                        <Input.Search placeholder="Найти клиента" enterButton />
+                      </AutoComplete>
+                    </Form.Item>
+                  </Col>
+
+                  <Col span={12} className="orders-drawer__form-button">
+                    <Button onClick={onCreateClient}>Создать клиента</Button>
+                  </Col>
+                </>
+              )}
+              {(isNewClient || editableOrder) && (
+                <>
+                  <Col span={12}>
+                    <Form.Item label="Имя" required name="firstName" rules={[REQUIRED_RULE]}>
                       <Input />
                     </Form.Item>
                   </Col>
 
                   <Col span={12}>
-                    <Form.Item label="Фамилия" required name="lastName">
+                    <Form.Item label="Фамилия" required name="lastName" rules={[REQUIRED_RULE]}>
                       <Input />
                     </Form.Item>
                   </Col>
 
                   <Col span={12}>
-                    <Form.Item label="Телефон" required name="phone">
+                    <Form.Item label="Телефон" required name="phone" rules={[REQUIRED_RULE]}>
                       <Input />
                     </Form.Item>
                   </Col>
 
                   <Col span={12}>
-                    <Form.Item label="E-mail" required name="email">
+                    <Form.Item label="E-mail" required name="email" rules={[REQUIRED_RULE]}>
                       <Input />
                     </Form.Item>
                   </Col>
@@ -223,7 +189,7 @@ export const OrderDrawer: React.FC<OrderDrawer> = ({ isOpen, onClose, clients, r
               </Col>
 
               <Col span={12}>
-                <Form.Item label="Дата заезда и отъезда" required name="dates">
+                <Form.Item label="Дата заезда и отъезда" required name="dates" rules={[REQUIRED_RULE]}>
                   <DatePicker.RangePicker locale={locale} format={DATE_FORMAT} />
                 </Form.Item>
               </Col>
@@ -243,22 +209,31 @@ export const OrderDrawer: React.FC<OrderDrawer> = ({ isOpen, onClose, clients, r
               <Col span={12} className="orders-drawer__days-count">
                 <Form.Item dependencies={['dates']}>
                   {({ getFieldValue }) => {
-                    const days = getCountSelectedDays(getFieldValue('dates'));
+                    // если это редактирование, то берем из initial
+                    const editableCountDays = editableOrder?.countDays;
+                    const calcDays = getCountSelectedDays(getFieldValue('dates'));
+                    const days = editableCountDays !== calcDays ? calcDays : editableCountDays;
 
                     return days ? (
                       <Typography.Text>
-                        Количество дней:
+                        Количество суток:
                         <Typography.Title level={4}>{days}</Typography.Title>
                       </Typography.Text>
                     ) : null;
                   }}
                 </Form.Item>
               </Col>
+
+              <Col span={24}>
+                <Form.Item label="Комментарий" name="comment">
+                  <Input.TextArea />
+                </Form.Item>
+              </Col>
             </Row>
           </Collapse.Panel>
 
           <Collapse.Panel key="pets" header="Питомцы">
-            <Form.List name="pets" initialValue={[{ type: PET_TYPES_OPTIONS[0].value }]}>
+            <Form.List name="pets">
               {(fields, { add }) => (
                 <>
                   {fields.map(({ key, name, ...restField }) => (
@@ -277,19 +252,29 @@ export const OrderDrawer: React.FC<OrderDrawer> = ({ isOpen, onClose, clients, r
                         </Col>
 
                         <Col span={12}>
-                          <Form.Item label="Кличка" required name={[name, 'name']} {...restField}>
+                          <Form.Item
+                            label="Кличка"
+                            required
+                            name={[name, 'name']}
+                            {...restField}
+                            rules={[REQUIRED_RULE]}>
                             <Input />
                           </Form.Item>
                         </Col>
 
                         <Col span={12}>
-                          <Form.Item label="Возраст" required name={[name, 'age']} {...restField}>
+                          <Form.Item
+                            label="Возраст"
+                            required
+                            name={[name, 'age']}
+                            {...restField}
+                            rules={[REQUIRED_RULE]}>
                             <InputNumber />
                           </Form.Item>
                         </Col>
 
                         <Col span={12}>
-                          <Form.Item label="Кастр./Стер." required name={[name, 'reproductionType']} {...restField}>
+                          <Form.Item label="Кастр./Стер." required name={[name, 'reproduction']} {...restField}>
                             <Select>
                               {PET_REPRODUCTION_TYPES_OPTIONS.map((item) => (
                                 <Select.Option key={item.value} value={item.value}>
@@ -301,13 +286,13 @@ export const OrderDrawer: React.FC<OrderDrawer> = ({ isOpen, onClose, clients, r
                         </Col>
 
                         <Col span={12}>
-                          <Form.Item label="Особые отметки" required name={[name, 'additional']} {...restField}>
+                          <Form.Item label="Особые отметки" name={[name, 'special']} {...restField}>
                             <Input.TextArea />
                           </Form.Item>
                         </Col>
 
                         <Col span={12}>
-                          <Form.Item label="Комментарии" required name={[name, 'comments']} {...restField}>
+                          <Form.Item label="Комментарии" name={[name, 'comments']} {...restField}>
                             <Input.TextArea />
                           </Form.Item>
                         </Col>
@@ -315,7 +300,7 @@ export const OrderDrawer: React.FC<OrderDrawer> = ({ isOpen, onClose, clients, r
                     </Card>
                   ))}
 
-                  <Button onClick={add}>Добавить питомца</Button>
+                  <Button onClick={() => add()}>Добавить питомца</Button>
                 </>
               )}
             </Form.List>
@@ -326,15 +311,24 @@ export const OrderDrawer: React.FC<OrderDrawer> = ({ isOpen, onClose, clients, r
           {({ getFieldValue }) => {
             const days = getFieldValue('dates');
             const roomId = getFieldValue('room');
-            const price = getTotalPrice(days, roomId);
+            const calcPrice = getTotalPrice(days, roomId);
+            const editablePrice = editableOrder?.price;
+            const price = calcPrice !== editablePrice ? calcPrice : editablePrice;
 
-            return price ? <Typography.Title level={5}>Общая стоимость: {price}</Typography.Title> : null;
+            return price ? <Typography.Title level={5}>Общая стоимость: {formatPrice(price)}</Typography.Title> : null;
           }}
         </Form.Item>
 
-        <Button type="primary" htmlType="submit">
-          Сохранить
-        </Button>
+        <Form.Item shouldUpdate>
+          {({ getFieldsError, getFieldsValue }) => {
+            const isDisabled = getIsDisabledFields(getFieldsError(), getFieldsValue());
+            return (
+              <Button type="primary" htmlType="submit" disabled={isDisabled}>
+                Сохранить
+              </Button>
+            );
+          }}
+        </Form.Item>
       </Form>
     </Drawer>
   );
