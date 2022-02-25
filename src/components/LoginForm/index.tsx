@@ -1,29 +1,23 @@
-//@ts-nocheck
 import './index.less';
 
 import LockOutlined from '@ant-design/icons/LockOutlined';
 import UserOutlined from '@ant-design/icons/UserOutlined';
 import { Button, Card, Col, Form, Input, Row, Typography } from 'antd';
 import { useLogin } from 'hooks/';
-import { User } from 'interfaces';
 import React from 'react';
 import InputMask from 'react-input-mask';
 
 // eslint-disable-next-line
 export const REGEXP_LOGIN = /^(\+7)?[\s\-]?\(?[0-9][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/gm;
 
-export interface LoginFormProps {
-  setUser(user: User): void;
-}
-
 /**
  * Форма авторизации
  */
-export const LoginForm: React.FC<LoginFormProps> = ({ setUser }) => {
-  const { login } = useLogin(setUser);
-  const onFinish = () => {
-    console.log('login');
-    login();
+export const LoginForm: React.FC = () => {
+  const { login, isLoading } = useLogin();
+
+  const onFinish = (form: { login: string; password: string }) => {
+    login(form.login, form.password);
   };
 
   return (
@@ -46,7 +40,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ setUser }) => {
               <Input.Password prefix={<LockOutlined />} />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" loading={isLoading}>
                 Войти
               </Button>
             </Form.Item>

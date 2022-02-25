@@ -1,17 +1,14 @@
-//@ts-nochec
-import { ApiPaths, useMutation, useQuery } from 'api';
-import { Admin, Client, Tokens, User } from 'interfaces';
-import Cookies from 'js-cookie';
+import { ApiPaths, useMutation } from 'api';
+import { setUser, useCrmContext } from 'crm/context';
+import { Tokens } from 'interfaces';
 import { useCallback } from 'react';
 import { LocalStorage } from 'utils/localStorage';
 
-export interface UseLoginQueryData {
-  user: Client | Admin;
-  tokens: Tokens;
-}
+import { UseLoginQueryData } from './interfaces';
 
-export const useLogin = (setUser: (user: User) => void) => {
+export const useLogin = () => {
   const { isLoading, executePut } = useMutation<UseLoginQueryData>({ url: ApiPaths.login });
+  const { dispatch } = useCrmContext();
 
   const login = useCallback(
     async (login: string, password: string) => {
@@ -24,19 +21,14 @@ export const useLogin = (setUser: (user: User) => void) => {
         const { accessToken, refreshToken } = response.data.tokens;
 
         LocalStorage.set<Tokens>('tokens', { accessToken, refreshToken });
-
-        setUser(response.data.user);
+        dispatch(setUser(response.data.user));
       }
-
-      // if (response?.data?.tokens)
-      //
-      // console.log(response);
     },
-    [executePut, setUser]
+    [executePut, dispatch]
   );
 
   return {
     login,
+    isLoading,
   };
-  // return data?.user ?? null;
 };

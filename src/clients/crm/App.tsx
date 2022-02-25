@@ -2,19 +2,23 @@ import { Loader } from 'components/index';
 import { LoginForm } from 'components/LoginForm';
 import { useGetUser } from 'hooks/';
 import React from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { Header, Navigation } from './components';
 import { ROUTES } from './constants';
+import { removeUser, useCrmContext } from './context';
 import { Calendar, Orders } from './pages';
 
 export const App: React.FC = () => {
-  const { user, setUser, isLoading } = useGetUser();
+  const { user, dispatch } = useCrmContext();
+  const { isLoading } = useGetUser();
+
+  const handleLogout = () => dispatch(removeUser());
 
   return (
     <div className="root-container">
       <BrowserRouter>
-        <Header />
+        <Header user={user} onLogout={handleLogout} />
 
         {isLoading && (
           <div className="app-loader">
@@ -33,7 +37,7 @@ export const App: React.FC = () => {
                 </Routes>
               </>
             ) : (
-              <LoginForm setUser={setUser} />
+              <LoginForm />
             )}
           </>
         )}

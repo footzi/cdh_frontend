@@ -1,5 +1,5 @@
 import { notification } from 'antd';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import useAxios from 'axios-hooks';
 import { Tokens } from 'interfaces';
@@ -8,10 +8,9 @@ import { LocalStorage } from 'utils/localStorage';
 
 import { UseMutationProps, UseMutationResult, UseQueryProps, UseQueryResult } from './interfaces';
 
-const USE_LOCAL_JSON = false;
+const USE_LOCAL_JSON = true;
 
-// @ts-ignore
-const refreshAuthLogic = (failedRequest): Promise<unknown> => {
+const refreshAuthLogic = (failedRequest: AxiosError): Promise<unknown> => {
   const { refreshToken } = LocalStorage.get<Tokens>('tokens');
 
   if (!refreshToken) {
@@ -30,7 +29,10 @@ const refreshAuthLogic = (failedRequest): Promise<unknown> => {
 
     if (accessToken && refreshToken) {
       LocalStorage.set<Tokens>('tokens', { accessToken, refreshToken });
-      failedRequest.response.config.headers['Authorization'] = 'Bearer ' + accessToken;
+
+      if (failedRequest?.response?.config?.headers) {
+        failedRequest.response.config.headers['Authorization'] = 'Bearer ' + accessToken;
+      }
       return Promise.resolve();
     } else {
       return Promise.reject();
@@ -84,10 +86,16 @@ export const useMutation = <T>({
   onSuccess,
   onError,
 }: UseMutationProps): UseMutationResult<T> => {
+  const tokens = LocalStorage.get<Tokens>('tokens');
+  const accessToken = tokens ? tokens.accessToken : null;
+
   const [{ data, loading, error }, executePut] = useAxios(
     {
       url: USE_LOCAL_JSON ? url.json : url.url,
       method: USE_LOCAL_JSON ? 'GET' : method,
+      headers: {
+        Authorization: 'Bearer ' + accessToken,
+      },
     },
     { manual: true }
   );

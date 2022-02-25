@@ -1,30 +1,25 @@
 import { ApiPaths, useQuery } from 'api';
-import { Admin, Client, Maybe, User } from 'interfaces';
-import { useEffect, useState } from 'react';
+import { removeUser, setUser, useCrmContext } from 'crm/context';
+import { Maybe, User } from 'interfaces';
+import { useEffect } from 'react';
 
-export interface UseGetUserResult {
-  user: Maybe<User>;
-  setUser(user: User): void;
-  isLoading: boolean;
-}
+import { UseGetUserResult } from './interfaces';
 
 export const useGetUser = (): UseGetUserResult => {
-  const [user, setUser] = useState<Maybe<User>>(null);
+  const { dispatch } = useCrmContext();
   const { isLoading, data } = useQuery<{ user: Maybe<User> }>({
     url: ApiPaths.user,
   });
 
   useEffect(() => {
     if (data?.user) {
-      setUser(data.user);
+      dispatch(setUser(data.user));
     } else {
-      setUser(null);
+      dispatch(removeUser());
     }
-  }, [data, user]);
+  }, [data, dispatch]);
 
   return {
     isLoading,
-    user,
-    setUser,
   };
 };
