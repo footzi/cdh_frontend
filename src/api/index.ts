@@ -1,58 +1,38 @@
+import { LocalStorageItems } from 'constants/localStorage';
+
 import { notification } from 'antd';
-import axios, { AxiosError } from 'axios';
+import Axios, { AxiosError } from 'axios';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
-import useAxios from 'axios-hooks';
-import { Tokens } from 'interfaces';
+import useAxios, { configure } from 'axios-hooks';
+import { UserLS } from 'interfaces';
 import { useEffect } from 'react';
 import { LocalStorage } from 'utils/localStorage';
 
 import { UseMutationProps, UseMutationResult, UseQueryProps, UseQueryResult } from './interfaces';
+import { refreshAuthLogic } from './refresh';
 
-const USE_LOCAL_JSON = true;
+const USE_LOCAL_JSON = false;
 
-const refreshAuthLogic = (failedRequest: AxiosError): Promise<unknown> => {
-  const { refreshToken } = LocalStorage.get<Tokens>('tokens');
+const axios = Axios.create();
 
-  if (!refreshToken) {
-    return Promise.reject();
-  }
-
-  return axios({
-    method: 'post',
-    url: '/api/auth/refresh',
-    headers: {
-      Authorization: 'Bearer ' + refreshToken,
-    },
-  }).then((tokenRefreshResponse) => {
-    const accessToken = tokenRefreshResponse?.data?.accessToken;
-    const refreshToken = tokenRefreshResponse?.data?.refreshToken;
-
-    if (accessToken && refreshToken) {
-      LocalStorage.set<Tokens>('tokens', { accessToken, refreshToken });
-
-      if (failedRequest?.response?.config?.headers) {
-        failedRequest.response.config.headers['Authorization'] = 'Bearer ' + accessToken;
-      }
-      return Promise.resolve();
-    } else {
-      return Promise.reject();
-    }
-  });
-};
+configure({ axios });
 
 createAuthRefreshInterceptor(axios, refreshAuthLogic);
 
-export const useQuery = <T>({ url, params, onSuccess, onError, options }: UseQueryProps): UseQueryResult<T> => {
-  const tokens = LocalStorage.get<Tokens>('tokens');
-  const accessToken = tokens ? tokens.accessToken : null;
+export const useQuery = <T>({ config, params, onSuccess, onError, options }: UseQueryProps): UseQueryResult<T> => {
+  const savedUser = !config.isPublic ? LocalStorage.get<UserLS>(LocalStorageItems.USER) : null;
+  const accessToken = savedUser ? savedUser.tokens.accessToken : null;
+
+  const url = USE_LOCAL_JSON ? config.json : config.url;
+  const method = USE_LOCAL_JSON ? 'GET' : config.method ? config.method : 'GET';
 
   const [{ data, loading, error }, refetch] = useAxios(
     {
-      url: USE_LOCAL_JSON ? url.json : url.url,
-      method: 'GET',
-      params,
+      url,
+      method,
+      data: params,
       headers: {
-        Authorization: 'Bearer ' + accessToken,
+        Authorization: `${!config.isPublic ? 'Bearer ' + accessToken : null}`,
       },
     },
     options
@@ -80,21 +60,19 @@ export const useQuery = <T>({ url, params, onSuccess, onError, options }: UseQue
   };
 };
 
-export const useMutation = <T>({
-  url,
-  method = 'POST',
-  onSuccess,
-  onError,
-}: UseMutationProps): UseMutationResult<T> => {
-  const tokens = LocalStorage.get<Tokens>('tokens');
-  const accessToken = tokens ? tokens.accessToken : null;
+export const useMutation = <T>({ config, onSuccess, onError }: UseMutationProps): UseMutationResult<T> => {
+  const savedUser = !config.isPublic ? LocalStorage.get<UserLS>(LocalStorageItems.USER) : null;
+  const accessToken = savedUser ? savedUser.tokens.accessToken : null;
+
+  const url = USE_LOCAL_JSON ? config.json : config.url;
+  const method = USE_LOCAL_JSON ? 'GET' : config.method ? config.method : 'POST';
 
   const [{ data, loading, error }, executePut] = useAxios(
     {
-      url: USE_LOCAL_JSON ? url.json : url.url,
-      method: USE_LOCAL_JSON ? 'GET' : method,
+      url,
+      method,
       headers: {
-        Authorization: 'Bearer ' + accessToken,
+        Authorization: `${!config.isPublic ? 'Bearer ' + accessToken : null}`,
       },
     },
     { manual: true }
@@ -123,5 +101,5 @@ export const useMutation = <T>({
   };
 };
 
-export { ApiPaths } from './paths';
+export { ApiConfig } from './paths';
 export * from './types';

@@ -17,7 +17,9 @@ export const LoginForm: React.FC = () => {
   const { login, isLoading } = useLogin();
 
   const onFinish = (form: { login: string; password: string }) => {
-    login(form.login, form.password);
+    const replacedLogin = form.login.replace(/[- )(]/g, '');
+
+    login(replacedLogin, form.password);
   };
 
   return (

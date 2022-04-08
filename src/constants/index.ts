@@ -2,6 +2,7 @@ export * from './orderStatuses';
 export * from './userRoles';
 export * from './petTypes';
 export * from './petReproductionTypes';
+export * from './localStorage';
 // export * from './rooms';
 
 // Разнести все по файлам

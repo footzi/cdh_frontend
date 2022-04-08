@@ -1,6 +1,6 @@
 import { Loader } from 'components/index';
 import { LoginForm } from 'components/LoginForm';
-import { useGetUser } from 'hooks/';
+import { useGetUser, useLogout } from 'hooks/';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -10,10 +10,11 @@ import { removeUser, useCrmContext } from './context';
 import { Calendar, Orders } from './pages';
 
 export const App: React.FC = () => {
-  const { user, dispatch } = useCrmContext();
+  const { user } = useCrmContext();
   const { isLoading } = useGetUser();
+  const { logout } = useLogout();
 
-  const handleLogout = () => dispatch(removeUser());
+  const handleLogout = () => logout();
 
   return (
     <div className="root-container">

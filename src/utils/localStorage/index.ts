@@ -1,5 +1,7 @@
+import { LocalStorageItems } from 'constants/localStorage';
+
 export class LocalStorage {
-  static set<T>(key: string, value: T): void {
+  static set<T>(key: LocalStorageItems, value: T): void {
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
     } catch {
@@ -7,13 +9,21 @@ export class LocalStorage {
     }
   }
 
-  static get<T>(key: string): T {
+  static get<T>(key: LocalStorageItems): T {
     try {
       const value = window.localStorage.getItem(key);
 
       return value ? JSON.parse(value) : null;
     } catch {
       throw new Error('Ошибка при чтении из LocalStorage');
+    }
+  }
+
+  static remove(key: LocalStorageItems): void {
+    try {
+      window.localStorage.removeItem(key);
+    } catch {
+      throw new Error('Ошибка при удалении из LocalStorage');
     }
   }
 }

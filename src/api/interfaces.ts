@@ -1,11 +1,12 @@
 import { Maybe } from 'api';
-import { AxiosError, AxiosPromise, AxiosResponse } from 'axios';
-import { Options, ResponseValues, UseAxiosResult } from 'axios-hooks';
+import { AxiosError, AxiosPromise } from 'axios';
+import { Options } from 'axios-hooks';
 
 export interface UseQueryProps {
-  url: ApiPathItem;
+  config: ApiConfigItem;
   params?: unknown;
   options?: Options;
+  isSkip?: boolean;
   onSuccess?(): void;
   onError?(): void;
 }
@@ -14,12 +15,11 @@ export interface UseQueryResult<T> {
   data: T;
   isLoading: boolean;
   error: Maybe<AxiosError>;
-  refetch(): void;
+  refetch(params?: unknown): AxiosPromise<T>;
 }
 
 export interface UseMutationProps {
-  url: ApiPathItem;
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  config: ApiConfigItem;
   params?: unknown;
   onSuccess?(): void;
   onError?(): void;
@@ -33,7 +33,9 @@ export interface UseMutationResult<T> {
   executePut(params?: unknown): AxiosPromise<T>;
 }
 
-export interface ApiPathItem {
+export interface ApiConfigItem {
   url: string;
-  json: string;
+  json?: string;
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  isPublic?: false;
 }

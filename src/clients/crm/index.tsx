@@ -12,10 +12,8 @@ import { ContextProvider } from './context';
 dayjs.locale('ru_RU');
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ContextProvider>
-      <App />
-    </ContextProvider>
-  </React.StrictMode>,
+  <ContextProvider>
+    <App />
+  </ContextProvider>,
   document.getElementById('root')
 );

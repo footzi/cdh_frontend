@@ -1,4 +1,6 @@
-export const ApiPaths = {
+import { ApiConfigItem } from './interfaces';
+
+export const ApiConfig: { [key: string]: ApiConfigItem } = {
   getSchedule: {
     url: '/schedule',
     json: '/json/crm_calendar.json',
@@ -26,11 +28,16 @@ export const ApiPaths = {
     json: '/json/all_rooms.json',
   },
   login: {
-    url: '/api/login',
+    url: '/api/auth/login',
     json: '/json/login.json',
   },
+  logout: {
+    url: '/api/auth/logout',
+    json: '/json/success.json',
+    method: 'DELETE',
+  },
   user: {
-    url: '/api/user',
+    url: '/api/users',
     json: '/json/user.json',
   },
 };
