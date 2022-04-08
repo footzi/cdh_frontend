@@ -1,4 +1,8 @@
-// файл для общих интерфейсов - возможно стоит удалить
-export interface Test {
-  id: '1';
-}
+export * from './order';
+export * from './room';
+export * from './pet';
+export * from './user';
+export * from './ui';
+export * from './tokens';
+export * from './common';
+export * from './localStorage';

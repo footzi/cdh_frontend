@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 
 import { UsePrePriceProps } from '../interfaces';
 
+// @todo заменить на getPrePrice
 export const usePrePrice = ({ startDate, endDate, roomId }: UsePrePriceProps): number | null => {
   if (startDate && endDate && roomId) {
     const days = dayjs(endDate).diff(startDate, 'days');

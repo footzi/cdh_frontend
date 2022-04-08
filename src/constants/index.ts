@@ -1,3 +1,11 @@
+export * from './orderStatuses';
+export * from './userRoles';
+export * from './petTypes';
+export * from './petReproductionTypes';
+export * from './localStorage';
+// export * from './rooms';
+
+// Разнести все по файлам
 export const TRANSITION_TIMEOUT = 300;
 
 export const TRANSITION_GROUP_DEFAULT_TIMEOUT = {
@@ -38,3 +46,5 @@ export const MONTHS_NAMES = {
 };
 
 export const STARTING_DATE_OF_BOOKING = '2021/07/01';
+
+export const DATE_FORMAT = 'DD.MM.YYYY';

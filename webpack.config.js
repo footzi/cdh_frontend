@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
 const { NODE_ENV, PORT, BACKEND_HOST } = process.env;
 const isProduction = NODE_ENV === 'production';
@@ -30,6 +31,7 @@ module.exports = {
       data: path.resolve(__dirname, 'src/data'),
       public: path.resolve(__dirname, 'src/public/'),
       styles: path.resolve(__dirname, 'src/styles/'),
+      hooks: path.resolve(__dirname, 'src/hooks/'),
     },
   },
   module: {
@@ -87,6 +89,28 @@ module.exports = {
         ],
       },
       {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                modifyVars: {
+                  'primary-color': '#F15A24',
+                },
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
+      {
         test: /\.(woff2?|ttf|otf|eot|svg)$/,
         exclude: /node_modules/,
         loader: 'file-loader',
@@ -103,36 +127,31 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
+    new AntdDayjsWebpackPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/clients/crm', 'index.html'),
-      inject: true,
       filename: './crm/index.html',
+      inject: true,
       chunks: ['crm'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/clients/site', 'index.pug'),
-      inject: true,
-      filename: './site/index.html',
-      chunks: ['site'],
+      // inject: true,
+      filename: './index.html',
+      // chunks: ['site'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/clients/site', 'agreements.pug'),
-      inject: true,
-      filename: './site/agreements.html',
-      chunks: ['site'],
+      filename: './agreements.html',
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/clients/site', 'privacy-policy.pug'),
-      inject: true,
-      filename: './site/privacy-policy.html',
-      chunks: ['site'],
+      filename: './privacy-policy.html',
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/clients/site', 'video.pug'),
-      inject: true,
-      filename: './site/video.html',
-      chunks: ['site'],
+      filename: './video.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
@@ -150,12 +169,21 @@ module.exports = {
     }),
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
+    static: {
+      directory: path.resolve(__dirname, 'public'),
+    },
     port: PORT,
     proxy: {
       '/api': BACKEND_HOST,
     },
     hot: true,
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/privacy-policy/, to: '/privacy-policy.html' },
+        { from: /^\/agreements/, to: '/agreements.html' },
+        { from: /^\/video/, to: '/video.html' },
+        { from: /^\/crm\/.*$/, to: '/crm/index.html' },
+      ],
+    },
   },
 };

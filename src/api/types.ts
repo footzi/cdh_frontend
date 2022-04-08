@@ -2,8 +2,11 @@ import { ROOM_TYPES, STATUSES_ORDER } from 'constants/index';
 
 import { UseMutationResult, UseQueryResult } from './interfaces';
 
+// @deprecated
 export type Maybe<T> = T | (null | undefined);
 
+// @deprecated
+// @todo снести все типы
 // Форма бронирования на сайте
 export interface BookingResponse {
   order: Maybe<BookingData>;
@@ -20,12 +23,13 @@ export interface BookingData {
   price: string;
 }
 
+// @ts-ignore
 export interface UseMutationBookingRoomResponse extends Omit<UseMutationResult, 'data'> {
   data: Maybe<BookingResponse>;
 }
 
 // Календарь в CRM
-export interface UseQueryGetScheduleRequest extends Omit<UseQueryResult, 'data'> {
+export interface UseQueryGetScheduleRequest extends Omit<unknown, 'data'> {
   data: ScheduleResponse;
 }
 

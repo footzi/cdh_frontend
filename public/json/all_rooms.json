@@ -1,0 +1,34 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "type": "LUX",
+      "name": "Люкс 1",
+      "price": 1000
+    },
+    {
+      "id": 2,
+      "type": "LUX",
+      "name": "Люкс 2",
+      "price": 1000
+    },
+    {
+      "id": 3,
+      "type": "LUX",
+      "name": "Люкс 3",
+      "price": 1000
+    },
+    {
+      "id": 4,
+      "type": "COMFORT",
+      "name": "Комфорт 1",
+      "price": 500
+    },
+    {
+      "id": 6,
+      "type": "COMFORT",
+      "name": "Комфорт 2",
+      "price": 500
+    }
+  ]
+}

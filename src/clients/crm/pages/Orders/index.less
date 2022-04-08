@@ -1,0 +1,35 @@
+@import '~antd/lib/style/themes/default.less';
+
+.orders {
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__table {
+    &-pet {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    &-count-days {
+      color: @primary-6;
+    }
+
+    .ant-table-thead .ant-table-cell {
+      white-space: nowrap;
+    }
+
+    .ant-table-tbody .ant-table-cell {
+      &:nth-child(3),
+      &:nth-child(5),
+      &:nth-child(7) {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+

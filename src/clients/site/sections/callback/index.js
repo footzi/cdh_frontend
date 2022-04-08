@@ -1,4 +1,4 @@
-import { ApiPaths } from 'api';
+import { ApiConfig } from 'api';
 import axios from 'axios';
 
 class Callback {
@@ -55,7 +55,7 @@ class Callback {
     this.errorText.classList.remove('is-visible');
 
     try {
-      const isSuccessful = await axios.post(ApiPaths.callback.url, this.values);
+      const isSuccessful = await axios.post(ApiConfig.callback.url, this.values);
 
       if (isSuccessful) {
         this.successText.classList.add('is-visible');
